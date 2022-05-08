@@ -26,7 +26,7 @@ Windows:
 ```
 <install_command>
 ```
-## Using <project_name>
+## Building from source 
 
 To use <project_name>, follow these steps:
 
@@ -35,6 +35,8 @@ To use <project_name>, follow these steps:
 ```
 
 Add run commands and examples you think users will find useful. Provide an options reference for bonus points!
+
+## Directories
 -->
 
 ## License
