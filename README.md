@@ -35,9 +35,17 @@ To use <project_name>, follow these steps:
 ```
 
 Add run commands and examples you think users will find useful. Provide an options reference for bonus points!
+-->
 
 ## Directories
--->
++ 'docs' contains documentation about the program
++ 'lib' contains external libraries the program needs
++ 'nbproject' contains netbeans metadata about the project
++ 'src' contains the source files
+
+## TODOS
++ Add stats
++ 
 
 ## License
 
