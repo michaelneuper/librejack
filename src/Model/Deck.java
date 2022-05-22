@@ -1,9 +1,12 @@
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author michael
  */
 public class Deck {
-    // TODO   
+    
+    ArrayList<Card> deck = new ArrayList<>();
 }

@@ -4,6 +4,6 @@ package model;
  *
  * @author michael
  */
-public class Dealer {
+public class Dealer extends Person {
     // TODO
 }

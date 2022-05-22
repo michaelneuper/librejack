@@ -1,10 +1,9 @@
-package Model;
+package model;
 
 /**
  *
  * @author michael
  */
-public class Player {
+public class Player extends Person {
     // TODO
-    
 }
