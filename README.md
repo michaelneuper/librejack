@@ -12,40 +12,15 @@ Before you begin, ensure you have met the following requirements:
 * [Java](https://www.java.com/en/download/) installed on your system.
 * Have a Windows/Linux/Mac machine..
 
-<!--
-## Installing <project_name>
+## Installing *librejack* 
 
-To install <project_name>, follow these steps:
-
-Linux and macOS:
-```
-<install_command>
-```
-
-Windows:
-```
-<install_command>
-```
-## Building from source 
-
-To use <project_name>, follow these steps:
-
-```
-<usage_example>
-```
-
-Add run commands and examples you think users will find useful. Provide an options reference for bonus points!
--->
+Download and run the `.jar ` file from the [releases tab](https://github.com/michaelneuper/librejack/releases)
 
 ## Directories
 + 'docs' contains documentation about the program
 + 'lib' contains external libraries the program needs
 + 'nbproject' contains netbeans metadata about the project
 + 'src' contains the source files
-
-## TODOS
-+ Add stats
-+ 
 
 ## License
 
