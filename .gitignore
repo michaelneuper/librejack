@@ -1,4 +1,4 @@
-build
-target
-.idea
+build/
+target/
+.idea/
 build/classes/View/Main.class
