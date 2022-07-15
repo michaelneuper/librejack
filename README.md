@@ -17,10 +17,10 @@ Before you begin, ensure you have met the following requirements:
 Download and run the `.jar ` file from the [releases tab](https://github.com/michaelneuper/librejack/releases)
 
 ## Directories
-+ 'docs' contains documentation about the program
-+ 'lib' contains external libraries the program needs
-+ 'nbproject' contains netbeans metadata about the project
-+ 'src' contains the source files
++ `docs` contains documentation about the program
++ `lib` contains external libraries the program needs
++ `nbproject` contains netbeans metadata about the project
++ `src` contains the source files
 
 ## License
 
