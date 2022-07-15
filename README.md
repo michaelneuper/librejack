@@ -9,8 +9,8 @@ Librejack is simple a blackjack clone written in java.
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
-* [Java](https://www.java.com/en/download/) installed on your system.
-* Have a Windows/Linux/Mac machine..
+* [Java](https://www.java.com/en/download/) installed on your system
+* Have a Windows/Linux/Mac machine
 
 ## Installing *librejack* 
 
