@@ -86,7 +86,7 @@ public class Deck {
     /**
      * Method to add a card to the deck
      * 
-     * @param inCard the card the be added
+     * @param inCard card the be added
      */
     public void addCard(Card inCard) {
         this.deck.add(inCard);
@@ -97,7 +97,7 @@ public class Deck {
      * remove the card from the deck
      * and return the card
      * 
-     * @return
+     * @return cardToTake card to take
      */
     public Card takeCard() {
         Card cardToTake = new Card(deck.get(0));
@@ -105,10 +105,10 @@ public class Deck {
         return cardToTake;
     }
 
+    @Override
     public String toString() {
 
         String ret = ""; // holds the string to return
-
         for (Card card : deck) {
             ret += card;
             ret += "\n";
