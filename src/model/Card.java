@@ -7,70 +7,89 @@ package model;
 public class Card {
      
     // TODO change name to image
-    enum Suit {
-        CLUBS,
-        DIAMONDS,
-        HEARTS,
-        SPADES,
-    }
-    
-    enum Rank {
-        TWO(2),
-        THREE(3),
-        FOUR(4),
-        FIVE(5),
-        SIX(6),
-        SEVEN(7),
-        EIGHT(8),
-        NINE(9),
-        TEN(10),
-        JACK(10),
-        QUEEN(10),
-        KING(10),
-        ACE(11);
+    public enum Suit {
 
-        int rankValue;
-        Rank(int rankValue) {
-            this.rankValue = rankValue;
+        CLUBS("Clubs"),
+        DIAMONDS("Diamonds"),
+        HEARTS("Hearts"),
+        SPADES("Spades");
+
+        public String suitName;
+
+        Suit(String suitName) {
+            this.suitName = suitName;
+        }
+
+        public String toString() {
+            return suitName;
         }
     }
     
-    private Suit suit;
-    private Rank rank;
-
-    /**
-     * Card constructor
-     * @param suit Card suit
-     * @param rank Card rank
-     */
-    public Card(Suit suit, Rank rank) {
-        this.suit = suit;
-        this.rank = rank;
-    }
-
-    public Card(Card card) {
-        this.suit = card.getSuit();
-        this.rank = card.getRank();
-    }
-   
-    /**
-     * Rank value getter method
-     * @return card rank value
-     */
-    public int getValue() {
-        return this.rank.rankValue;
+    public enum Rank {
+        
+        TWO("Two", 2),
+        THREE("Three", 3),
+        FOUR("Four",4),
+        FIVE("Five",5),
+        SIX("Six",6),
+        SEVEN("Seven",7),
+        EIGHT("Eight",8),
+        NINE("Nine",9),
+        TEN("Ten",10),
+        JACK("Jack",10),
+        QUEEN("Queen",10),
+        KING("King",10),
+        ACE("Ace", 11);
+    
+        String rankName;
+        public int rankValue;
+    
+        Rank(String rankName, int rankValue){
+            this.rankName = rankName;
+            this.rankValue = rankValue;
+        }
+    
+        public String toString(){
+            return rankName;
+        }
     }
     
-    public Suit getSuit() {
-        return suit;
-    }
+     private Suit suit;
+     private Rank rank;
 
-    public Rank getRank() {
-        return rank;
-    }
+     /**
+      * Card constructor
+      * @param suit Card suit
+      * @param rank Card rank
+      */
+     public Card(Suit suit, Rank rank) {
+         this.suit = suit;
+         this.rank = rank;
+     }
 
-    @Override
-    public String toString() {
-        return this.suit.toString() + "-" + this.rank.toString();
-    }
+    // public Card(Card card) {
+    //     this.suit = card.getSuit();
+    //     this.rank = card.getRank();
+    // }
+   
+    // /**
+    //  * Rank value getter method
+    //  * @return card rank value
+    //  */
+    // public int getValue() {
+    //     return this.rank.rankValue;
+    // }
+    
+    // public Suit getSuit() {
+    //     return suit;
+    // }
+
+    // public Rank getRank() {
+    //     return rank;
+    // }
+
+    // @Override
+    // public String toString() {
+    //     return this.suit.toString() + "-" + this.rank.toString();
+    // }
 }
