@@ -105,6 +105,16 @@ public class Deck {
         return cardToTake;
     }
 
+    /**
+     * Method to make sure the deck we're hitting from has cards in it
+     * 
+     * @return true (if the deck has cards in)
+     * @return false (if the deck is empty)
+     */
+    public boolean hasCards() {
+        return deck.size() > 0;
+    }
+
     @Override
     public String toString() {
 
