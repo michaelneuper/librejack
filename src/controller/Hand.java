@@ -11,16 +11,16 @@ import model.Deck;
  */
 public class Hand {
     
-    private ArrayList<Card> hand;
-
-    /**
-     * Hand constructor
-     */
-    public Hand() {
-        hand = new ArrayList<Card>();
-    }
-    
-    public void takeCardFromDeck(Deck deck) {
-        hand.add(deck.takeCard());
-    }
+//    private ArrayList<Card> hand;
+//
+//    /**
+//     * Hand constructor
+//     */
+//    public Hand() {
+//        hand = new ArrayList<Card>();
+//    }
+//    
+//    public void takeCardFromDeck(Deck deck) {
+//        hand.add(deck.takeCard());
+//    }
 }
