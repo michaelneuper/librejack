@@ -86,7 +86,7 @@ public class Deck {
 
     /**
      * Method to add a card to a hand
-     * @param addCard
+     * @param addCard card to be added
      */
     public void addCard(Card addCard) {
         this.deck.add(addCard);
@@ -96,7 +96,7 @@ public class Deck {
      * Method to take a copy of the first card from the deck,
      * remove the card from the deck
      * and return the card
-     * @return card 
+     * @return card card to be removed
      */
     public Card takeCard() {
         Card cardToTake = new Card(deck.get(0));
