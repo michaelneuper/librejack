@@ -2,7 +2,7 @@ package model;
 
 /**
  * Represents a card and handles card operations
- * @author michael
+ * @author Michael
  */
 public class Card {
      
