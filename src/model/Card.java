@@ -58,7 +58,8 @@ public class Card {
      private Rank rank;
 
      /**
-      * Card constructor
+      * Card constructor:
+      * Creates a card given a suit and rank
       * @param suit Card suit
       * @param rank Card rank
       */
@@ -67,29 +68,26 @@ public class Card {
          this.rank = rank;
      }
 
-    // public Card(Card card) {
-    //     this.suit = card.getSuit();
-    //     this.rank = card.getRank();
-    // }
    
-    // /**
-    //  * Rank value getter method
-    //  * @return card rank value
-    //  */
-    // public int getValue() {
-    //     return this.rank.rankValue;
-    // }
+     /**
+      * Rank value getter method
+      * @return card rank value
+      */
+     public int getValue() {
+         return this.rank.rankValue;
+     }
     
-    // public Suit getSuit() {
-    //     return suit;
-    // }
+     public Suit getSuit() {
+         return suit;
+     }
 
-    // public Rank getRank() {
-    //     return rank;
-    // }
+     public Rank getRank() {
+         return rank;
+     }
 
-    // @Override
-    // public String toString() {
-    //     return this.suit.toString() + "-" + this.rank.toString();
-    // }
+     @Override
+     public String toString() {
+         return "[" + rank + " of " + suit + "](" 
+                 + this.getValue() + ")";
+     }
 }
