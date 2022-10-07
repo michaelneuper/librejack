@@ -26,39 +26,39 @@ public class Deck {
     * Method that populates an empty deck with 52 cards
     * by looping over each rank and value
     */
-   public void populate() {
-       for(Suit cardSuit : Suit.values()) {
-           for (Rank cardRank : Rank.values()) {
-               // adds a new card to the deck
-               this.deck.add(new Card(cardSuit, cardRank));
-           }
-       }
-   }
-   
-//    /**
-//     * Method that shuffles the deck
-//     */
-//    public void shuffle() {
-//        ArrayList<Card> shufDeck = new ArrayList<Card>(); // temporary deck for storing cards in random order
-//
-//        Random random = new Random();
-//        int randomCardIndex = 0;
-//        int originalSize = this.deck.size();
-//        for(int i = 0; i < originalSize; i++) {
-//            // Generate random index
-//            /* 
-//                Formula for generating random number:
-//                = random.nextInt((max - min) + 1) + min
-//                = random.nextInt(((deckSize - 1) - 0) + 1) + 0
-//            */
-//            randomCardIndex = random.nextInt(this.deck.size());
-//            shufDeck.add(this.deck.get(randomCardIndex)); // add card to random index of temporary deck
-//            this.deck.remove(randomCardIndex); // remove card from original deck
-//        }
-//
-//        this.deck = shufDeck;
-//    }
-//
+    public void populate() {
+        for(Suit cardSuit : Suit.values()) {
+            for (Rank cardRank : Rank.values()) {
+                // adds a new card to the deck
+                this.deck.add(new Card(cardSuit, cardRank));
+            }
+        }
+    }
+    
+    /**
+    * Method that shuffles the deck
+    */
+    public void shuffle() {
+        ArrayList<Card> shufDeck = new ArrayList<Card>(); // temporary deck for storing cards in random order
+
+        Random random = new Random();
+        int randomCardIndex = 0;
+        int originalSize = this.deck.size();
+        for(int i = 0; i < originalSize; i++) {
+            // Generate random index
+            /* 
+                Formula for generating random number:
+                = random.nextInt((max - min) + 1) + min
+                = random.nextInt(((deckSize - 1) - 0) + 1) + 0
+            */
+            randomCardIndex = random.nextInt(this.deck.size());
+            shufDeck.add(this.deck.get(randomCardIndex)); // add card to random index of temporary deck
+            this.deck.remove(randomCardIndex); // remove card from original deck
+        }
+
+        this.deck = shufDeck;
+    }
+
 //    /**
 //     * Method to draw card from one deck to another
 //     * @param comingFromDeck deck the card comes from
