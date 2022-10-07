@@ -7,20 +7,21 @@ import model.Card.Rank;
 import model.Card.Suit;
 
 /**
- * Holds multiple cards and performs operations such as shuffling the deck
- * @author michael
+ * Holds multiple cards and 
+ * performs operations such as shuffling the deck
+ * @author Michael
  */
 public class Deck {
     
-//    private ArrayList<Card> deck;
-//   
-//    /**
-//     * Deck constructor
-//     */
-//    public Deck() {
-//        this.deck = new ArrayList<Card>();
-//    }
-//    
+    private ArrayList<Card> deck; // creates a "deck" of card objects
+  
+   /**
+    * Deck constructor
+    */
+    public Deck() {
+        this.deck = new ArrayList<Card>();
+    }
+   
 //    /**
 //     * Method that populates deck with 52 cards
 //     * by looping over each rank and value
@@ -83,15 +84,15 @@ public class Deck {
 //    public Card getCard(int i) {
 //        return this.deck.get(i);
 //    }
-//
-//    /**
-//     * Method to add a card to a hand
-//     * @param addCard
-//     */
-//    public void addCard(Card addCard) {
-//        this.deck.add(addCard);
-//    }
-//
+
+   /**
+    * Method to add a card to the deck
+    * @param inCard the card the be added
+    */
+    public void addCard(Card inCard) {
+        this.deck.add(inCard);
+    }
+
 //    /**
 //     * Method to take a copy of the first card from the deck,
 //     * remove the card from the deck
@@ -103,15 +104,16 @@ public class Deck {
 //        deck.remove(0);
 //        return cardToTake;
 //    }
-//
-//    @Override
-//    public String toString() {
-//        String output = "";
-//        byte i = 0;
-//        for (Card aCard : this.deck) {
-//            output += "\n" + i + "-" + aCard.toString();
-//            ++i;
-//        }
-//        return output;
-//    }
+
+    public String toString() {
+        
+        String ret = ""; // holds the string to return
+
+        for(Card card: deck){
+            ret += card;
+            ret += "\n";
+        }
+
+        return ret;
+    }
 }
