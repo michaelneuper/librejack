@@ -52,5 +52,9 @@ public abstract class Person {
     public void printHand() {
         System.out.println(this.name + "'s hand:\n" + this.hand + "[" + this.hand.calculateValue() + "]");
     }
+    
+    public void hit(Deck deck, Deck discard) {
+        // TODO
+    }
 
 }
