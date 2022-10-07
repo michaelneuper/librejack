@@ -22,19 +22,19 @@ public class Deck {
         this.deck = new ArrayList<Card>();
     }
    
-//    /**
-//     * Method that populates deck with 52 cards
-//     * by looping over each rank and value
-//     */
-//    public void populate() {
-//        for(Suit cardSuit : Suit.values()) {
-//            for (Rank cardRank : Rank.values()) {
-//                // adds a new card to the deck
-////                this.deck.add(new Card(cardSuit, cardRank));
-//            }
-//        }
-//    }
-//    
+   /**
+    * Method that populates an empty deck with 52 cards
+    * by looping over each rank and value
+    */
+   public void populate() {
+       for(Suit cardSuit : Suit.values()) {
+           for (Rank cardRank : Rank.values()) {
+               // adds a new card to the deck
+               this.deck.add(new Card(cardSuit, cardRank));
+           }
+       }
+   }
+   
 //    /**
 //     * Method that shuffles the deck
 //     */
