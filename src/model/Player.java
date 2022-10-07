@@ -1,7 +1,5 @@
 package model;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
@@ -11,6 +9,8 @@ import java.util.Scanner;
  */
 public class Player extends Person {
 
+    Scanner input = new Scanner(System.in);
+
     /**
      * Creates a new player
      */
@@ -18,8 +18,22 @@ public class Player extends Person {
         super.setName("Player");
     }
     
-    public void makeDecision() {
-        // TODO
+    public void makeDecision(Deck deck, Deck discard) {
+        
+        int decision = 0;
+        boolean getNum = true;
+
+        while(getNum) {
+            try {
+                System.out.println("Would you like to Hit[1] or Stand[2]");
+                decision = input.nextInt();
+                getNum = false;
+
+            } catch (Exception e) {
+                System.out.println("Invalid");
+                input.next();
+            }
+        }
     }
 
     // Deck playerDeck = new Deck(); // empty deck for the player
