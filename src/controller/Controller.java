@@ -110,7 +110,15 @@ public class Controller {
         
         player.makeDecision(deck, discarded);
 
-        // check whether they busted
+        checkWhoWins();
+
+        // start a new round
+        startRound();
+    }
+
+    private void checkWhoWins() {
+
+        // check whether player busted
         if(player.getHand().calculateValue() > 21) {
             System.out.println("Busted");
             balance -= bet;
@@ -128,8 +136,15 @@ public class Controller {
         if(dealer.getHand().calculateValue() > 21) {
             System.out.println("Dealer busts");
             balance += bet;
-            ++wins;
-        } else if(dealer.getHand().calculateValue() > player.getHand().calculateValue()) {
+        }
+        
+        if(dealer.getHand().calculateValue() > player.getHand().calculateValue() && dealer.getHand().calculateValue() <= 21) {
+            System.out.println("You lose");
+            balance -= bet;
+            ++losses;
+        }
+
+        if(dealer.getHand().calculateValue() > player.getHand().calculateValue()) {
             System.out.println("You lose");
             balance -= bet;
             ++losses;
@@ -145,9 +160,6 @@ public class Controller {
             System.out.println("Push");
             ++pushes;
         }
-        
-        // start a new round
-        startRound();
     }
 
 }
