@@ -53,8 +53,22 @@ public abstract class Person {
         System.out.println(this.name + "'s hand:\n" + this.hand + "[" + this.hand.calculateValue() + "]");
     }
     
+    /**
+     * Checks if the deck has cards and reloads the deck if it ran out
+     * 
+     * @param deck deck to draw from
+     * @param discard deck to discard to
+     */
     public void hit(Deck deck, Deck discard) {
-        // TODO
+
+        //If there's no cards left in the deck
+        if (!deck.hasCards()) {
+            deck.reloadDeckFromDiscard(discard);
+        }
+
+        this.hand.takeCardFromDeck(deck);
+        System.out.println(this.name + " gets a card");
+        this.printHand();
     }
 
 }
