@@ -72,7 +72,7 @@ public class Player extends Person {
         }
         
         // if they decide to hit
-        if (decision == 1) {
+        if (decision == 1) { // TODO: add option to double
 
             this.hit(deck, discard); // hit the deck and discard
 
