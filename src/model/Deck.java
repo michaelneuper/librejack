@@ -152,6 +152,15 @@ public class Deck {
         discard.emptyDeck();
         System.out.println("Ran out of cards, creating new deck from discard pile & shuffling deck");
     }
+    
+    /**
+     * Returns number of cards left in a deck
+     * 
+     * @return deck.size() number of cards left in the deck
+     */
+    public int cardsLeft() {
+        return deck.size();
+    }
 
     @Override
     public String toString() {
