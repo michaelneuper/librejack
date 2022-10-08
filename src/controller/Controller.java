@@ -35,14 +35,12 @@ public class Controller {
 
         dealer = new Dealer();
         player = new Player();
-
-        startRound();
     }
 
     /**
      * Handles logic for each round
      */
-    private void startRound() {
+    public void startRound() {
 
         // if we run out of cards
         if(wins > 0 || losses > 0 || pushes > 0) {
