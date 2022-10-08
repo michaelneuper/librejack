@@ -115,6 +115,22 @@ public class Deck {
         return deck.size() > 0;
     }
 
+    /**
+     * Mehtod to empty the deck
+     */
+    public void emptyDeck() {
+        deck.clear();
+    }
+
+    /**
+     * Adds an arraylist of cards to the deck
+     * 
+     * @param cards arraylist of cards to be added to deck
+     */
+    public void addCards(ArrayList<Card> cards) {
+        deck.addAll(cards);
+    }
+
     @Override
     public String toString() {
 
