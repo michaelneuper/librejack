@@ -7,8 +7,7 @@ import model.Card.Rank;
 import model.Card.Suit;
 
 /**
- * Holds multiple cards and
- * performs operations such as shuffling the deck
+ * Holds multiple cards and performs operations such as shuffling the deck
  * 
  * @author Michael
  */
@@ -24,8 +23,7 @@ public class Deck {
     }
 
     /**
-     * Method that populates an empty deck with 52 cards
-     * by looping over each rank and value
+     * Populates empty deck with 52 cards by looping over each rank and value
      */
     public void populate() {
 
@@ -38,7 +36,7 @@ public class Deck {
     }
 
     /**
-     * Method that shuffles the deck
+     * Shuffles deck
      */
     public void shuffle() {
 
@@ -57,32 +55,6 @@ public class Deck {
         this.deck = shufDeck;
     }
 
-    // /**
-    // * Method to draw card from one deck to another
-    // * @param comingFromDeck deck the card comes from
-    // */
-    // public void draw(Deck comingFromDeck) {
-    // this.deck.add(comingFromDeck.getCard(0));
-    // comingFromDeck.removeCard(0);
-    // }
-    //
-    // /**
-    // * Method to remove a card from the deck
-    // * @param i index of card to be removed
-    // */
-    // public void removeCard(int i) {
-    // this.deck.remove(i);
-    // }
-    //
-    // /**
-    // * Method to return the value of a card at a paticular index
-    // * @param i index of card to be returned
-    // * @return card at index i
-    // */
-    // public Card getCard(int i) {
-    // return this.deck.get(i);
-    // }
-
     /**
      * Method to add a card to the deck
      * 
@@ -93,20 +65,18 @@ public class Deck {
     }
 
     /**
-     * Method to take a copy of the first card from the deck,
-     * remove the card from the deck
-     * and return the card
+     * Takes copy of first card from deck and removes card from deck
      * 
-     * @return cardToTake card to take
+     * @return cardToTake card that was removed
      */
-    public Card takeCard() {
+    public Card takeCard() { // TODO: change take to draw
         Card cardToTake = new Card(deck.get(0));
         deck.remove(0);
         return cardToTake;
     }
 
     /**
-     * Method to make sure the deck we're hitting from has cards in it
+     * Makes sure the deck we're hitting from has cards in it
      * 
      * @return true (if the deck has cards in)
      * @return false (if the deck is empty)
@@ -123,28 +93,28 @@ public class Deck {
     }
 
     /**
-     * Adds an arraylist of cards to the deck
+     * Adds arraylist of cards to deck
      * 
      * @param cards arraylist of cards to be added to deck
      */
     public void addCards(ArrayList<Card> cards) {
         deck.addAll(cards);
     }
-    
+
     /**
-     * returns the arraylist containing all the cards in the deck
+     * Returns arraylist containing all the cards in the deck
      *
-     * @return deck arraylist to be returned
+     * @return deck arraylist with the cards
      */
     public ArrayList<Card> getCards() {
         return deck;
     }
 
     /**
-     * Take all the cards from a discarded deck and place them in this deck, shuffled
+     * Take all cards from discarded deck and place them in this deck, shuffled.
      * Clear the old deck
      *
-     * @param discard deck cards are coming from
+     * @param discard the deck cards are coming from
      */
     public void reloadDeckFromDiscard(Deck discard) {
         this.addCards(discard.getCards());
@@ -152,10 +122,8 @@ public class Deck {
         discard.emptyDeck();
         System.out.println("Ran out of cards, creating new deck from discard pile & shuffling deck");
     }
-    
+
     /**
-     * Returns number of cards left in a deck
-     * 
      * @return deck.size() number of cards left in the deck
      */
     public int cardsLeft() {

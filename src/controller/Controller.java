@@ -116,7 +116,7 @@ public class Controller {
         startRound();
     }
 
-    private void checkWhoWins() {
+    private void checkWhoWins() { // TODO: return string
 
         // check whether player busted
         if(player.getHand().calculateValue() > 21) {

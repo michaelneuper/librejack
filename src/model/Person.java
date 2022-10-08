@@ -37,7 +37,7 @@ public abstract class Person {
     }
 
     /**
-     * Method to check if a person has blackjack
+     * Checks if a person has blackjack
      * 
      * @return true (if player has a blackjack)
      * @return false (if player does not have a blackjack)
@@ -54,14 +54,14 @@ public abstract class Person {
     }
     
     /**
-     * Checks if the deck has cards and reloads the deck if it ran out
+     * Checks if deck has cards and reloads deck if it ran out
      * 
      * @param deck deck to draw from
      * @param discard deck to discard to
      */
     public void hit(Deck deck, Deck discard) {
 
-        //If there's no cards left in the deck
+        // if there's no cards left in the deck
         if (!deck.hasCards()) {
             deck.reloadDeckFromDiscard(discard);
         }

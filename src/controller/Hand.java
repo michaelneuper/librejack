@@ -6,9 +6,7 @@ import model.Card;
 import model.Deck;
 
 /**
- * Contains methods to calculate the value of a hand,
- * take cards from a deck and
- * discard the hand to a deck.
+ * Contains methods to calculate the value of a hand, take cards from a deck and discard the hand to a deck.
  * 
  * @author Michael
  */
@@ -51,25 +49,26 @@ public class Hand {
                 ++aceCount;
             }
         }
-        
+
         // for the scenario where we have multiple aces
         // go back and set each ace to 1 until get back under 21, if possible
-        if(value > 21 && aceCount > 0) {
-            while(aceCount > 0 && value > 21) {
-                -- aceCount;
+        if (value > 21 && aceCount > 0) {
+            while (aceCount > 0 && value > 21) {
+                --aceCount;
                 value -= 10;
             }
         }
 
         return value;
     }
-    
+
     public Card getCard(int i) {
         return hand.get(i);
     }
-    
+
     /**
      * Discards hand to deck
+     * 
      * @param discardDeck
      */
     public void discardHandToDeck(Deck discardDeck) {

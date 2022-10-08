@@ -1,9 +1,7 @@
 package model;
 
 /**
- * Handles dealer specific operations,
- * such as drawing cards to 16 and standing
- * on 17 or above.
+ * Handles dealer specific operations, such as drawing cards to 16 and standing on 17 or above.
  * 
  * @author Michael
  */
