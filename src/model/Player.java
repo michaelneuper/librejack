@@ -66,7 +66,7 @@ public class Player extends Person {
                 getNum = false;
 
             } catch (Exception e) {
-                System.out.println("Invalid");
+                System.out.println("Error:\n" + e);
                 input.next();
             }
         }

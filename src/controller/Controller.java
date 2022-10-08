@@ -1,6 +1,6 @@
 package controller;
 
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 import model.Dealer;
 import model.Deck;
@@ -49,7 +49,7 @@ public class Controller {
     public void startRound() {
 
         // if we run out of cards
-        if(wins > 0 || losses > 0 || pushes > 0) {
+//         if(wins > 0 || losses > 0 || pushes > 0) {
             System.out.println("\nStarting next round...\nWins: " + wins + "\nLosses: " + losses + "\nPushes: " + pushes + "\nBalance: " + balance);
             dealer.getHand().discardHandToDeck(discarded);
             player.getHand().discardHandToDeck(discarded);
@@ -58,12 +58,26 @@ public class Controller {
             if(deck.cardsLeft() < 4) {
                 deck.reloadDeckFromDiscard(discarded);
             }
-        }
+//        }
 
         // ask the player to bet
-        System.out.println("Enter a bet amount");
-        Scanner inBet = new Scanner(System.in);
-        bet = Double.parseDouble(inBet.next());
+        // Scanner inBet = new Scanner(System.in);
+        // try {
+        //     // System.out.println("Enter a bet amount: ");
+        //     // bet = Double.parseDouble(inBet.next()); // TODO: add parseDouble
+        //     // inBet.close();
+
+        //     // in case someone bets an amount bigger than their balance
+        //     if(bet > balance) {
+        //         System.out.println("You don't have that much money, try again:");
+        //         Scanner newBet = new Scanner(System.in);
+        //         bet = newBet.nextDouble();
+        //         newBet.close();
+        //     }
+        // } catch (NumberFormatException e) {
+        //     System.out.println(e);
+        // }
+        bet = Double.parseDouble(JOptionPane.showInputDialog("Enter a bet amount"));
 
         // give the dealer 2 cards
         dealer.getHand().takeCardFromDeck(deck);
@@ -126,9 +140,7 @@ public class Controller {
             System.out.println("Dealer busts");
             balance += bet;
             ++wins;
-        }
-
-        if(dealer.getHand().calculateValue() > player.getHand().calculateValue()) {
+        } else if(dealer.getHand().calculateValue() > player.getHand().calculateValue()) {
             System.out.println("You lose");
             balance -= bet;
             ++losses;
@@ -145,8 +157,7 @@ public class Controller {
             ++pushes;
         }
         
-        // clear bet and start a new round
-        inBet.close();
+        // start a new round
         startRound();
     }
 
