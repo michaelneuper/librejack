@@ -67,6 +67,15 @@ public class Hand {
     public Card getCard(int i) {
         return hand.get(i);
     }
+    
+    /**
+     * Discards hand to deck
+     * @param discardDeck
+     */
+    public void discardHandToDeck(Deck discardDeck) {
+        discardDeck.addCards(hand); // copy cards from discardDeck
+        hand.clear(); // clear the hand
+    }
 
     @Override
     public String toString() {
