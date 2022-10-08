@@ -49,7 +49,7 @@ public class Controller {
     public void startRound() {
 
         // if we run out of cards
-        if(wins > 0 || losses > 0 || pushes > 0) { // TODO: change code :)
+        if(wins > 0 || losses > 0 || pushes > 0) { // FIXME: change code :)
             System.out.println("\nStarting next round...\nWins: " + wins + "\nLosses: " + losses + "\nPushes: " + pushes + "\nBalance: " + balance);
             dealer.getHand().discardHandToDeck(discarded);
             player.getHand().discardHandToDeck(discarded);
@@ -116,7 +116,7 @@ public class Controller {
         startRound();
     }
 
-    private void checkWhoWins() { // TODO: return string
+    private void checkWhoWins() { // FIXME: return string
 
         // check whether player busted
         if(player.getHand().calculateValue() > 21) {

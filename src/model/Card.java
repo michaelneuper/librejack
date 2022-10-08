@@ -7,7 +7,7 @@ package model;
  */
 public class Card {
 
-    // TODO change name to image
+    // TODO: change name to image
     public enum Suit {
 
         CLUBS("Clubs"),
