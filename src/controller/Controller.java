@@ -43,7 +43,7 @@ public class Controller {
     }
 
     /**
-     * Handles logic for each roun
+     * Handles logic for each round
      * 
      */
     public void startRound() {
@@ -136,15 +136,10 @@ public class Controller {
         if(dealer.getHand().calculateValue() > 21) {
             System.out.println("Dealer busts");
             balance += bet;
+            ++wins;
         }
         
         if(dealer.getHand().calculateValue() > player.getHand().calculateValue() && dealer.getHand().calculateValue() <= 21) {
-            System.out.println("You lose");
-            balance -= bet;
-            ++losses;
-        }
-
-        if(dealer.getHand().calculateValue() > player.getHand().calculateValue()) {
             System.out.println("You lose");
             balance -= bet;
             ++losses;
