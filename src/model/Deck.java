@@ -130,6 +130,28 @@ public class Deck {
     public void addCards(ArrayList<Card> cards) {
         deck.addAll(cards);
     }
+    
+    /**
+     * returns the arraylist containing all the cards in the deck
+     *
+     * @return deck arraylist to be returned
+     */
+    public ArrayList<Card> getCards() {
+        return deck;
+    }
+
+    /**
+     * Take all the cards from a discarded deck and place them in this deck, shuffled
+     * Clear the old deck
+     *
+     * @param discard deck cards are coming from
+     */
+    public void reloadDeckFromDiscard(Deck discard) {
+        this.addCards(discard.getCards());
+        this.shuffle();
+        discard.emptyDeck();
+        System.out.println("Ran out of cards, creating new deck from discard pile & shuffling deck");
+    }
 
     @Override
     public String toString() {
