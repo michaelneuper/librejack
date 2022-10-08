@@ -44,6 +44,18 @@ public class Controller {
      */
     private void startRound() {
 
+        // if we run out of cards
+        if(wins > 0 || losses > 0 || pushes > 0) {
+            System.out.println("\nStarting next round...\nWins: " + wins + "\nLosses: " + losses + "\nPushes: " + pushes);
+            dealer.getHand().discardHandToDeck(discarded);
+            player.getHand().discardHandToDeck(discarded);
+            
+            // make sure deck has at least 4 cards left
+            if(deck.cardsLeft() < 4) {
+                deck.reloadDeckFromDiscard(discarded);
+            }
+        }
+
         // give the dealer 2 cards
         dealer.getHand().takeCardFromDeck(deck);
         dealer.getHand().takeCardFromDeck(deck);
@@ -63,14 +75,14 @@ public class Controller {
             if (player.hasBlackjack()) {
 
                 System.out.println("You both have 21 - Push");
-                ++ pushes;
+                ++pushes;
                 startRound();
 
             } else {
 
                 System.out.println("Dealer has BlackJack. You lose.");
                 dealer.printHand();
-                ++ losses;
+                ++losses;
                 startRound();
             }
         }
@@ -78,10 +90,49 @@ public class Controller {
         // check if player has blackjack
         if(player.hasBlackjack()) {
             System.out.println("You have BlackJack. You win.");
-            ++ wins;
+            ++wins;
             startRound();
         }
         
         player.makeDecision(deck, discarded);
+
+        // check whether they busted
+        if(player.getHand().calculateValue() > 21) {
+            System.out.println("Busted");
+            ++losses;
+            startRound();
+        }
+        
+        // dealer's turn
+        dealer.printHand();
+        while(dealer.getHand().calculateValue() < 17) {
+            dealer.hit(deck, discarded);
+        }
+        
+        // check who wins
+        if(dealer.getHand().calculateValue() > 21) {
+            System.out.println("Dealer busts");
+            ++wins;
+        }
+
+        if(dealer.getHand().calculateValue() > player.getHand().calculateValue()) {
+            System.out.println("You lose");
+            ++losses;
+        }
+
+        if(player.getHand().calculateValue() > dealer.getHand().calculateValue()) {
+            System.out.println("You win");
+            ++wins;
+        }
+        
+        if(player.getHand().calculateValue() == dealer.getHand().calculateValue()) {
+            System.out.println("Push");
+            ++pushes;
+        }
+        
+        // start a new round
+        startRound();
+        
     }
+
 }
