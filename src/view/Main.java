@@ -12,6 +12,6 @@ public class Main {
         System.out.println("Welcome to LIBREJACK!");
 
         Controller blackjack = new Controller();
-
+        blackjack.startRound();
     }
 }

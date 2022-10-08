@@ -40,14 +40,12 @@ public class Controller {
 
         dealer = new Dealer();
         player = new Player();
-
-        startRound();
     }
 
     /**
      * Handles logic for each round
      */
-    private void startRound() {
+    public void startRound() {
 
         // if we run out of cards
         if (wins > 0 || losses > 0 || pushes > 0) {
@@ -150,6 +148,9 @@ public class Controller {
         try {
 
             Scanner scFile = new Scanner(new File(inFile));
+            int wins = this.wins;
+            int losses = this.losses;
+            int pushes = this.pushes;
 
             while (scFile.hasNext()) {
                 Scanner scLine = new Scanner(scFile.nextLine()).useDelimiter(":");
@@ -176,19 +177,19 @@ public class Controller {
 
                 if (i == 0) {
                     PrintWriter outFile = new PrintWriter(new FileWriter(inFile, false));
-                    outFile.print("wins:" + wins);
+                    outFile.print("wins:" + this.wins);
                     outFile.close();
                 }
 
                 if (i == 1) {
                     PrintWriter outFile = new PrintWriter(new FileWriter(inFile, true));
-                    outFile.print("losses:" + losses);
+                    outFile.print("losses:" + this.losses);
                     outFile.close();
                 }
 
                 if (i == 1) {
                     PrintWriter outFile = new PrintWriter(new FileWriter(inFile, true));
-                    outFile.print("pushes:" + pushes);
+                    outFile.print("pushes:" + this.pushes);
                     outFile.close();
                 }
             }
