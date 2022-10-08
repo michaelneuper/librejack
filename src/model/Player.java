@@ -18,6 +18,11 @@ public class Player extends Person {
         super.setName("Player");
     }
     
+    /**
+     *  Allows the player to decide to hit or stand
+     * @param deck deck to draw from
+     * @param discard deck to discard to
+     */
     public void makeDecision(Deck deck, Deck discard) {
         
         int decision = 0;
@@ -33,6 +38,20 @@ public class Player extends Person {
                 System.out.println("Invalid");
                 input.next();
             }
+        }
+        
+        // if they decide to hit
+        if (decision == 1) {
+
+            this.hit(deck, discard); // hit the deck and discard
+
+            if(this.getHand().calculateValue() > 20) {
+                return; // return if they have blackjack or busted
+            } else {
+                this.makeDecision(deck, discard); // allow them to hit or stand if they don't have 21 or blackjack
+            }
+        } else {
+            System.out.println("You stand."); // assume they stand if they hit a number other than 1
         }
     }
 
