@@ -1,5 +1,12 @@
 package controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
 import model.Dealer;
 import model.Deck;
 import model.Player;
@@ -23,9 +30,7 @@ public class Controller {
      */
     public Controller() {
 
-        wins = 0;
-        losses = 0;
-        pushes = 0;
+        readStats("db/stats.txt");
 
         deck = new Deck(); // creates new populated deck
         deck.populate();
@@ -45,13 +50,13 @@ public class Controller {
     private void startRound() {
 
         // if we run out of cards
-        if(wins > 0 || losses > 0 || pushes > 0) {
+        if (wins > 0 || losses > 0 || pushes > 0) {
             System.out.println("\nStarting next round...\nWins: " + wins + "\nLosses: " + losses + "\nPushes: " + pushes);
             dealer.getHand().discardHandToDeck(discarded);
             player.getHand().discardHandToDeck(discarded);
-            
+
             // make sure deck has at least 4 cards left
-            if(deck.cardsLeft() < 4) {
+            if (deck.cardsLeft() < 4) {
                 deck.reloadDeckFromDiscard(discarded);
             }
         }
@@ -88,51 +93,108 @@ public class Controller {
         }
 
         // check if player has blackjack
-        if(player.hasBlackjack()) {
+        if (player.hasBlackjack()) {
             System.out.println("You have BlackJack. You win.");
             ++wins;
             startRound();
         }
-        
+
         player.makeDecision(deck, discarded);
 
         // check whether they busted
-        if(player.getHand().calculateValue() > 21) {
+        if (player.getHand().calculateValue() > 21) {
             System.out.println("Busted");
             ++losses;
             startRound();
         }
-        
+
         // dealer's turn
         dealer.printHand();
-        while(dealer.getHand().calculateValue() < 17) {
+        while (dealer.getHand().calculateValue() < 17) {
             dealer.hit(deck, discarded);
         }
-        
+
         // check who wins
-        if(dealer.getHand().calculateValue() > 21) {
+        if (dealer.getHand().calculateValue() > 21) {
             System.out.println("Dealer busts");
             ++wins;
         }
 
-        if(dealer.getHand().calculateValue() > player.getHand().calculateValue()) {
+        if (dealer.getHand().calculateValue() > player.getHand().calculateValue()) {
             System.out.println("You lose");
             ++losses;
         }
 
-        if(player.getHand().calculateValue() > dealer.getHand().calculateValue()) {
+        if (player.getHand().calculateValue() > dealer.getHand().calculateValue()) {
             System.out.println("You win");
             ++wins;
         }
-        
-        if(player.getHand().calculateValue() == dealer.getHand().calculateValue()) {
+
+        if (player.getHand().calculateValue() == dealer.getHand().calculateValue()) {
             System.out.println("Push");
             ++pushes;
         }
-        
+
         // start a new round
+        writeStats("db/stats.txt");
         startRound();
-        
+
+    }
+
+    /**
+     * Reads wins, losses and pushes from file
+     * 
+     * @param inFile file to be read from
+     */
+    public void readStats(String inFile) {
+        try {
+
+            Scanner scFile = new Scanner(new File(inFile));
+
+            while (scFile.hasNext()) {
+                Scanner scLine = new Scanner(scFile.nextLine()).useDelimiter(":");
+
+                wins = scLine.nextInt();
+                losses = scLine.nextInt();
+                pushes = scLine.nextInt();
+
+                scLine.close();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Error:\n" + e);
+        }
+    }
+
+    /**
+     * Writes wins, losses and pushes to file
+     * 
+     * @param inFile file to be written to
+     */
+    public void writeStats(String inFile) {
+        try {
+            for (int i = 0; i < 3; i++) {
+
+                if (i == 0) {
+                    PrintWriter outFile = new PrintWriter(new FileWriter(inFile, false));
+                    outFile.print("wins:" + wins);
+                    outFile.close();
+                }
+
+                if (i == 1) {
+                    PrintWriter outFile = new PrintWriter(new FileWriter(inFile, true));
+                    outFile.print("losses:" + losses);
+                    outFile.close();
+                }
+
+                if (i == 1) {
+                    PrintWriter outFile = new PrintWriter(new FileWriter(inFile, true));
+                    outFile.print("pushes:" + pushes);
+                    outFile.close();
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error:\n" + e);
+        }
     }
 
 }
