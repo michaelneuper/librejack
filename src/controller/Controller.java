@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.Scanner;
+
 import model.Dealer;
 import model.Deck;
 import model.Player;
@@ -15,7 +17,9 @@ public class Controller {
 
     private Dealer dealer;
     private Player player;
+    private double bet, balance;
     private int wins, losses, pushes;
+    
 
     /**
      * Controller Constructor:
@@ -26,6 +30,7 @@ public class Controller {
         wins = 0;
         losses = 0;
         pushes = 0;
+        balance = 1000.0;
 
         deck = new Deck(); // creates new populated deck
         deck.populate();
@@ -44,7 +49,7 @@ public class Controller {
 
         // if we run out of cards
         if(wins > 0 || losses > 0 || pushes > 0) {
-            System.out.println("\nStarting next round...\nWins: " + wins + "\nLosses: " + losses + "\nPushes: " + pushes);
+            System.out.println("\nStarting next round...\nWins: " + wins + "\nLosses: " + losses + "\nPushes: " + pushes + "\nBalance: " + balance);
             dealer.getHand().discardHandToDeck(discarded);
             player.getHand().discardHandToDeck(discarded);
             
@@ -53,6 +58,11 @@ public class Controller {
                 deck.reloadDeckFromDiscard(discarded);
             }
         }
+
+        // ask the player to bet
+        System.out.println("Enter a bet amount");
+        Scanner inBet = new Scanner(System.in);
+        bet = Double.parseDouble(inBet.next());
 
         // give the dealer 2 cards
         dealer.getHand().takeCardFromDeck(deck);
@@ -80,6 +90,7 @@ public class Controller {
 
                 System.out.println("Dealer has BlackJack. You lose.");
                 dealer.printHand();
+                balance -= bet;
                 ++losses;
                 startRound();
             }
@@ -88,6 +99,7 @@ public class Controller {
         // check if player has blackjack
         if(player.hasBlackjack()) {
             System.out.println("You have BlackJack. You win.");
+            balance += bet * 1.5;
             ++wins;
             startRound();
         }
@@ -97,6 +109,7 @@ public class Controller {
         // check whether they busted
         if(player.getHand().calculateValue() > 21) {
             System.out.println("Busted");
+            balance -= bet;
             ++losses;
             startRound();
         }
@@ -110,16 +123,19 @@ public class Controller {
         // check who wins
         if(dealer.getHand().calculateValue() > 21) {
             System.out.println("Dealer busts");
+            balance += bet;
             ++wins;
         }
 
         if(dealer.getHand().calculateValue() > player.getHand().calculateValue()) {
             System.out.println("You lose");
+            balance -= bet;
             ++losses;
         }
 
         if(player.getHand().calculateValue() > dealer.getHand().calculateValue()) {
             System.out.println("You win");
+            balance += bet;
             ++wins;
         }
         
@@ -128,9 +144,9 @@ public class Controller {
             ++pushes;
         }
         
-        // start a new round
+        // clear bet and start a new round
+        inBet.close();
         startRound();
-        
     }
 
 }
