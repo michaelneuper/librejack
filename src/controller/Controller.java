@@ -82,6 +82,6 @@ public class Controller {
             startRound();
         }
         
-        player.makeDecision();
+        player.makeDecision(deck, discarded);
     }
 }
