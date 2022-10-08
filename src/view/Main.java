@@ -1,7 +1,6 @@
 package view;
 
 import controller.Controller;
-import model.Dealer;
 
 /**
  * @author Michael
