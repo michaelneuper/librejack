@@ -1,7 +1,18 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2022 michael
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package view;
 
@@ -53,26 +64,26 @@ public class GUI extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 110, -1, -1));
 
-        jLabelBalance.setText("Balance");
-        getContentPane().add(jLabelBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 670, 220, 90));
+        jLabelBalance.setText("Balance: ");
+        getContentPane().add(jLabelBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 220, 90));
 
         jTextAreaBetAmount.setColumns(20);
         jTextAreaBetAmount.setRows(5);
         jScrollPane1.setViewportView(jTextAreaBetAmount);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 670, 230, 90));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 640, 230, 90));
 
         jLabelEnterBet.setText("Place a bet");
-        getContentPane().add(jLabelEnterBet, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 630, 230, 30));
+        getContentPane().add(jLabelEnterBet, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 610, 230, 30));
 
         jButtonDouble.setText("DOUBLE");
-        getContentPane().add(jButtonDouble, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 650, 190, 110));
+        getContentPane().add(jButtonDouble, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 500, 190, 110));
 
         jButtonStand.setText("STAND");
-        getContentPane().add(jButtonStand, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 650, 190, 110));
+        getContentPane().add(jButtonStand, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 340, 190, 110));
 
         jButtonHit.setText("HIT");
-        getContentPane().add(jButtonHit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 650, 190, 110));
+        getContentPane().add(jButtonHit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 180, 190, 110));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
