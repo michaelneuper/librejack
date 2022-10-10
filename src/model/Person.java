@@ -51,7 +51,7 @@ public abstract class Person {
      */
     public String printHand() {
 //        System.out.println(this.name + "'s hand:\n" + this.hand + "[" + this.hand.calculateValue() + "]");
-        return this.name + "'s hand:\n" + this.hand + "[" + this.hand.calculateValue() + "]";
+        return this.hand + "[" + this.hand.calculateValue() + "]";
     }
     
     /**
