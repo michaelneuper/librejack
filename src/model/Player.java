@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class Player extends Person {
     
-    double balance; // TODO: make public
+    private double balance; // TODO: make public
     Scanner input = new Scanner(System.in);
 
     /**
@@ -45,7 +45,7 @@ public class Player extends Person {
             System.out.println("Error:\n" + e);
         }
 
-        this.balance = balance; // TODO: is neccesary?
+//        this.balance = balance; // TODO: is neccesary?
     }
 
     /**
@@ -56,12 +56,37 @@ public class Player extends Person {
      */
     public void makeDecision(Deck deck, Deck discard) {
         
-        int decision = 0;
+        int decision = 1; // default decision is to stand
         boolean doubleDown = false;
         // 0 = stand
         // 1 = hit
         // 2 = double
-//        boolean getNum = true;
+
+        if(doubleDown) {
+            // TODO: add message dialog saying they can't hit
+            return; // don't allow them to hit again if they double
+        }
+
+        if(this.getHand().calculateValue() > 20) {
+            return; // return if they have blackjack or busted
+        }
+
+        switch(decision) {
+            case 0 : // stand
+//                this.makeDecision(deck, discard);
+                return;
+            case 1 : // hit
+                this.hit(deck, discard); // hit deck and discard
+                break;
+            case 2 : // double
+                // TODO: double bet in gui
+                doubleDown = true;
+                this.hit(deck, discard);
+                break;
+            
+        }
+        
+        //        boolean getNum = true;
 
 //        while(getNum) {
 //            try {
@@ -88,28 +113,6 @@ public class Player extends Person {
 //        } else {
 //            System.out.println("You stand."); // assume they stand if they hit a number other than 1
 //        }
-        if(doubleDown) {
-            return; // don't allow them to hit again if they double
-        }
-
-        if(this.getHand().calculateValue() > 20) {
-            return; // return if they have blackjack or busted
-        }
-
-        switch(decision) {
-            case 0 : // hit
-                this.hit(deck, discard);
-                break;
-            case 1 : // stand
-                this.makeDecision(deck, discard);
-                break;
-            case 2 : // double
-                // TODO: double bet in gui
-                doubleDown = true;
-                this.hit(deck, discard);
-                break;
-            
-        }
     }
 
 }
