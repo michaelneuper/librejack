@@ -57,32 +57,58 @@ public class Player extends Person {
     public void makeDecision(Deck deck, Deck discard) {
         
         int decision = 0;
-        boolean getNum = true;
+        boolean doubleDown = false;
+        // 0 = stand
+        // 1 = hit
+        // 2 = double
+//        boolean getNum = true;
 
-        while(getNum) {
-            try {
-                System.out.println("Would you like to Hit[1] or Stand[2]");
-                decision = input.nextInt();
-                getNum = false;
+//        while(getNum) {
+//            try {
+//                System.out.println("Would you like to Hit[1] or Stand[2]");
+//                decision = input.nextInt();
+//                getNum = false;
 
-            } catch (Exception e) {
-                System.out.println("Error:\n" + e);
-                input.next();
-            }
-        }
+//            } catch (Exception e) {
+//                System.out.println("Error:\n" + e);
+//                input.next();
+//            }
+//        }
         
         // if they decide to hit
-        if (decision == 1) { // TODO: add option to double
+//        if (decision == 1) { // TODO: add option to double
+//
+//            this.hit(deck, discard); // hit the deck and discard
+//
+//            if(this.getHand().calculateValue() > 20) {
+//                return; // return if they have blackjack or busted
+//            } else {
+//                this.makeDecision(deck, discard); // allow them to hit or stand if they don't have 21 or blackjack
+//            }
+//        } else {
+//            System.out.println("You stand."); // assume they stand if they hit a number other than 1
+//        }
+        if(doubleDown) {
+            return; // don't allow them to hit again if they double
+        }
 
-            this.hit(deck, discard); // hit the deck and discard
+        if(this.getHand().calculateValue() > 20) {
+            return; // return if they have blackjack or busted
+        }
 
-            if(this.getHand().calculateValue() > 20) {
-                return; // return if they have blackjack or busted
-            } else {
-                this.makeDecision(deck, discard); // allow them to hit or stand if they don't have 21 or blackjack
-            }
-        } else {
-            System.out.println("You stand."); // assume they stand if they hit a number other than 1
+        switch(decision) {
+            case 0 : // hit
+                this.hit(deck, discard);
+                break;
+            case 1 : // stand
+                this.makeDecision(deck, discard);
+                break;
+            case 2 : // double
+                // TODO: double bet in gui
+                doubleDown = true;
+                this.hit(deck, discard);
+                break;
+            
         }
     }
 
