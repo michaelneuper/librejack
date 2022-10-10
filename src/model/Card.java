@@ -81,9 +81,6 @@ public class Card {
         this.rank = card.getRank();
     }
 
-    /**
-     * Rank value getter method
-     */
     public int getValue() {
         return this.rank.rankValue;
     }
