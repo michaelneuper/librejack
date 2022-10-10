@@ -23,7 +23,7 @@ public class Controller {
 
     /**
      * Controller Constructor:
-     * Initialises score to 0
+     * Initializes score to 0
      */
     public Controller() {
 
@@ -49,7 +49,7 @@ public class Controller {
     public void startRound() {
 
         // if we run out of cards
-        if(wins > 0 || losses > 0 || pushes > 0) { // FIXME: change code :)
+        if(wins > 0 || losses > 0 || pushes > 0) { // FIXME: remove code :)
             System.out.println("\nStarting next round...\nWins: " + wins + "\nLosses: " + losses + "\nPushes: " + pushes + "\nBalance: " + balance);
             dealer.getHand().discardHandToDeck(discarded);
             player.getHand().discardHandToDeck(discarded);
