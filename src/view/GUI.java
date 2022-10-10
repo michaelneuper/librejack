@@ -16,11 +16,16 @@
  */
 package view;
 
+import controller.Controller;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Michael
  */
 public class GUI extends javax.swing.JFrame {
+    
+    Controller game = new Controller();
 
     /**
      * Creates new form GUI
@@ -40,12 +45,13 @@ public class GUI extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         jLabelBalance = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaBetAmount = new javax.swing.JTextArea();
-        jLabelEnterBet = new javax.swing.JLabel();
         jButtonDouble = new javax.swing.JButton();
         jButtonStand = new javax.swing.JButton();
         jButtonHit = new javax.swing.JButton();
+        jButtonDeal = new javax.swing.JButton();
+        jButtonBetAmount = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabelResult = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("librejack");
@@ -64,19 +70,10 @@ public class GUI extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 110, -1, -1));
 
-        jLabelBalance.setText("Balance: ");
+        jLabelBalance.setText("Balance: " + game.getBalance());
         getContentPane().add(jLabelBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 220, 90));
 
-        jTextAreaBetAmount.setColumns(20);
-        jTextAreaBetAmount.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaBetAmount);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 640, 230, 90));
-
-        jLabelEnterBet.setText("Place a bet");
-        getContentPane().add(jLabelEnterBet, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 610, 230, 30));
-
-        jButtonDouble.setText("DOUBLE");
+        jButtonDouble.setText("DOUBLE DOWN");
         getContentPane().add(jButtonDouble, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 500, 190, 110));
 
         jButtonStand.setText("STAND");
@@ -85,8 +82,38 @@ public class GUI extends javax.swing.JFrame {
         jButtonHit.setText("HIT");
         getContentPane().add(jButtonHit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 180, 190, 110));
 
+        jButtonDeal.setText("DEAL");
+        jButtonDeal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDealActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonDeal, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 620, 460, 120));
+
+        jButtonBetAmount.setText("Change bet amount");
+        jButtonBetAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBetAmountActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonBetAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 610, 220, 60));
+
+        jLabel1.setText("Current bet: " + game.getBet());
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 680, 200, 50));
+
+        jLabelResult.setText(game.);
+        getContentPane().add(jLabelResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 460, 120));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonDealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDealActionPerformed
+        game.startRound();
+    }//GEN-LAST:event_jButtonDealActionPerformed
+
+    private void jButtonBetAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBetAmountActionPerformed
+        game.setBet(Double.parseDouble(JOptionPane.showInputDialog("Enter the bet amount")));
+    }//GEN-LAST:event_jButtonBetAmountActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,13 +151,14 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonBetAmount;
+    private javax.swing.JButton jButtonDeal;
     private javax.swing.JButton jButtonDouble;
     private javax.swing.JButton jButtonHit;
     private javax.swing.JButton jButtonStand;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelBalance;
-    private javax.swing.JLabel jLabelEnterBet;
+    private javax.swing.JLabel jLabelResult;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextAreaBetAmount;
     // End of variables declaration//GEN-END:variables
 }
