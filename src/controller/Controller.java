@@ -29,6 +29,7 @@ public class Controller {
         losses = 0;
         pushes = 0;
         balance = 1000.0;
+        bet = 100.0;
 
         // create new populated deck
         deck = new Deck(); 
@@ -86,17 +87,16 @@ public class Controller {
         player.getHand().takeCardFromDeck(deck);
         player.getHand().takeCardFromDeck(deck);
 
-        // print their hands
-        dealer.printFirstHand();
-        player.printHand();
+//        // print their hands
+//        dealer.printFirstHand();
+//        player.printHand();
         
         // TODO: move
         player.makeDecision(deck, discarded); 
-        checkWhoWins(); 
 
     }
 
-    private String checkWhoWins() { // FIXME: return string and remove startRound
+    public String checkWhoWins() {
         
         // check if dealer has blackjack
         if (dealer.hasBlackjack()) {
@@ -159,6 +159,21 @@ public class Controller {
         }
         
         return "Something went wrong";
+    }
+    /**
+     *
+     * @return player hand
+     */
+    public String displayPlayerHand() {
+        return player.printHand();
+    }
+    
+    /**
+     * 
+     * @return dealer hand
+     */
+    public String displayDealerHand() {
+        return dealer.printHand();
     }
 
 }
