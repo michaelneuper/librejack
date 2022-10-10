@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2022 michael
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package view;
 
 import controller.Controller;
@@ -52,6 +36,10 @@ public class GUI extends javax.swing.JFrame {
         jButtonBetAmount = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabelResult = new javax.swing.JLabel();
+        jLabelDiaplayDealerHand = new javax.swing.JLabel();
+        jLabelDisplayPlayerHand = new javax.swing.JLabel();
+        jLabelDealerHand = new javax.swing.JLabel();
+        jLabelPlayerHand = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("librejack");
@@ -71,16 +59,16 @@ public class GUI extends javax.swing.JFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 110, -1, -1));
 
         jLabelBalance.setText("Balance: " + game.getBalance());
-        getContentPane().add(jLabelBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 220, 90));
+        getContentPane().add(jLabelBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 220, 40));
 
         jButtonDouble.setText("DOUBLE DOWN");
-        getContentPane().add(jButtonDouble, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 500, 190, 110));
+        getContentPane().add(jButtonDouble, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 510, 190, 110));
 
         jButtonStand.setText("STAND");
-        getContentPane().add(jButtonStand, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 340, 190, 110));
+        getContentPane().add(jButtonStand, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 340, 190, 110));
 
         jButtonHit.setText("HIT");
-        getContentPane().add(jButtonHit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 180, 190, 110));
+        getContentPane().add(jButtonHit, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 180, 190, 110));
 
         jButtonDeal.setText("DEAL");
         jButtonDeal.addActionListener(new java.awt.event.ActionListener() {
@@ -88,21 +76,33 @@ public class GUI extends javax.swing.JFrame {
                 jButtonDealActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonDeal, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 620, 460, 120));
+        getContentPane().add(jButtonDeal, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 570, 460, 120));
 
-        jButtonBetAmount.setText("Change bet amount");
+        jButtonBetAmount.setText("Change Bet Amount");
         jButtonBetAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBetAmountActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBetAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 610, 220, 60));
+        getContentPane().add(jButtonBetAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, 220, 60));
 
         jLabel1.setText("Current bet: " + game.getBet());
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 680, 200, 50));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, 200, 50));
 
-        jLabelResult.setText(game.);
-        getContentPane().add(jLabelResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 460, 120));
+        jLabelResult.setText(game.checkWhoWins());
+        getContentPane().add(jLabelResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 460, 110));
+
+        jLabelDiaplayDealerHand.setText(game.displayDealerHand());
+        getContentPane().add(jLabelDiaplayDealerHand, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 450, 160));
+
+        jLabelDisplayPlayerHand.setText(game.displayPlayerHand());
+        getContentPane().add(jLabelDisplayPlayerHand, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 400, 150));
+
+        jLabelDealerHand.setText("Dealer's Hand:");
+        getContentPane().add(jLabelDealerHand, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 110, 30));
+
+        jLabelPlayerHand.setText("Your Hand:");
+        getContentPane().add(jLabelPlayerHand, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 250, 90, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -158,6 +158,10 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonStand;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelBalance;
+    private javax.swing.JLabel jLabelDealerHand;
+    private javax.swing.JLabel jLabelDiaplayDealerHand;
+    private javax.swing.JLabel jLabelDisplayPlayerHand;
+    private javax.swing.JLabel jLabelPlayerHand;
     private javax.swing.JLabel jLabelResult;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
