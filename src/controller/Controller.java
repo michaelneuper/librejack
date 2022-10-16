@@ -187,5 +187,10 @@ public class Controller {
         System.out.println("Dealer's hand:\n");
         return dealer.printHand();
     }
+    
+    public String displayDealerFirstCard() {
+        System.out.println("Dealer's hand:\n");
+        return dealer.printFirstHand();
+    }
 
 }
