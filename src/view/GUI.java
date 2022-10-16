@@ -34,7 +34,7 @@ public class GUI extends javax.swing.JFrame {
         jButtonHit = new javax.swing.JButton();
         jButtonDeal = new javax.swing.JButton();
         jButtonBetAmount = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelCurrentBet = new javax.swing.JLabel();
         jLabelResult = new javax.swing.JLabel();
         jLabelDiaplayDealerHand = new javax.swing.JLabel();
         jLabelDisplayPlayerHand = new javax.swing.JLabel();
@@ -86,8 +86,8 @@ public class GUI extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonBetAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, 220, 60));
 
-        jLabel1.setText("Current bet: " + game.getBet());
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, 200, 50));
+        jLabelCurrentBet.setText("Current Bet: " + game.getBet());
+        getContentPane().add(jLabelCurrentBet, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, 200, 50));
 
         jLabelResult.setText(game.checkWhoWins());
         getContentPane().add(jLabelResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 460, 110));
@@ -113,6 +113,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonBetAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBetAmountActionPerformed
         game.setBet(Double.parseDouble(JOptionPane.showInputDialog("Enter the bet amount")));
+        jLabelCurrentBet.setText("Current Bet: " + Double.toString(game.getBet()));
     }//GEN-LAST:event_jButtonBetAmountActionPerformed
 
     /**
@@ -156,8 +157,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonDouble;
     private javax.swing.JButton jButtonHit;
     private javax.swing.JButton jButtonStand;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelBalance;
+    private javax.swing.JLabel jLabelCurrentBet;
     private javax.swing.JLabel jLabelDealerHand;
     private javax.swing.JLabel jLabelDiaplayDealerHand;
     private javax.swing.JLabel jLabelDisplayPlayerHand;
