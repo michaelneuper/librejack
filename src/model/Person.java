@@ -49,8 +49,10 @@ public abstract class Person {
     /**
      * Prints a formatted version of the person's hand
      */
+    // TODO: remove print statement
     public String printHand() {
 //        System.out.println(this.name + "'s hand:\n" + this.hand + "[" + this.hand.calculateValue() + "]");
+        System.out.println(this.hand + "[" + this.hand.calculateValue() + "]");
         return this.hand + "[" + this.hand.calculateValue() + "]";
     }
     
