@@ -65,6 +65,11 @@ public class GUI extends javax.swing.JFrame {
         getContentPane().add(jButtonDouble, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 510, 190, 110));
 
         jButtonStand.setText("STAND");
+        jButtonStand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonStandActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonStand, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 340, 190, 110));
 
         jButtonHit.setText("HIT");
@@ -115,6 +120,10 @@ public class GUI extends javax.swing.JFrame {
         game.setBet(Double.parseDouble(JOptionPane.showInputDialog("Enter the bet amount")));
         jLabelCurrentBet.setText("Current Bet: " + Double.toString(game.getBet()));
     }//GEN-LAST:event_jButtonBetAmountActionPerformed
+
+    private void jButtonStandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStandActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonStandActionPerformed
 
     /**
      * @param args the command line arguments
