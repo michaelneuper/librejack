@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class Player extends Person {
     
-    double balance; // TODO: make public
+    private double balance; // TODO: make public
     Scanner input = new Scanner(System.in);
 
     /**
@@ -45,45 +45,7 @@ public class Player extends Person {
             System.out.println("Error:\n" + e);
         }
 
-        this.balance = balance; // TODO: is neccesary?
-    }
-
-    /**
-     *  Allows the player to decide to hit or stand
-     * 
-     * @param deck deck to draw from
-     * @param discard deck to discard to
-     */
-    public void makeDecision(Deck deck, Deck discard) {
-        
-        int decision = 0;
-        boolean getNum = true;
-
-        while(getNum) {
-            try {
-                System.out.println("Would you like to Hit[1] or Stand[2]");
-                decision = input.nextInt();
-                getNum = false;
-
-            } catch (Exception e) {
-                System.out.println("Error:\n" + e);
-                input.next();
-            }
-        }
-        
-        // if they decide to hit
-        if (decision == 1) { // TODO: add option to double down
-
-            this.hit(deck, discard); // hit the deck and discard
-
-            if(this.getHand().calculateValue() > 20) {
-                return; // return if they have blackjack or busted
-            } else {
-                this.makeDecision(deck, discard); // allow them to hit or stand if they don't have 21 or blackjack
-            }
-        } else {
-            System.out.println("You stand."); // assume they stand if they hit a number other than 1
-        }
+//        this.balance = balance; // TODO: is neccesary?
     }
 
 }
