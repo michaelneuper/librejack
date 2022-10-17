@@ -41,6 +41,8 @@ public class GUI extends javax.swing.JFrame {
         jLabelDealerHand = new javax.swing.JLabel();
         jLabelPlayerHand = new javax.swing.JLabel();
         jButtonExit = new javax.swing.JButton();
+        jLabelDealerHandValue = new javax.swing.JLabel();
+        jLabelPlayerHandValue = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("librejack");
@@ -119,15 +121,15 @@ public class GUI extends javax.swing.JFrame {
         getContentPane().add(jLabelDisplayDealerHand, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 440, 160));
 
         jLabelDisplayPlayerHand.setText(game.displayPlayerHand());
-        getContentPane().add(jLabelDisplayPlayerHand, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, 400, 150));
+        getContentPane().add(jLabelDisplayPlayerHand, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 400, 150));
 
         jLabelDealerHand.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabelDealerHand.setText("Dealer's Hand:");
-        getContentPane().add(jLabelDealerHand, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 300, 30));
+        getContentPane().add(jLabelDealerHand, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 270, 30));
 
         jLabelPlayerHand.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabelPlayerHand.setText("Your Hand:");
-        getContentPane().add(jLabelPlayerHand, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, 240, 30));
+        getContentPane().add(jLabelPlayerHand, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, 210, 30));
 
         jButtonExit.setText("EXIT");
         jButtonExit.addActionListener(new java.awt.event.ActionListener() {
@@ -137,6 +139,12 @@ public class GUI extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1132, 713, 120, 50));
 
+        jLabelDealerHandValue.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        getContentPane().add(jLabelDealerHandValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 247, 80, 40));
+
+        jLabelPlayerHandValue.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        getContentPane().add(jLabelPlayerHandValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 250, 60, 40));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -145,6 +153,7 @@ public class GUI extends javax.swing.JFrame {
         jLabelBalance.setText(Double.toString(game.getBalance())); // update the balance
         game.startRound();
         jLabelDisplayDealerHand.setText(game.displayDealerFirstCard());
+        jLabelDealerHandValue.setText(game.displayDealerFirstCardValue());
         printPlayerHand();
     }//GEN-LAST:event_jButtonDealActionPerformed
 
@@ -180,7 +189,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonHitActionPerformed
 
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
-        
+        // TODO: add exit operation
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     /**
@@ -220,11 +229,12 @@ public class GUI extends javax.swing.JFrame {
     
     public void printDealerHand() {
         jLabelDisplayDealerHand.setText(game.displayDealerHand());
+        jLabelDealerHandValue.setText(game.displayDealerHandValue());
     }
     
     public void printPlayerHand() {
         jLabelDisplayPlayerHand.setText(game.displayPlayerHand());
-                
+        jLabelPlayerHandValue.setText(game.displayPlayerHandValue());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -237,9 +247,11 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelBalance;
     private javax.swing.JLabel jLabelCurrentBet;
     private javax.swing.JLabel jLabelDealerHand;
+    private javax.swing.JLabel jLabelDealerHandValue;
     private javax.swing.JLabel jLabelDisplayDealerHand;
     private javax.swing.JLabel jLabelDisplayPlayerHand;
     private javax.swing.JLabel jLabelPlayerHand;
+    private javax.swing.JLabel jLabelPlayerHandValue;
     private javax.swing.JLabel jLabelResult;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables

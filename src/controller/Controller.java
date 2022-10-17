@@ -166,6 +166,9 @@ public class Controller {
         return "Something went wrong";
     }
     
+    /**
+     * Hits the player with a card
+     */
     public void hitPlayer() {
         player.hit(deck, discarded);
     }
@@ -182,6 +185,14 @@ public class Controller {
     
     /**
      * 
+     * @return the value of the player's hand
+     */
+    public String displayPlayerHandValue() {
+        return Integer.toString(player.getHand().calculateValue());
+    }
+    
+    /**
+     * 
      * @return dealer hand
      */
     public String displayDealerHand() {
@@ -191,11 +202,27 @@ public class Controller {
     
     /**
      * 
+     * @return value of dealer's hand
+     */
+    public String displayDealerHandValue() {
+        return Integer.toString(dealer.getHand().calculateValue());
+    }
+    
+    /**
+     * 
      * @return dealer's first card
      */
     public String displayDealerFirstCard() {
         System.out.println("Dealer's hand:\n");
         return dealer.printFirstHand();
+    }
+    
+    /**
+     * 
+     * @return value of the first card
+     */
+    public String displayDealerFirstCardValue() {
+        return dealer.printFirstCardValue();
     }
 
 }

@@ -17,4 +17,8 @@ public class Dealer extends Person {
     public String printFirstHand() {
         return "" + super.getHand().getCard(0);
     }
+    
+    public String printFirstCardValue() {
+        return "" + super.getHand().getCard(0).getValue();
+    }
 }
