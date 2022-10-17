@@ -86,13 +86,9 @@ public class Controller {
         // give the player 2 cards
         player.getHand().takeCardFromDeck(deck);
         player.getHand().takeCardFromDeck(deck);
-
-//        // print their hands
-//        dealer.printFirstHand();
-//        player.printHand();
         
         // TODO: move
-        player.makeDecision(deck, discarded); 
+//        player.makeDecision(deck, discarded); 
 
     }
 
@@ -111,8 +107,8 @@ public class Controller {
                 balance -= bet;
                 ++losses;
                 dealer.printHand();
-                System.out.println("Dealer has BlackJack. You lose.");
-                return "Dealer has BlackJack. You lose";
+                System.out.println("Dealer has BlackJack - You lose");
+                return "Dealer has BlackJack - You lose";
             }
         }
 
@@ -120,8 +116,8 @@ public class Controller {
         if(player.hasBlackjack()) {
             balance += bet * 1.5;
             ++wins;
-            System.out.println("You have BlackJack. You win.");
-            return "You have BlackJack. You win.";
+            System.out.println("You have BlackJack. You win");
+            return "You have BlackJack - You win";
         }
 
         // check whether player busted
@@ -143,7 +139,7 @@ public class Controller {
             balance += bet;
             ++wins;
             System.out.println("Dealer busts");
-            return "Dealer busts";
+            return "Dealer busts - You win";
         }
         
         if(dealer.getHand().calculateValue() > player.getHand().calculateValue() && dealer.getHand().calculateValue() <= 21) {
@@ -169,6 +165,11 @@ public class Controller {
         System.out.println("something went wrong");
         return "Something went wrong";
     }
+    
+    public void hitPlayer() {
+        player.hit(deck, discarded);
+    }
+    
     /**
      *
      * @return player hand
@@ -188,6 +189,10 @@ public class Controller {
         return dealer.printHand();
     }
     
+    /**
+     * 
+     * @return dealer's first card
+     */
     public String displayDealerFirstCard() {
         System.out.println("Dealer's hand:\n");
         return dealer.printFirstHand();
