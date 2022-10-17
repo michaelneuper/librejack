@@ -150,7 +150,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonDealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDealActionPerformed
         jLabelResult.setText(""); // clear the last result
-        jLabelBalance.setText(Double.toString(game.getBalance())); // update the balance
+        jLabelBalance.setText("Balance: " + game.getBalance()); // update the balance
         game.startRound();
         jLabelDisplayDealerHand.setText(game.displayDealerFirstCard());
         jLabelDealerHandValue.setText(game.displayDealerFirstCardValue());
@@ -167,7 +167,7 @@ public class GUI extends javax.swing.JFrame {
         printDealerHand();
         jLabelResult.setText(game.checkWhoWins());
         printDealerHand();
-        jLabelBalance.setText(Double.toString(game.getBalance())); // update the balance
+        jLabelBalance.setText("Balance: " + game.getBalance()); // update the balance
     }//GEN-LAST:event_jButtonStandActionPerformed
 
     private void jButtonDoubleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDoubleActionPerformed
@@ -177,7 +177,7 @@ public class GUI extends javax.swing.JFrame {
         printPlayerHand();
         printDealerHand();
         jLabelResult.setText(game.checkWhoWins());
-        jLabelBalance.setText(Double.toString(game.getBalance())); // update the balance
+        jLabelBalance.setText("Balance: " + game.getBalance()); // update the balance
     }//GEN-LAST:event_jButtonDoubleActionPerformed
 
     private void jButtonHitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHitActionPerformed
@@ -185,7 +185,7 @@ public class GUI extends javax.swing.JFrame {
         printPlayerHand();
         printDealerHand();
         jLabelResult.setText(game.checkWhoWins());
-        jLabelBalance.setText(Double.toString(game.getBalance())); // update the balance
+        jLabelBalance.setText("Balance: " + game.getBalance()); // update the balance
     }//GEN-LAST:event_jButtonHitActionPerformed
 
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
