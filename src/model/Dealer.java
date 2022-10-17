@@ -14,7 +14,11 @@ public class Dealer extends Person {
         super.setName("Dealer");
     }
 
-    public void printFirstHand() {
-        System.out.println("Dealer's hand:\n" + super.getHand().getCard(0));
+    public String printFirstHand() {
+        return "" + super.getHand().getCard(0);
+    }
+    
+    public String printFirstCardValue() {
+        return "" + super.getHand().getCard(0).getValue();
     }
 }

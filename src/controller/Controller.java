@@ -1,7 +1,5 @@
 package controller;
 
-import javax.swing.JOptionPane;
-
 import model.Dealer;
 import model.Deck;
 import model.Player;
@@ -31,15 +29,39 @@ public class Controller {
         losses = 0;
         pushes = 0;
         balance = 1000.0;
+        bet = 100.0;
 
-        deck = new Deck(); // creates new populated deck
+        // create new populated deck
+        deck = new Deck(); 
         deck.populate();
         deck.shuffle();
 
-        discarded = new Deck(); // creates new empty deck
-
+        // create new empty deck
+        discarded = new Deck(); 
+        
+        // create new dealer and player
         dealer = new Dealer();
         player = new Player();
+    }
+
+    public double getBet() {
+        return bet;
+    }
+
+    public void setBet(double bet) {
+        if(bet < balance) {
+            this.bet = bet;
+        } else { // in case they try to make a bet bigger than their balance
+            System.out.println("You don't have that much money"); // TODO: change to message dialog
+        }
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
     /**
@@ -49,23 +71,14 @@ public class Controller {
     public void startRound() {
 
         // if we run out of cards
-        if(wins > 0 || losses > 0 || pushes > 0) { // FIXME: remove code :)
+        // if(wins > 0 || losses > 0 || pushes > 0) { // FIXME: change code :)
             System.out.println("\nStarting next round...\nWins: " + wins + "\nLosses: " + losses + "\nPushes: " + pushes + "\nBalance: " + balance);
             dealer.getHand().discardHandToDeck(discarded);
             player.getHand().discardHandToDeck(discarded);
             
-            // make sure deck has at least 4 cards left
-            if(deck.cardsLeft() < 4) {
-                deck.reloadDeckFromDiscard(discarded);
-            }
-       }
-
-        // ask the player what their bet is  
-        bet = Double.parseDouble(JOptionPane.showInputDialog("Enter a bet amount"));
-
-        if(bet > balance) { // in case the player tries to bet more than they have
-            System.out.println("You don't have that much money! Please try again");
-            bet = Double.parseDouble(JOptionPane.showInputDialog("Enter a bet amount"));
+        // make sure deck has at least 4 cards left
+        if(deck.cardsLeft() < 4) {
+            deck.reloadDeckFromDiscard(discarded);
         }
 
         // give the dealer 2 cards
@@ -75,55 +88,38 @@ public class Controller {
         // give the player 2 cards
         player.getHand().takeCardFromDeck(deck);
         player.getHand().takeCardFromDeck(deck);
+        
+    }
 
-        // print their hands
-        dealer.printFirstHand();
-        player.printHand();
-
+    public String checkWhoWins() {
+        
         // check if dealer has blackjack
         if (dealer.hasBlackjack()) {
             dealer.printHand(); // show full hand
 
             if (player.hasBlackjack()) {
-
-                System.out.println("You both have 21 - Push");
                 ++pushes;
-                startRound();
-
+                return "You both have 21 - Push";
             } else {
-
-                System.out.println("Dealer has BlackJack. You lose.");
-                dealer.printHand();
                 balance -= bet;
                 ++losses;
-                startRound();
+                dealer.printHand();
+                return "Dealer has BlackJack - You lose";
             }
         }
 
         // check if player has blackjack
         if(player.hasBlackjack()) {
-            System.out.println("You have BlackJack. You win.");
             balance += bet * 1.5;
             ++wins;
-            startRound();
+            return "You have BlackJack - You win";
         }
-        
-        player.makeDecision(deck, discarded);
-
-        checkWhoWins();
-
-        // start a new round
-        startRound();
-    }
-
-    private void checkWhoWins() { // FIXME: return string
 
         // check whether player busted
         if(player.getHand().calculateValue() > 21) {
-            System.out.println("Busted");
             balance -= bet;
             ++losses;
-            startRound();
+            return "Busted";
         }
         
         // dealer's turn
@@ -134,27 +130,84 @@ public class Controller {
         
         // check who wins
         if(dealer.getHand().calculateValue() > 21) {
-            System.out.println("Dealer busts");
             balance += bet;
             ++wins;
+            return "Dealer busts - You win";
         }
         
         if(dealer.getHand().calculateValue() > player.getHand().calculateValue() && dealer.getHand().calculateValue() <= 21) {
-            System.out.println("You lose");
             balance -= bet;
             ++losses;
+            return "You lose";
         }
 
         if(player.getHand().calculateValue() > dealer.getHand().calculateValue()) {
-            System.out.println("You win");
             balance += bet;
             ++wins;
+            return "You win";
         }
         
         if(player.getHand().calculateValue() == dealer.getHand().calculateValue()) {
-            System.out.println("Push");
             ++pushes;
+            return "Push";
         }
+        
+        return "Something went wrong";
+    }
+    
+    /**
+     * Hits the player with a card
+     */
+    public void hitPlayer() {
+        player.hit(deck, discarded);
+    }
+    
+    /**
+     *
+     * @return player hand
+     */
+    public String displayPlayerHand() {
+        return player.printHand();
+    }
+    
+    /**
+     * 
+     * @return the value of the player's hand
+     */
+    public String displayPlayerHandValue() {
+        return Integer.toString(player.getHand().calculateValue());
+    }
+    
+    /**
+     * 
+     * @return dealer hand
+     */
+    public String displayDealerHand() {
+        return dealer.printHand();
+    }
+    
+    /**
+     * 
+     * @return value of dealer's hand
+     */
+    public String displayDealerHandValue() {
+        return Integer.toString(dealer.getHand().calculateValue());
+    }
+    
+    /**
+     * 
+     * @return dealer's first card
+     */
+    public String displayDealerFirstCard() {
+        return dealer.printFirstHand();
+    }
+    
+    /**
+     * 
+     * @return value of the first card
+     */
+    public String displayDealerFirstCardValue() {
+        return dealer.printFirstCardValue();
     }
 
 }

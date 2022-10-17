@@ -23,7 +23,7 @@ public class Hand {
     }
 
     /**
-     * Mehtod to add a card from the deck to the hand
+     * Adds a card from the deck to the hand
      * 
      * @param deck deck to take card from
      */
@@ -32,7 +32,7 @@ public class Hand {
     }
 
     /**
-     * Method to calulate the value of a hand
+     * Method to calculate the value of a hand
      *
      * @return value value of the hand
      */

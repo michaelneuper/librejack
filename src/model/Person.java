@@ -49,8 +49,9 @@ public abstract class Person {
     /**
      * Prints a formatted version of the person's hand
      */
-    public void printHand() {
-        System.out.println(this.name + "'s hand:\n" + this.hand + "[" + this.hand.calculateValue() + "]");
+    // TODO: remove print statement
+    public String printHand() {
+        return this.hand + "[" + this.hand.calculateValue() + "]";
     }
     
     /**
@@ -61,14 +62,12 @@ public abstract class Person {
      */
     public void hit(Deck deck, Deck discard) {
 
-        // if there's no cards left in the deck
+        // if there are no cards left in the deck
         if (!deck.hasCards()) {
             deck.reloadDeckFromDiscard(discard);
         }
 
         this.hand.takeCardFromDeck(deck);
-        System.out.println(this.name + " gets a card");
-        this.printHand();
     }
 
 }
