@@ -71,7 +71,7 @@ public class Controller {
     public void startRound() {
 
         // if we run out of cards
-        if(wins > 0 || losses > 0 || pushes > 0) { // FIXME: change code :)
+        // if(wins > 0 || losses > 0 || pushes > 0) { // FIXME: change code :)
             System.out.println("\nStarting next round...\nWins: " + wins + "\nLosses: " + losses + "\nPushes: " + pushes + "\nBalance: " + balance);
             dealer.getHand().discardHandToDeck(discarded);
             player.getHand().discardHandToDeck(discarded);
