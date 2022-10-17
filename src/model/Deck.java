@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 import model.Card.Rank;
 import model.Card.Suit;
 
@@ -120,7 +122,7 @@ public class Deck {
         this.addCards(discard.getCards());
         this.shuffle();
         discard.emptyDeck();
-        System.out.println("Ran out of cards, creating new deck from discard pile & shuffling deck");
+        System.out.println("Ran out of cards, creating new deck from discard pile & shuffling deck"); // TODO: change to message dialog
     }
 
     /**
