@@ -81,9 +81,6 @@ public class Card {
         this.rank = card.getRank();
     }
 
-    /**
-     * Rank value getter method
-     */
     public int getValue() {
         return this.rank.rankValue;
     }
@@ -98,8 +95,6 @@ public class Card {
 
     @Override
     public String toString() {
-
-        return "[" + rank + " of " + suit + "]("
-                + this.getValue() + ")";
+        return "[" + rank + " of " + suit + "](" + this.getValue() + ")";
     }
 }

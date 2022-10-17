@@ -71,8 +71,10 @@ public class Controller {
     public void startRound() {
 
         // if we run out of cards
-        dealer.getHand().discardHandToDeck(discarded);
-        player.getHand().discardHandToDeck(discarded);
+        if(wins > 0 || losses > 0 || pushes > 0) { // FIXME: change code :)
+            System.out.println("\nStarting next round...\nWins: " + wins + "\nLosses: " + losses + "\nPushes: " + pushes + "\nBalance: " + balance);
+            dealer.getHand().discardHandToDeck(discarded);
+            player.getHand().discardHandToDeck(discarded);
             
         // make sure deck has at least 4 cards left
         if(deck.cardsLeft() < 4) {

@@ -44,11 +44,11 @@ public class Deck {
 
         ArrayList<Card> shufDeck = new ArrayList<Card>(); // temporary deck for storing cards in random order
 
-        Random random = new Random();
+        Random random = new Random(); // FIXME: use math method instead
         int randomCardIndex = 0;
 
         while (deck.size() > 0) {
-            // Generate random index
+            // generate random index
             randomCardIndex = random.nextInt(this.deck.size());
             shufDeck.add(this.deck.get(randomCardIndex)); // add card to random index of temporary deck
             this.deck.remove(randomCardIndex); // remove card from original deck
@@ -74,6 +74,7 @@ public class Deck {
     public Card takeCard() { // TODO: change take to draw
         Card cardToTake = new Card(deck.get(0));
         deck.remove(0);
+        
         return cardToTake;
     }
 
