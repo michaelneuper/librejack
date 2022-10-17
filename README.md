@@ -30,7 +30,8 @@ Download and run the `.jar ` file from the [releases tab](https://github.com/mic
 
 ## Directories
 + `db` constains databases
-+ `docs` contains documentation about the program
++ `dist` constains javadoc
+<!-- + `docs` contains documentation about the program -->
 <!-- + `lib` contains external libraries the program needs -->
 + `nbproject` contains netbeans metadata about the project
 + `src` contains the source files
