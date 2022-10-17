@@ -51,8 +51,6 @@ public abstract class Person {
      */
     // TODO: remove print statement
     public String printHand() {
-//        System.out.println(this.name + "'s hand:\n" + this.hand + "[" + this.hand.calculateValue() + "]");
-        System.out.println(this.hand + "[" + this.hand.calculateValue() + "]");
         return this.hand + "[" + this.hand.calculateValue() + "]";
     }
     
@@ -70,8 +68,6 @@ public abstract class Person {
         }
 
         this.hand.takeCardFromDeck(deck);
-//        System.out.println(this.name + " gets a card");
-//        this.printHand();
     }
 
 }
