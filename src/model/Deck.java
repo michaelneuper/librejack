@@ -3,8 +3,6 @@ package model;
 import java.util.ArrayList;
 import java.util.Random;
 
-import javax.swing.JOptionPane;
-
 import model.Card.Rank;
 import model.Card.Suit;
 
