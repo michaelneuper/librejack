@@ -87,12 +87,8 @@ public class Controller {
         player.getHand().takeCardFromDeck(deck);
         player.getHand().takeCardFromDeck(deck);
         
-        // TODO: move
-//        player.makeDecision(deck, discarded); 
-
     }
 
-    // TODO: remove print statements
     public String checkWhoWins() {
         
         // check if dealer has blackjack
@@ -101,13 +97,11 @@ public class Controller {
 
             if (player.hasBlackjack()) {
                 ++pushes;
-                System.out.println("You both have 21 - Push");
                 return "You both have 21 - Push";
             } else {
                 balance -= bet;
                 ++losses;
                 dealer.printHand();
-                System.out.println("Dealer has BlackJack - You lose");
                 return "Dealer has BlackJack - You lose";
             }
         }
@@ -116,7 +110,6 @@ public class Controller {
         if(player.hasBlackjack()) {
             balance += bet * 1.5;
             ++wins;
-            System.out.println("You have BlackJack. You win");
             return "You have BlackJack - You win";
         }
 
@@ -124,7 +117,6 @@ public class Controller {
         if(player.getHand().calculateValue() > 21) {
             balance -= bet;
             ++losses;
-            System.out.println("Busted");
             return "Busted";
         }
         
@@ -138,31 +130,26 @@ public class Controller {
         if(dealer.getHand().calculateValue() > 21) {
             balance += bet;
             ++wins;
-            System.out.println("Dealer busts");
             return "Dealer busts - You win";
         }
         
         if(dealer.getHand().calculateValue() > player.getHand().calculateValue() && dealer.getHand().calculateValue() <= 21) {
             balance -= bet;
             ++losses;
-            System.out.println("you lose");
             return "You lose";
         }
 
         if(player.getHand().calculateValue() > dealer.getHand().calculateValue()) {
             balance += bet;
             ++wins;
-            System.out.println("you win");
             return "You win";
         }
         
         if(player.getHand().calculateValue() == dealer.getHand().calculateValue()) {
             ++pushes;
-            System.out.println("push");
             return "Push";
         }
         
-        System.out.println("something went wrong");
         return "Something went wrong";
     }
     
@@ -177,9 +164,7 @@ public class Controller {
      *
      * @return player hand
      */
-    // TODO: remove print statements
     public String displayPlayerHand() {
-        System.out.println("Your hand:\n");
         return player.printHand();
     }
     
@@ -196,7 +181,6 @@ public class Controller {
      * @return dealer hand
      */
     public String displayDealerHand() {
-        System.out.println("Dealer's hand:\n");
         return dealer.printHand();
     }
     
@@ -213,7 +197,6 @@ public class Controller {
      * @return dealer's first card
      */
     public String displayDealerFirstCard() {
-        System.out.println("Dealer's hand:\n");
         return dealer.printFirstHand();
     }
     
