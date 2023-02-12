@@ -40,17 +40,26 @@ public class LoginController {
     * @return true if the email is a valid email format, false otherwise
     */
     private boolean isValidEmail(String email) {
+        // Check if email is null
+        if (email == null) {
+            JOptionPane.showMessageDialog(null, "Please enter an email");
+        }
+
+        // Define regular expression pattern for valid email addresses
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
                             "[a-zA-Z0-9_+&*-]+)*@" +
-                            "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"; // regular expression representing a valid email
+                            "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(emailRegex);
-        
+
+        // Check if email matches the pattern
         boolean isValid = pattern.matcher(email).matches();
-        
+
+        // If email is not valid, show error message
         if (!isValid) {
             JOptionPane.showMessageDialog(null, "Please enter a valid email");
         }
-        
+
+        // Return whether email is valid
         return isValid;
     }
 
