@@ -14,7 +14,7 @@ public class LoginController {
     
     public boolean areAllFieldsValid(String email, String mobileNumber, String password) {
         return 
-//                isValidEmail(email) && 
+                isValidEmail(email) && 
                 isValidSouthAfricanMobileNumber(mobileNumber) &&
                 isValidPassword(password);
     }

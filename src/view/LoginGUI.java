@@ -2,6 +2,7 @@ package view;
 
 import controller.LoginController;
 
+
 /**
  *
  * @author Michael
@@ -26,6 +27,7 @@ public class LoginGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
         jLabelWelcome = new javax.swing.JLabel();
         jLabelLogin = new javax.swing.JLabel();
         jLabelEmail = new javax.swing.JLabel();
@@ -46,8 +48,12 @@ public class LoginGUI extends javax.swing.JFrame {
         jLabelDateOfBirth = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jLabelCardsImage = new javax.swing.JLabel();
+
+        jPanel3.setBackground(new java.awt.Color(51, 204, 0));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 153, 153));
         setMinimumSize(new java.awt.Dimension(829, 786));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -106,6 +112,7 @@ public class LoginGUI extends javax.swing.JFrame {
         jLabel4.setText("- 1 special character");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 609, -1, -1));
 
+        jButtonVerify.setBackground(new java.awt.Color(204, 204, 204));
         jButtonVerify.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         jButtonVerify.setText("PLAY");
         jButtonVerify.addActionListener(new java.awt.event.ActionListener() {
@@ -138,6 +145,10 @@ public class LoginGUI extends javax.swing.JFrame {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(454, 735, -1, -1));
+
+        jLabelCardsImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/cards_icon.png"))); // NOI18N
+        jLabelCardsImage.setText("jLabel6");
+        getContentPane().add(jLabelCardsImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 680, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -194,10 +205,8 @@ public class LoginGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginGUI().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new LoginGUI().setVisible(true);
         });
     }
 
@@ -208,6 +217,7 @@ public class LoginGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelCardsImage;
     private javax.swing.JLabel jLabelDateOfBirth;
     private javax.swing.JLabel jLabelEmail;
     private javax.swing.JLabel jLabelLogin;
@@ -218,6 +228,7 @@ public class LoginGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelWelcome;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldMobileNumber;
