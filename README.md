@@ -1,5 +1,7 @@
 # librejack
 
+![Cards](assets/cards.png)
+
 ![GitHub repo size](https://img.shields.io/github/repo-size/michaelneuper/librejack?style=flat-square)
 ![Lines of code](https://img.shields.io/tokei/lines/github/michaelneuper/librejack?style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/michaelneuper/librejack?style=flat-square)
