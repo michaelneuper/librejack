@@ -1,24 +1,10 @@
-/*
- * Copyright (C) 2023 michael
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package view;
+
+import controller.LoginController;
 
 /**
  *
- * @author michael
+ * @author Michael
  */
 public class LoginGUI extends javax.swing.JFrame {
 
@@ -28,6 +14,8 @@ public class LoginGUI extends javax.swing.JFrame {
     public LoginGUI() {
         initComponents();
     }
+    
+    LoginController controller = new LoginController();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,22 +26,195 @@ public class LoginGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabelWelcome = new javax.swing.JLabel();
+        jLabelLogin = new javax.swing.JLabel();
+        jLabelEmail = new javax.swing.JLabel();
+        jLabelMobileNumber = new javax.swing.JLabel();
+        jLabelUsername = new javax.swing.JLabel();
+        jLabelPassword = new javax.swing.JLabel();
+        jTextFieldUsername = new javax.swing.JTextField();
+        jPasswordField = new javax.swing.JPasswordField();
+        jLabelPasswordRequirements = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jButtonVerify = new javax.swing.JButton();
+        jTextFieldEmail = new javax.swing.JTextField();
+        jTextFieldMobileNumber = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabelDateOfBirth = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1258, 809));
+
+        jLabelWelcome.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabelWelcome.setText("WELCOME TO LIBREJACK!");
+
+        jLabelLogin.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabelLogin.setText("Login");
+
+        jLabelEmail.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabelEmail.setText("Email:");
+
+        jLabelMobileNumber.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabelMobileNumber.setText("Mobile number:");
+
+        jLabelUsername.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabelUsername.setText("Username:");
+
+        jLabelPassword.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabelPassword.setText("Password:");
+
+        jTextFieldUsername.setText("PenguinPancakes69");
+        jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldUsernameActionPerformed(evt);
+            }
+        });
+
+        jPasswordField.setText("password123");
+        jPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordFieldActionPerformed(evt);
+            }
+        });
+
+        jLabelPasswordRequirements.setText("Password requires at least:");
+
+        jLabel1.setText("- 10 characters");
+
+        jLabel2.setText("- 1 uppercase and lowercase letter");
+
+        jLabel3.setText("- 1 number");
+
+        jLabel4.setText("- 1 special character");
+
+        jButtonVerify.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jButtonVerify.setText("PLAY");
+        jButtonVerify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVerifyActionPerformed(evt);
+            }
+        });
+
+        jTextFieldEmail.setText("johndoe@example.com");
+
+        jTextFieldMobileNumber.setText("082 738 9016");
+        jTextFieldMobileNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldMobileNumberActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Must be a valid South African number");
+
+        jLabelDateOfBirth.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabelDateOfBirth.setText("Date of birth:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 947, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(335, 335, 335)
+                        .addComponent(jLabelWelcome))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabelPasswordRequirements, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabelPassword)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelLogin)
+                                    .addComponent(jLabelUsername)
+                                    .addComponent(jLabelEmail)
+                                    .addComponent(jLabelMobileNumber)
+                                    .addComponent(jLabelDateOfBirth))
+                                .addGap(95, 95, 95)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextFieldUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                        .addComponent(jTextFieldEmail)
+                                        .addComponent(jTextFieldMobileNumber))
+                                    .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButtonVerify, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(329, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 664, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabelWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(jLabelLogin)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelUsername)
+                    .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelEmail)
+                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelMobileNumber)
+                    .addComponent(jTextFieldMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addGap(29, 29, 29)
+                .addComponent(jLabelDateOfBirth)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelPassword)
+                    .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabelPasswordRequirements)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addGap(74, 74, 74)
+                .addComponent(jButtonVerify, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
+
+    }//GEN-LAST:event_jPasswordFieldActionPerformed
+
+    private void jButtonVerifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerifyActionPerformed
+        char[] passwordCh = jPasswordField.getPassword();
+        String password = new String(passwordCh); // convert password to string
+        if (controller.areAllFieldsValid(
+                jTextFieldEmail.getText(), 
+                jTextFieldMobileNumber.getText(), 
+                password)) {
+            new MainGUI().setVisible(true); // open the game window
+            this.dispose(); // close the login screen
+        }
+    }//GEN-LAST:event_jButtonVerifyActionPerformed
+
+    private void jTextFieldUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldUsernameActionPerformed
+
+    private void jTextFieldMobileNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMobileNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldMobileNumberActionPerformed
 
     /**
      * @param args the command line arguments
@@ -91,5 +252,23 @@ public class LoginGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonVerify;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelDateOfBirth;
+    private javax.swing.JLabel jLabelEmail;
+    private javax.swing.JLabel jLabelLogin;
+    private javax.swing.JLabel jLabelMobileNumber;
+    private javax.swing.JLabel jLabelPassword;
+    private javax.swing.JLabel jLabelPasswordRequirements;
+    private javax.swing.JLabel jLabelUsername;
+    private javax.swing.JLabel jLabelWelcome;
+    private javax.swing.JPasswordField jPasswordField;
+    private javax.swing.JTextField jTextFieldEmail;
+    private javax.swing.JTextField jTextFieldMobileNumber;
+    private javax.swing.JTextField jTextFieldUsername;
     // End of variables declaration//GEN-END:variables
 }
