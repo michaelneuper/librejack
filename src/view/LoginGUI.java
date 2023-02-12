@@ -2,8 +2,6 @@ package view;
 
 import controller.LoginController;
 import java.util.Date;
-import javax.swing.JOptionPane;
-
 
 /**
  *
@@ -17,7 +15,7 @@ public class LoginGUI extends javax.swing.JFrame {
     public LoginGUI() {
         initComponents();
     }
-    
+
     LoginController controller = new LoginController();
 
     /**
@@ -243,8 +241,8 @@ public class LoginGUI extends javax.swing.JFrame {
         String password = new String(passwordCh); // convert password to string
         Date selectedDate = jDateChooser1.getDate();
         if (controller.areAllFieldsValid(
-                jTextFieldEmail.getText(), 
-                jTextFieldMobileNumber.getText(), 
+                jTextFieldEmail.getText(),
+                jTextFieldMobileNumber.getText(),
                 selectedDate,
                 password)) {
             new MainGUI().setVisible(true); // open the game window
