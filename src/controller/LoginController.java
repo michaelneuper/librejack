@@ -130,59 +130,27 @@ public class LoginController {
      * @return whether password is valid
      */
     private boolean isValidPassword(String password) {
-        if (password == null || password.isEmpty() || password.length() < 10) {
-            JOptionPane.showMessageDialog(null, "Password must be at least 10 characters long");
-            return false;
-        }
-
         boolean hasUpperCase = false;
         boolean hasLowerCase = false;
         boolean hasNumber = false;
         boolean hasSpecialChar = false;
 
+        if (password == null || password.length() < 10) {
+            JOptionPane.showMessageDialog(null, "Password must be at least 10 characters long");
+            return false;
+        }
+
         for (int i = 0; i < password.length(); i++) {
             char ch = password.charAt(i);
-            switch (ch) {
-                case '!':
-                case '@':
-                case '#':
-                case '$':
-                case '%':
-                case '^':
-                case '&':
-                case '*':
-                case '(':
-                case ')':
-                case '-':
-                case '+':
-                case '=':
-                case '[':
-                case ']':
-                case '{':
-                case '}':
-                case '|':
-                case '\\':
-                case ';':
-                case ':':
-                case '\'':
-                case '\"':
-                case ',':
-                case '<':
-                case '.':
-                case '>':
-                case '/':
-                case '?':
-                    hasSpecialChar = true;
-                    break;
-                default:
-                    if (Character.isUpperCase(ch)) {
-                        hasUpperCase = true;
-                    } else if (Character.isLowerCase(ch)) {
-                        hasLowerCase = true;
-                    } else if (Character.isDigit(ch)) {
-                        hasNumber = true;
-                    }
-                    break;
+
+            if (Character.isUpperCase(ch)) {
+                hasUpperCase = true;
+            } else if (Character.isLowerCase(ch)) {
+                hasLowerCase = true;
+            } else if (Character.isDigit(ch)) {
+                hasNumber = true;
+            } else if (isSpecialCharacter(ch)) {
+                hasSpecialChar = true;
             }
         }
 
@@ -201,6 +169,17 @@ public class LoginController {
 
         return hasUpperCase && hasLowerCase && hasNumber && hasSpecialChar;
     }
-    
 
+    /**
+    * Checks whether a character is a special character, i.e., one of the following:
+    * !@#$%^&*()-+=[]{}|\;:'",<.>/?.
+    * 
+    * @param ch the character to check
+    * @return true if the character is a special character, false otherwise
+    */
+    private boolean isSpecialCharacter(char ch) {
+        String specialCharacters = "!@#$%^&*()-+=[]{}|\\;:'\",<.>/?";
+        return specialCharacters.contains(String.valueOf(ch));
+    }
+    
 }
