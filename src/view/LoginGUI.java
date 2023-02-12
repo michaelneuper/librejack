@@ -44,26 +44,36 @@ public class LoginGUI extends javax.swing.JFrame {
         jTextFieldMobileNumber = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabelDateOfBirth = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(829, 786));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelWelcome.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         jLabelWelcome.setText("WELCOME TO LIBREJACK!");
+        getContentPane().add(jLabelWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 33, -1, 105));
 
         jLabelLogin.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabelLogin.setText("Login");
+        getContentPane().add(jLabelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 145, -1, -1));
 
         jLabelEmail.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelEmail.setText("Email:");
+        getContentPane().add(jLabelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
 
         jLabelMobileNumber.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelMobileNumber.setText("Mobile number:");
+        getContentPane().add(jLabelMobileNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 306, -1, -1));
 
         jLabelUsername.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelUsername.setText("Username:");
+        getContentPane().add(jLabelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 213, -1, -1));
 
         jLabelPassword.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelPassword.setText("Password:");
+        getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 442, -1, -1));
 
         jTextFieldUsername.setText("PenguinPancakes69");
         jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +81,7 @@ public class LoginGUI extends javax.swing.JFrame {
                 jTextFieldUsernameActionPerformed(evt);
             }
         });
+        getContentPane().add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 216, 215, 26));
 
         jPasswordField.setText("password123");
         jPasswordField.addActionListener(new java.awt.event.ActionListener() {
@@ -78,16 +89,22 @@ public class LoginGUI extends javax.swing.JFrame {
                 jPasswordFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(jPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 446, 215, -1));
 
         jLabelPasswordRequirements.setText("Password requires at least:");
+        getContentPane().add(jLabelPasswordRequirements, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 487, 205, -1));
 
         jLabel1.setText("- 10 characters");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 522, 137, -1));
 
         jLabel2.setText("- 1 uppercase and lowercase letter");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 551, -1, -1));
 
         jLabel3.setText("- 1 number");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, -1, -1));
 
         jLabel4.setText("- 1 special character");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 609, -1, -1));
 
         jButtonVerify.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         jButtonVerify.setText("PLAY");
@@ -96,8 +113,10 @@ public class LoginGUI extends javax.swing.JFrame {
                 jButtonVerifyActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonVerify, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 700, 204, 86));
 
-        jTextFieldEmail.setText("johndoe@example.com");
+        jTextFieldEmail.setText("john.doe@example.com");
+        getContentPane().add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 263, 215, -1));
 
         jTextFieldMobileNumber.setText("082 738 9016");
         jTextFieldMobileNumber.addActionListener(new java.awt.event.ActionListener() {
@@ -105,89 +124,20 @@ public class LoginGUI extends javax.swing.JFrame {
                 jTextFieldMobileNumberActionPerformed(evt);
             }
         });
+        getContentPane().add(jTextFieldMobileNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 306, 215, -1));
 
         jLabel5.setText("Must be a valid South African number");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 352, -1, -1));
 
         jLabelDateOfBirth.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelDateOfBirth.setText("Date of birth:");
+        getContentPane().add(jLabelDateOfBirth, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 398, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(335, 335, 335)
-                        .addComponent(jLabelWelcome))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabelPasswordRequirements, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabelPassword)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelLogin)
-                                    .addComponent(jLabelUsername)
-                                    .addComponent(jLabelEmail)
-                                    .addComponent(jLabelMobileNumber)
-                                    .addComponent(jLabelDateOfBirth))
-                                .addGap(95, 95, 95)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextFieldUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                        .addComponent(jTextFieldEmail)
-                                        .addComponent(jTextFieldMobileNumber))
-                                    .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jButtonVerify, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(329, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabelWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addComponent(jLabelLogin)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelUsername)
-                    .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelEmail)
-                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelMobileNumber)
-                    .addComponent(jTextFieldMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addGap(29, 29, 29)
-                .addComponent(jLabelDateOfBirth)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelPassword)
-                    .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabelPasswordRequirements)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addGap(74, 74, 74)
-                .addComponent(jButtonVerify, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
-        );
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 15, -1, -1));
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(454, 735, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -266,6 +216,8 @@ public class LoginGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPasswordRequirements;
     private javax.swing.JLabel jLabelUsername;
     private javax.swing.JLabel jLabelWelcome;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldMobileNumber;
