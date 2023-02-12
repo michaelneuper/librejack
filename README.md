@@ -1,6 +1,6 @@
 # librejack
 
-![Cards](assets/cards.png)
+![Cards](assets/suites.png)
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/michaelneuper/librejack?style=flat-square)
 ![Lines of code](https://img.shields.io/tokei/lines/github/michaelneuper/librejack?style=flat-square)
