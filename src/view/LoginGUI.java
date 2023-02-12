@@ -1,6 +1,8 @@
 package view;
 
 import controller.LoginController;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -49,37 +51,33 @@ public class LoginGUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabelCardsImage = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jLabel6 = new javax.swing.JLabel();
 
         jPanel3.setBackground(new java.awt.Color(51, 204, 0));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 153));
         setMinimumSize(new java.awt.Dimension(829, 786));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelWelcome.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         jLabelWelcome.setText("WELCOME TO LIBREJACK!");
-        getContentPane().add(jLabelWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 33, -1, 105));
 
         jLabelLogin.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabelLogin.setText("Login");
-        getContentPane().add(jLabelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 145, -1, -1));
 
         jLabelEmail.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelEmail.setText("Email:");
-        getContentPane().add(jLabelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
 
         jLabelMobileNumber.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelMobileNumber.setText("Mobile number:");
-        getContentPane().add(jLabelMobileNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 306, -1, -1));
 
         jLabelUsername.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelUsername.setText("Username:");
-        getContentPane().add(jLabelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 213, -1, -1));
 
         jLabelPassword.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelPassword.setText("Password:");
-        getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 442, -1, -1));
 
         jTextFieldUsername.setText("PenguinPancakes69");
         jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +85,6 @@ public class LoginGUI extends javax.swing.JFrame {
                 jTextFieldUsernameActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 216, 215, 26));
 
         jPasswordField.setText("password123");
         jPasswordField.addActionListener(new java.awt.event.ActionListener() {
@@ -95,22 +92,16 @@ public class LoginGUI extends javax.swing.JFrame {
                 jPasswordFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 446, 215, -1));
 
         jLabelPasswordRequirements.setText("Password requires at least:");
-        getContentPane().add(jLabelPasswordRequirements, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 487, 205, -1));
 
         jLabel1.setText("- 10 characters");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 522, 137, -1));
 
         jLabel2.setText("- 1 uppercase and lowercase letter");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 551, -1, -1));
 
         jLabel3.setText("- 1 number");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, -1, -1));
 
         jLabel4.setText("- 1 special character");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 609, -1, -1));
 
         jButtonVerify.setBackground(new java.awt.Color(204, 204, 204));
         jButtonVerify.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
@@ -120,10 +111,8 @@ public class LoginGUI extends javax.swing.JFrame {
                 jButtonVerifyActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonVerify, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 700, 204, 86));
 
         jTextFieldEmail.setText("john.doe@example.com");
-        getContentPane().add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 263, 215, -1));
 
         jTextFieldMobileNumber.setText("082 738 9016");
         jTextFieldMobileNumber.addActionListener(new java.awt.event.ActionListener() {
@@ -131,24 +120,129 @@ public class LoginGUI extends javax.swing.JFrame {
                 jTextFieldMobileNumberActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldMobileNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 306, 215, -1));
 
         jLabel5.setText("Must be a valid South African number");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 352, -1, -1));
 
         jLabelDateOfBirth.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelDateOfBirth.setText("Date of birth:");
-        getContentPane().add(jLabelDateOfBirth, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 398, -1, -1));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 15, -1, -1));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(454, 735, -1, -1));
 
         jLabelCardsImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/cards_icon.png"))); // NOI18N
         jLabelCardsImage.setText("jLabel6");
-        getContentPane().add(jLabelCardsImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 680, 520));
+
+        jToggleButton1.setText("show date");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("You need to be at least 18 to gamble");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(235, 235, 235)
+                .addComponent(jLabelWelcome))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelLogin)
+                            .addComponent(jLabelUsername)
+                            .addComponent(jLabelEmail)
+                            .addComponent(jLabelMobileNumber)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabelDateOfBirth)
+                            .addComponent(jLabelPassword)
+                            .addComponent(jLabelPasswordRequirements, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6))
+                        .addGap(11, 11, 11)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelCardsImage, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonVerify, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(310, 310, 310)
+                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21)
+                                .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(68, 68, 68)
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelCardsImage, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelLogin)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelUsername)
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabelEmail)
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabelMobileNumber)
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel5)
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabelDateOfBirth)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelPassword)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabelPasswordRequirements)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel4)))))
+                .addGap(18, 35, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonVerify, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -160,9 +254,11 @@ public class LoginGUI extends javax.swing.JFrame {
     private void jButtonVerifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerifyActionPerformed
         char[] passwordCh = jPasswordField.getPassword();
         String password = new String(passwordCh); // convert password to string
+        Date selectedDate = jDateChooser1.getDate();
         if (controller.areAllFieldsValid(
                 jTextFieldEmail.getText(), 
                 jTextFieldMobileNumber.getText(), 
+                selectedDate,
                 password)) {
             new MainGUI().setVisible(true); // open the game window
             this.dispose(); // close the login screen
@@ -176,6 +272,10 @@ public class LoginGUI extends javax.swing.JFrame {
     private void jTextFieldMobileNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMobileNumberActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldMobileNumberActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        JOptionPane.showMessageDialog(null, jDateChooser1.getDate());
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,11 +312,13 @@ public class LoginGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonVerify;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelCardsImage;
     private javax.swing.JLabel jLabelDateOfBirth;
     private javax.swing.JLabel jLabelEmail;
@@ -233,5 +335,6 @@ public class LoginGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldMobileNumber;
     private javax.swing.JTextField jTextFieldUsername;
+    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }

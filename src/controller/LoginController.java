@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
@@ -12,10 +14,11 @@ public class LoginController {
     public LoginController() {
     }
     
-    public boolean areAllFieldsValid(String email, String mobileNumber, String password) {
+    public boolean areAllFieldsValid(String email, String mobileNumber, Date date, String password) {
         return 
                 isValidEmail(email) && 
                 isValidSouthAfricanMobileNumber(mobileNumber) &&
+                isValidDateAndAdult(date) &&
                 isValidPassword(password);
     }
 
@@ -75,6 +78,44 @@ public class LoginController {
         }
 
         // If all checks pass, the mobile number is considered valid
+        return true;
+    }
+    
+    /**
+    * Checks if a given date is valid and the person is at least 18 years old.
+    *
+    * @param date the date to be checked
+    * @return {@code true} if the date is valid and the person is at least 18 years old; {@code false} otherwise
+    */
+    private static boolean isValidDateAndAdult(Date date) {
+        // Check if the date is null
+        if (date == null) {
+            JOptionPane.showMessageDialog(null, "Please enter a date of birth");
+            return false;
+        }
+        
+        // Check if the date is in the past
+        if (date.after(new Date())) {
+            JOptionPane.showMessageDialog(null, "You were not born in the future!");
+            return false;
+        }
+        
+        // Check if the person is at least 18 years old
+        Calendar dob = Calendar.getInstance();
+        dob.setTime(date);
+        Calendar now = Calendar.getInstance();
+        now.setTime(new Date());
+        int age = now.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+        if (now.get(Calendar.MONTH) < dob.get(Calendar.MONTH) ||
+            (now.get(Calendar.MONTH) == dob.get(Calendar.MONTH) && now.get(Calendar.DAY_OF_MONTH) < dob.get(Calendar.DAY_OF_MONTH))) {
+            age--;
+        }
+        if (age < 18) {
+            JOptionPane.showMessageDialog(null, "You need to be at least 18 years old to gamble!");
+            return false;
+        }
+        
+        // If all checks pass, the date is valid and the person is at least 18
         return true;
     }
         
