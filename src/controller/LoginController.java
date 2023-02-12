@@ -13,10 +13,17 @@ public class LoginController {
 
     public LoginController() {
     }
-    
+    /**
+     * Checks whether all the entered fields are present and valid
+     * 
+     * @param email
+     * @param mobileNumber
+     * @param date
+     * @param password
+     * @return true if all fields are valid, false otherwise
+     */
     public boolean areAllFieldsValid(String email, String mobileNumber, Date date, String password) {
-        return 
-                isValidEmail(email) && 
+        return isValidEmail(email) && 
                 isValidSouthAfricanMobileNumber(mobileNumber) &&
                 isValidDateAndAdult(date) &&
                 isValidPassword(password);
@@ -85,7 +92,7 @@ public class LoginController {
     * Checks if a given date is valid and the person is at least 18 years old.
     *
     * @param date the date to be checked
-    * @return {@code true} if the date is valid and the person is at least 18 years old; {@code false} otherwise
+    * @return true if the date is valid and the person is at least 18 years old, false otherwise
     */
     private static boolean isValidDateAndAdult(Date date) {
         // Check if the date is null
@@ -109,6 +116,7 @@ public class LoginController {
         if (now.get(Calendar.MONTH) < dob.get(Calendar.MONTH) ||
             (now.get(Calendar.MONTH) == dob.get(Calendar.MONTH) && now.get(Calendar.DAY_OF_MONTH) < dob.get(Calendar.DAY_OF_MONTH))) {
             age--;
+        } else {
         }
         if (age < 18) {
             JOptionPane.showMessageDialog(null, "You need to be at least 18 years old to gamble!");
@@ -127,7 +135,7 @@ public class LoginController {
      * - has at least 1 uppercase and lowercase letter
      * 
      * @param password to be validated
-     * @return whether password is valid
+     * @return true if password is valid, false otherwise
      */
     private boolean isValidPassword(String password) {
         boolean hasUpperCase = false;
