@@ -71,7 +71,7 @@ public class LoginController {
      *
      * @param mobileNumber the mobile number to check
      * @return true if the mobile number is a valid South African mobile number,
-     *         false otherwise
+     * false otherwise
      */
     private boolean isValidSouthAfricanMobileNumber(String mobileNumber) {
         // Remove any non-digit characters from the mobile number
@@ -106,7 +106,7 @@ public class LoginController {
      *
      * @param date the date to be checked
      * @return true if the date is valid and the person is at least 18 years
-     *         old, false otherwise
+     * old, false otherwise
      */
     private static boolean isValidDateAndAdult(Date date) {
         // Check if the date is null

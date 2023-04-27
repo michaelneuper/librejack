@@ -8,7 +8,7 @@ import model.Card.Suit;
 
 /**
  * Holds multiple cards and performs operations such as shuffling the deck
- * 
+ *
  * @author Michael
  */
 public class Deck {
@@ -57,7 +57,7 @@ public class Deck {
 
     /**
      * Method to add a card to the deck
-     * 
+     *
      * @param inCard card the be added
      */
     public void addCard(Card inCard) {
@@ -66,19 +66,19 @@ public class Deck {
 
     /**
      * Takes copy of first card from deck and removes card from deck
-     * 
+     *
      * @return cardToTake card that was removed
      */
     public Card takeCard() { // TODO: change take to draw
         Card cardToTake = new Card(deck.get(0));
         deck.remove(0);
-        
+
         return cardToTake;
     }
 
     /**
      * Makes sure the deck we're hitting from has cards in it
-     * 
+     *
      * @return true (if the deck has cards in)
      * @return false (if the deck is empty)
      */
@@ -95,7 +95,7 @@ public class Deck {
 
     /**
      * Adds arraylist of cards to deck
-     * 
+     *
      * @param cards arraylist of cards to be added to deck
      */
     public void addCards(ArrayList<Card> cards) {

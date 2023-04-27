@@ -9,11 +9,11 @@ import java.util.Scanner;
 
 /**
  * Handles player specific operations, such as deciding to hit or stand.
- * 
+ *
  * @author Michael
  */
 public class Player extends Person {
-    
+
     private double balance; // TODO: make public
     Scanner input = new Scanner(System.in);
 
@@ -23,7 +23,7 @@ public class Player extends Person {
     public Player() {
         super.setName("Player");
     }
-    
+
     public double getBalance(String inFile) {
         try {
             Scanner scFile = new Scanner(new File(inFile));

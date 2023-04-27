@@ -1,4 +1,5 @@
 package view;
+
 import com.opencsv.exceptions.CsvValidationException;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -10,10 +11,9 @@ import model.Statistics;
  * @author michael
  */
 public class StatisticsGUI extends javax.swing.JFrame {
-    
+
     Statistics stats;
 
-    
     /**
      * Creates new form StatisticsGUI
      */

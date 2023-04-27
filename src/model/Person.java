@@ -4,7 +4,7 @@ import controller.Hand;
 
 /**
  * Parent class of the Player and Dealer Objects
- * 
+ *
  * @author Michael
  */
 public abstract class Person {
@@ -38,14 +38,14 @@ public abstract class Person {
 
     /**
      * Checks if a person has blackjack
-     * 
+     *
      * @return true (if player has a blackjack)
      * @return false (if player does not have a blackjack)
      */
     public boolean hasBlackjack() {
         return this.getHand().calculateValue() == 21;
     }
-    
+
     /**
      * Prints a formatted version of the person's hand
      */
@@ -53,10 +53,10 @@ public abstract class Person {
     public String printHand() {
         return this.hand + "[" + this.hand.calculateValue() + "]";
     }
-    
+
     /**
      * Checks if deck has cards and reloads deck if it ran out
-     * 
+     *
      * @param deck deck to draw from
      * @param discard deck to discard to
      */

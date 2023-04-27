@@ -1,8 +1,9 @@
 package model;
 
 /**
- * Handles dealer specific operations, such as drawing cards to 16 and standing on 17 or above.
- * 
+ * Handles dealer specific operations, such as drawing cards to 16 and standing
+ * on 17 or above.
+ *
  * @author Michael
  */
 public class Dealer extends Person {
@@ -17,7 +18,7 @@ public class Dealer extends Person {
     public String printFirstHand() {
         return "" + super.getHand().getCard(0);
     }
-    
+
     public String printFirstCardValue() {
         return "" + super.getHand().getCard(0).getValue();
     }
