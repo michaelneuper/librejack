@@ -15,7 +15,7 @@ public class LoginController {
     }
 
     /**
-     * Checks whether all the entered fields are present and valid
+     * Checks whether all the entered fields are present and valid.
      *
      * @param email
      * @param mobileNumber
