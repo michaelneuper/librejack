@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import model.Statistics;
 
 /**
+ * GUI that displays the player's wins, losses and pushes.
  *
  * @author Michael Neuper
  * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>

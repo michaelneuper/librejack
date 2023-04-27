@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
+ * Controller for handling user login.
  *
  * @author Michael Neuper
  * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>

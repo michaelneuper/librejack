@@ -7,7 +7,7 @@ import model.Player;
 import model.Statistics;
 
 /**
- * Handles most of the game logic
+ * Handles most of the game logic.
  *
  * @author Michael Neuper
  * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
