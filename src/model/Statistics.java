@@ -8,77 +8,146 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import com.opencsv.exceptions.CsvValidationException;
 
-
 /**
  * The Statistics class represents a set of statistics for a blackjack game.
- * Statistics are stored in a CSV file with the following format:
- *   - Column 1: number of wins
- *   - Column 2: number of losses
- *   - Column 3: number of pushes (ties)
- * 
+ * Statistics are stored in a CSV file with the following format: - Column 1:
+ * number of wins - Column 2: number of losses - Column 3: number of pushes
+ * (ties)
+ *
  * The file is named 'statistics.csv' and is stored in the 'db/' directory.
- * 
+ *
  * @author michael
  */
 public class Statistics {
-    private static final String CSV_FILE = "db/statistics.csv";
-    private static final String[] CSV_HEADERS = {"wins", "losses", "pushes"};
+
+    private static final String CSV_FILE = "db/statistics.csv"; // csv file that stores the stats
+    private static final String[] CSV_HEADERS = {"wins", "losses", "pushes"}; // headers for the csv file
 
     private int wins;
     private int losses;
     private int pushes;
 
+    /**
+     * Constructs a new Statistics object with all statistics initialized to 0.
+     */
     public Statistics() {
         this.wins = 0;
         this.losses = 0;
         this.pushes = 0;
     }
 
+    /**
+     *
+     * Constructs a new Statistics object with the given statistics.
+     *
+     * @param wins the number of wins
+     * @param losses the number of losses
+     * @param pushes the number of pushes (ties)
+     */
     public Statistics(int wins, int losses, int pushes) {
         this.wins = wins;
         this.losses = losses;
         this.pushes = pushes;
     }
 
+    /**
+     *
+     * Gets the number of wins.
+     *
+     * @return wins number of wins
+     */
     public int getWins() {
         return wins;
     }
 
+    /**
+     *
+     * Gets the number of losses.
+     *
+     * @return losses number of losses
+     */
     public int getLosses() {
         return losses;
     }
 
+    /**
+     *
+     * Gets the number of pushes (ties).
+     *
+     * @return pushes number of pushes
+     */
     public int getPushes() {
         return pushes;
     }
 
+    /**
+     *
+     * Sets the number of wins.
+     *
+     * @param wins the new number of wins
+     */
     public void setWins(int wins) {
         this.wins = wins;
     }
 
+    /**
+     *
+     * Sets the number of losses.
+     *
+     * @param losses the new number of losses
+     */
     public void setLosses(int losses) {
         this.losses = losses;
     }
 
+    /**
+     *
+     * Sets the number of pushes (ties).
+     *
+     * @param pushes the new number of pushes
+     */
     public void setPushes(int pushes) {
         this.pushes = pushes;
     }
 
+    /**
+     *
+     * Increments the number of wins by 1 and saves the new statistics to the
+     * CSV file.
+     */
     public void incrementWins() {
         this.wins++;
         save();
     }
 
+    /**
+     *
+     * Increments the number of losses by 1 and saves the new statistics to the
+     * CSV file.
+     */
     public void incrementLosses() {
         this.losses++;
         save();
     }
 
+    /**
+     *
+     * Increments the number of pushes (ties) by 1 and saves the new statistics
+     * to the CSV file.
+     */
     public void incrementPushes() {
         this.pushes++;
         save();
     }
 
+    /**
+     *
+     * This method saves the current statistics (number of wins, losses, and
+     * pushes) to a CSV file. The file path is defined by the CSV_FILE constant
+     * in the Statistics class. The method uses a CSVWriter object to write the
+     * data to the file. If an IOException occurs during the file writing
+     * process, it is caught and ignored.
+     */
     public void save() {
         try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE))) {
             writer.writeNext(CSV_HEADERS);
@@ -88,6 +157,23 @@ public class Statistics {
         }
     }
 
+    /**
+     *
+     * This static method loads the statistics from the CSV file located at the
+     * path defined by the CSV_FILE constant in the Statistics class. The method
+     * uses a CSVReader object to read the data from the file. If the CSV file
+     * does not have the expected headers, an IOException is thrown. The method
+     * returns a Statistics object with the values read from the CSV file. If an
+     * IOException occurs during the file reading process, it is caught and
+     * ignored. If a CsvValidationException is thrown during the file reading
+     * process, it is passed to the calling method.
+     *
+     * @return Statistics object with the values read from the CSV file
+     * @throws CsvValidationException if there is a problem with the CSV file
+     * format
+     * @throws IOException if there is a problem with the file reading process
+     * or the CSV file headers are invalid
+     */
     public static Statistics load() throws CsvValidationException {
         Statistics stats = new Statistics();
         try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
