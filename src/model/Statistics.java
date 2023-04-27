@@ -148,7 +148,7 @@ public class Statistics {
      * data to the file. If an IOException occurs during the file writing
      * process, it is caught and ignored.
      */
-    public void save() {
+    private void save() {
         try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE))) {
             writer.writeNext(CSV_HEADERS);
             String[] data = {String.valueOf(wins), String.valueOf(losses), String.valueOf(pushes)};
@@ -158,7 +158,6 @@ public class Statistics {
     }
 
     /**
-     *
      * This static method loads the statistics from the CSV file located at the
      * path defined by the CSV_FILE constant in the Statistics class. The method
      * uses a CSVReader object to read the data from the file. If the CSV file
@@ -166,15 +165,15 @@ public class Statistics {
      * returns a Statistics object with the values read from the CSV file. If an
      * IOException occurs during the file reading process, it is caught and
      * ignored. If a CsvValidationException is thrown during the file reading
-     * process, it is passed to the calling method.
+     * process, it is handled internally and an empty Statistics object is
+     * returned.
      *
-     * @return Statistics object with the values read from the CSV file
-     * @throws CsvValidationException if there is a problem with the CSV file
-     * format
+     * @return a Statistics object with the values read from the CSV file, or an
+     * empty Statistics object if there was a problem with the CSV file format
      * @throws IOException if there is a problem with the file reading process
      * or the CSV file headers are invalid
      */
-    public static Statistics load() throws CsvValidationException {
+    public static Statistics load() throws IOException {
         Statistics stats = new Statistics();
         try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
             String[] headers = reader.readNext();
@@ -187,7 +186,12 @@ public class Statistics {
                 stats.setLosses(Integer.parseInt(data[1]));
                 stats.setPushes(Integer.parseInt(data[2]));
             }
+        } catch (CsvValidationException e) {
+            // handle the exception internally
+            System.err.println("Error: invalid CSV file format");
         } catch (IOException e) {
+            // rethrow the IOException to the calling function
+            throw new IOException("Error reading CSV file", e);
         }
         return stats;
     }
