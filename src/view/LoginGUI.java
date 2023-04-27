@@ -5,7 +5,8 @@ import java.util.Date;
 
 /**
  *
- * @author Michael
+ * @author Michael Neuper
+ * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public class LoginGUI extends javax.swing.JFrame {
 

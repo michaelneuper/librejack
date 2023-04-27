@@ -8,7 +8,8 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Michael
+ * @author Michael Neuper
+ * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public class MainGUI extends javax.swing.JFrame {
 

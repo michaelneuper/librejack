@@ -9,7 +9,8 @@ import model.Deck;
  * Contains methods to calculate the value of a hand, take cards from a deck and
  * discard the hand to a deck.
  *
- * @author Michael
+ * @author Michael Neuper
+ * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public class Hand {
 

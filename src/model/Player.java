@@ -10,7 +10,8 @@ import java.util.Scanner;
 /**
  * Handles player specific operations, such as deciding to hit or stand.
  *
- * @author Michael
+ * @author Michael Neuper
+ * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public class Player extends Person {
 

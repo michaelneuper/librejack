@@ -9,7 +9,8 @@ import model.Card.Suit;
 /**
  * Holds multiple cards and performs operations such as shuffling the deck
  *
- * @author Michael
+ * @author Michael Neuper
+ * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public class Deck {
 

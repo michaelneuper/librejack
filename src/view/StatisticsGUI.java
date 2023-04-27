@@ -8,7 +8,8 @@ import model.Statistics;
 
 /**
  *
- * @author michael
+ * @author Michael Neuper
+ * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public class StatisticsGUI extends javax.swing.JFrame {
 

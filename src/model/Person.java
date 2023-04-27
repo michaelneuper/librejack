@@ -5,7 +5,8 @@ import controller.Hand;
 /**
  * Parent class of the Player and Dealer Objects
  *
- * @author Michael
+ * @author Michael Neuper
+ * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public abstract class Person {
 

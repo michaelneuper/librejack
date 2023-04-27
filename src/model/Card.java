@@ -3,7 +3,8 @@ package model;
 /**
  * Represents a card and handles card operations
  *
- * @author Michael
+ * @author Michael Neuper
+ * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public class Card {
 

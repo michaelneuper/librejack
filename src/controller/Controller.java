@@ -9,7 +9,8 @@ import model.Statistics;
 /**
  * Handles most of the game logic
  *
- * @author Michael
+ * @author Michael Neuper
+ * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public class Controller {
 
