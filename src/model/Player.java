@@ -8,7 +8,10 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
- * Represents a player in a Blackjack game
+ * Represents a player in a Blackjack game.
+ *
+ * @author Michael Neuper
+ * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public class Player extends Person {
 
@@ -17,14 +20,14 @@ public class Player extends Person {
     private Scanner input = new Scanner(System.in);
 
     /**
-     * Creates a new player with a default name of "Player"
+     * Creates a new player with a default name of "Player".
      */
     public Player() {
         super.setName("Player");
     }
 
     /**
-     * Gets the player's current balance from a file
+     * Gets the player's current balance from a file.
      *
      * @return balance the player's current balance
      */
@@ -41,7 +44,7 @@ public class Player extends Person {
     }
 
     /**
-     * Sets the player's balance and stores it in a file
+     * Sets the player's balance and stores it in a file.
      *
      * @param balance the new balance to set
      */

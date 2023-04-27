@@ -6,8 +6,10 @@ import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
+ * Controller for handling user login.
  *
- * @author Michael
+ * @author Michael Neuper
+ * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public class LoginController {
 
@@ -71,7 +73,7 @@ public class LoginController {
      *
      * @param mobileNumber the mobile number to check
      * @return true if the mobile number is a valid South African mobile number,
-     *         false otherwise
+     * false otherwise
      */
     private boolean isValidSouthAfricanMobileNumber(String mobileNumber) {
         // Remove any non-digit characters from the mobile number
@@ -106,7 +108,7 @@ public class LoginController {
      *
      * @param date the date to be checked
      * @return true if the date is valid and the person is at least 18 years
-     *         old, false otherwise
+     * old, false otherwise
      */
     private static boolean isValidDateAndAdult(Date date) {
         // Check if the date is null
@@ -143,8 +145,8 @@ public class LoginController {
 
     /**
      * Checks the following conditions to determine whether a password is valid:
-     * - is at least 10 characters in length - has at least 1 special character
-     * - has at least 1 number - has at least 1 uppercase and lowercase letter
+     * - is at least 10 characters in length - has at least 1 special character.
+     * - has at least 1 number - has at least 1 uppercase and lowercase letter.
      *
      * @param password to be validated
      * @return true if password is valid, false otherwise

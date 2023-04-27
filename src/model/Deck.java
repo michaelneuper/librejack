@@ -7,9 +7,10 @@ import model.Card.Rank;
 import model.Card.Suit;
 
 /**
- * Holds multiple cards and performs operations such as shuffling the deck
- * 
- * @author Michael
+ * Holds multiple cards and performs operations such as shuffling the deck.
+ *
+ * @author Michael Neuper
+ * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public class Deck {
 
@@ -23,7 +24,7 @@ public class Deck {
     }
 
     /**
-     * Populates empty deck with 52 cards by looping over each rank and value
+     * Populates empty deck with 52 cards by looping over each rank and value.
      */
     public void populate() {
 
@@ -36,7 +37,7 @@ public class Deck {
     }
 
     /**
-     * Shuffles deck
+     * Shuffles deck.
      */
     public void shuffle() {
 
@@ -56,8 +57,8 @@ public class Deck {
     }
 
     /**
-     * Method to add a card to the deck
-     * 
+     * Method to add a card to the deck.
+     *
      * @param inCard card the be added
      */
     public void addCard(Card inCard) {
@@ -65,20 +66,20 @@ public class Deck {
     }
 
     /**
-     * Takes copy of first card from deck and removes card from deck
-     * 
+     * Takes copy of first card from deck and removes card from deck.
+     *
      * @return cardToTake card that was removed
      */
     public Card takeCard() { // TODO: change take to draw
         Card cardToTake = new Card(deck.get(0));
         deck.remove(0);
-        
+
         return cardToTake;
     }
 
     /**
-     * Makes sure the deck we're hitting from has cards in it
-     * 
+     * Makes sure the deck we're hitting from has cards in it.
+     *
      * @return true (if the deck has cards in)
      * @return false (if the deck is empty)
      */
@@ -87,15 +88,15 @@ public class Deck {
     }
 
     /**
-     * Mehtod to empty the deck
+     * Mehtod to empty the deck.
      */
     public void emptyDeck() {
         deck.clear();
     }
 
     /**
-     * Adds arraylist of cards to deck
-     * 
+     * Adds arraylist of cards to deck.
+     *
      * @param cards arraylist of cards to be added to deck
      */
     public void addCards(ArrayList<Card> cards) {
@@ -103,7 +104,7 @@ public class Deck {
     }
 
     /**
-     * Returns arraylist containing all the cards in the deck
+     * Returns arraylist containing all the cards in the deck.
      *
      * @return deck arraylist with the cards
      */
@@ -125,7 +126,7 @@ public class Deck {
     }
 
     /**
-     * @return deck.size() number of cards left in the deck
+     * @return deck.size() number of cards left in the deck.
      */
     public int cardsLeft() {
         return deck.size();

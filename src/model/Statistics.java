@@ -16,7 +16,8 @@ import com.opencsv.exceptions.CsvValidationException;
  *
  * The file is named 'statistics.csv' and is stored in the 'db/' directory.
  *
- * @author michael
+ * @author Michael Neuper
+ * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public class Statistics {
 

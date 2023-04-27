@@ -1,4 +1,5 @@
 package view;
+
 import com.opencsv.exceptions.CsvValidationException;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -6,14 +7,15 @@ import java.util.logging.Logger;
 import model.Statistics;
 
 /**
+ * GUI that displays the player's wins, losses and pushes.
  *
- * @author michael
+ * @author Michael Neuper
+ * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public class StatisticsGUI extends javax.swing.JFrame {
-    
+
     Statistics stats;
 
-    
     /**
      * Creates new form StatisticsGUI
      */

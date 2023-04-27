@@ -7,11 +7,13 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
+ * Main GUI.
  *
- * @author Michael
+ * @author Michael Neuper
+ * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public class MainGUI extends javax.swing.JFrame {
-    
+
     Controller game = new Controller();
 
     /**
@@ -339,12 +341,12 @@ public class MainGUI extends javax.swing.JFrame {
             new MainGUI().setVisible(true);
         });
     }
-    
+
     public void printDealerHand() {
         jLabelDisplayDealerHand.setText(game.displayDealerHand());
         jLabelDealerHandValue.setText(game.displayDealerHandValue());
     }
-    
+
     public void printPlayerHand() {
         jLabelDisplayPlayerHand.setText(game.displayPlayerHand());
         jLabelPlayerHandValue.setText(game.displayPlayerHandValue());
