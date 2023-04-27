@@ -1,8 +1,10 @@
 package controller;
 
+import javax.swing.JOptionPane;
 import model.Dealer;
 import model.Deck;
 import model.Player;
+import model.Statistics;
 
 /**
  * Handles most of the game logic
@@ -16,7 +18,7 @@ public class Controller {
     private Dealer dealer;
     private Player player;
     private double bet, balance;
-    private int wins, losses, pushes;
+    private Statistics stats = new Statistics();
     
 
     /**
@@ -25,9 +27,6 @@ public class Controller {
      */
     public Controller() {
 
-        wins = 0;
-        losses = 0;
-        pushes = 0;
         balance = 1000.0;
         bet = 100.0;
 
@@ -52,7 +51,7 @@ public class Controller {
         if(bet < balance) {
             this.bet = bet;
         } else { // in case they try to make a bet bigger than their balance
-            System.out.println("You don't have that much money"); // TODO: change to message dialog
+            JOptionPane.showMessageDialog(null, "You don't have that much money");
         }
     }
 
@@ -96,11 +95,11 @@ public class Controller {
             dealer.printHand(); // show full hand
 
             if (player.hasBlackjack()) {
-                ++pushes;
+                stats.incrementPushes();
                 return "You both have 21 - Push";
             } else {
                 balance -= bet;
-                ++losses;
+                stats.incrementLosses();
                 dealer.printHand();
                 return "Dealer has BlackJack - You lose";
             }
@@ -109,14 +108,14 @@ public class Controller {
         // check if player has blackjack
         if(player.hasBlackjack()) {
             balance += bet * 1.5;
-            ++wins;
+            stats.incrementWins();
             return "You have BlackJack - You win";
         }
 
         // check whether player busted
         if(player.getHand().calculateValue() > 21) {
             balance -= bet;
-            ++losses;
+            stats.incrementLosses();
             return "Busted";
         }
         
@@ -129,24 +128,24 @@ public class Controller {
         // check who wins
         if(dealer.getHand().calculateValue() > 21) {
             balance += bet;
-            ++wins;
+            stats.incrementWins();
             return "Dealer busts - You win";
         }
         
         if(dealer.getHand().calculateValue() > player.getHand().calculateValue() && dealer.getHand().calculateValue() <= 21) {
             balance -= bet;
-            ++losses;
+            stats.incrementLosses();
             return "You lose";
         }
 
         if(player.getHand().calculateValue() > dealer.getHand().calculateValue()) {
             balance += bet;
-            ++wins;
+            stats.incrementWins();
             return "You win";
         }
         
         if(player.getHand().calculateValue() == dealer.getHand().calculateValue()) {
-            ++pushes;
+            stats.incrementPushes();
             return "Push";
         }
         
