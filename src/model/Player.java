@@ -15,11 +15,11 @@ import java.util.Scanner;
  */
 public class Player extends Person {
 
-    private double balance; // TODO: make public
+    private double balance;
     Scanner input = new Scanner(System.in);
 
     /**
-     * Creates a new player
+     * Creates a new player.
      */
     public Player() {
         super.setName("Player");

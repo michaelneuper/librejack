@@ -22,7 +22,7 @@ public class Controller {
     private Statistics stats = new Statistics();
 
     /**
-     * Controller Constructor: Initializes score to 0
+     * Controller Constructor: Initializes score to 0.
      */
     public Controller() {
 
@@ -63,7 +63,7 @@ public class Controller {
     }
 
     /**
-     * Handles logic for each round
+     * Handles logic for each round.
      *
      */
     public void startRound() {
@@ -152,7 +152,7 @@ public class Controller {
     }
 
     /**
-     * Hits the player with a card
+     * Hits the player with a card.
      */
     public void hitPlayer() {
         player.hit(deck, discarded);

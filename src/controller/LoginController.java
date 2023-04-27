@@ -145,8 +145,8 @@ public class LoginController {
 
     /**
      * Checks the following conditions to determine whether a password is valid:
-     * - is at least 10 characters in length - has at least 1 special character
-     * - has at least 1 number - has at least 1 uppercase and lowercase letter
+     * - is at least 10 characters in length - has at least 1 special character.
+     * - has at least 1 number - has at least 1 uppercase and lowercase letter.
      *
      * @param password to be validated
      * @return true if password is valid, false otherwise

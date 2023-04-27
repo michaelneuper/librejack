@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Represents a card and handles card operations
+ * Represents a card and handles card operations.
  *
  * @author Michael Neuper
  * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
@@ -60,7 +60,7 @@ public class Card {
     private Rank rank;
 
     /**
-     * Card Constructor: Creates a card given a suit and rank
+     * Card Constructor: Creates a card given a suit and rank.
      *
      * @param suit Card suit
      * @param rank Card rank
@@ -71,7 +71,7 @@ public class Card {
     }
 
     /**
-     * Card Constructor: Creates a new card as a copy of another card
+     * Card Constructor: Creates a new card as a copy of another card.
      *
      * @param card card to be added
      */

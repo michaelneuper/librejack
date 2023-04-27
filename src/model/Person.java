@@ -3,7 +3,7 @@ package model;
 import controller.Hand;
 
 /**
- * Parent class of the Player and Dealer Objects
+ * Parent class of the Player and Dealer Objects.
  *
  * @author Michael Neuper
  * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
@@ -14,7 +14,7 @@ public abstract class Person {
     private String name;
 
     /**
-     * Creates a person
+     * Creates a person.
      */
     public Person() {
         this.hand = new Hand();
@@ -38,7 +38,7 @@ public abstract class Person {
     }
 
     /**
-     * Checks if a person has blackjack
+     * Checks if a person has blackjack.
      *
      * @return true (if player has a blackjack)
      * @return false (if player does not have a blackjack)
@@ -48,15 +48,14 @@ public abstract class Person {
     }
 
     /**
-     * Prints a formatted version of the person's hand
+     * Prints a formatted version of the person's hand.
      */
-    // TODO: remove print statement
     public String printHand() {
         return this.hand + "[" + this.hand.calculateValue() + "]";
     }
 
     /**
-     * Checks if deck has cards and reloads deck if it ran out
+     * Checks if deck has cards and reloads deck if it ran out.
      *
      * @param deck deck to draw from
      * @param discard deck to discard to

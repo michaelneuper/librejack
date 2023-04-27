@@ -10,7 +10,7 @@ package model;
 public class Dealer extends Person {
 
     /**
-     * Creates a new dealer
+     * Creates a new dealer.
      */
     public Dealer() {
         super.setName("Dealer");

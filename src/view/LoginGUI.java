@@ -4,7 +4,7 @@ import controller.LoginController;
 import java.util.Date;
 
 /**
- * GUI for login screen
+ * GUI for login screen.
  *
  * @author Michael Neuper
  * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>

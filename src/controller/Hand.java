@@ -17,14 +17,14 @@ public class Hand {
     private ArrayList<Card> hand;
 
     /**
-     * Hand Constructor: Creates empty hand
+     * Hand Constructor: Creates empty hand.
      */
     public Hand() {
         hand = new ArrayList<Card>();
     }
 
     /**
-     * Adds a card from the deck to the hand
+     * Adds a card from the deck to the hand.
      *
      * @param deck deck to take card from
      */
@@ -33,7 +33,7 @@ public class Hand {
     }
 
     /**
-     * Method to calculate the value of a hand
+     * Method to calculate the value of a hand.
      *
      * @return value value of the hand
      */
@@ -68,7 +68,7 @@ public class Hand {
     }
 
     /**
-     * Discards hand to deck
+     * Discards hand to deck.
      *
      * @param discardDeck
      */
