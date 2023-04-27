@@ -7,6 +7,7 @@ import model.Player;
 import model.Statistics;
 
 /**
+
  * Handles most of the game logic.
  *
  * @author Michael Neuper
@@ -25,8 +26,11 @@ public class Controller {
      * Controller Constructor: Initializes score to 0.
      */
     public Controller() {
+        // create new dealer and player
+        dealer = new Dealer();
+        player = new Player();
 
-        balance = 1000.0;
+        balance = player.getBalance();
         bet = 100.0;
 
         // create new populated deck
@@ -36,10 +40,6 @@ public class Controller {
 
         // create new empty deck
         discarded = new Deck();
-
-        // create new dealer and player
-        dealer = new Dealer();
-        player = new Player();
     }
 
     public double getBet() {
@@ -98,6 +98,7 @@ public class Controller {
                 return "You both have 21 - Push";
             } else {
                 balance -= bet;
+                player.setBalance(balance);
                 stats.incrementLosses();
                 dealer.printHand();
                 return "Dealer has BlackJack - You lose";
@@ -107,6 +108,7 @@ public class Controller {
         // check if player has blackjack
         if (player.hasBlackjack()) {
             balance += bet * 1.5;
+            player.setBalance(balance);
             stats.incrementWins();
             return "You have BlackJack - You win";
         }
@@ -114,6 +116,7 @@ public class Controller {
         // check whether player busted
         if (player.getHand().calculateValue() > 21) {
             balance -= bet;
+            player.setBalance(balance);
             stats.incrementLosses();
             return "Busted";
         }
@@ -127,18 +130,21 @@ public class Controller {
         // check who wins
         if (dealer.getHand().calculateValue() > 21) {
             balance += bet;
+            player.setBalance(balance);
             stats.incrementWins();
             return "Dealer busts - You win";
         }
 
         if (dealer.getHand().calculateValue() > player.getHand().calculateValue() && dealer.getHand().calculateValue() <= 21) {
             balance -= bet;
+            player.setBalance(balance);
             stats.incrementLosses();
             return "You lose";
         }
 
         if (player.getHand().calculateValue() > dealer.getHand().calculateValue()) {
             balance += bet;
+            player.setBalance(balance);
             stats.incrementWins();
             return "You win";
         }
