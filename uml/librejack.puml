@@ -1,0 +1,226 @@
+@startuml
+skinparam classAttributeIconSize 0
+class Person{
+- hand : Hand
+- name : String
++ Person()
++ getHand() : Hand
++ setHand(hand : Hand) : void
++ getName() : String
++ setName(name : String) : void
++ hasBlackjack() : boolean
++ printHand() : String
++ hit(deck : Deck, discard : Deck) : void
+}
+class LoginController{
++ LoginController()
++ areAllFieldsValid(email : String, mobileNumber : String, date : Date, password : String) : boolean
+- isValidEmail(email : String) : boolean
+- isValidSouthAfricanMobileNumber(mobileNumber : String) : boolean
+- {static} isValidDateAndAdult(date : Date) : boolean
+- isValidPassword(password : String) : boolean
+- isSpecialCharacter(ch : char) : boolean
+}
+class Hand{
+- hand : ArrayList<Card>
++ Hand()
++ takeCardFromDeck(deck : Deck) : void
++ calculateValue() : int
++ getCard(i : int) : Card
++ discardHandToDeck(discardDeck : Deck) : void
++ toString() : String
+}
+class Card{
+- suit : Suit
+- rank : Rank
++ Card(suit : Suit, rank : Rank)
++ Card(card : Card)
++ getValue() : int
++ getSuit() : Suit
++ getRank() : Rank
++ toString() : String
+}
+class Dealer{
++ Dealer()
++ printFirstHand() : String
++ printFirstCardValue() : String
+}
+Dealer --|> Person
+class StatisticsGUI{
+stats : Statistics
+- jLabelLosses : javax.swing.JLabel
+- jLabelLossesAmount : javax.swing.JLabel
+- jLabelPushes : javax.swing.JLabel
+- jLabelPushesAmount : javax.swing.JLabel
+- jLabelStatistics : javax.swing.JLabel
+- jLabelWins : javax.swing.JLabel
+- jLabelWinsAmount : javax.swing.JLabel
++ StatisticsGUI()
+- initComponents() : void
++ {static} main(args : String[]) : void
+}
+StatisticsGUI --|> JFrame
+class Controller{
+- deck : Deck
+- dealer : Dealer
+- player : Player
+- bet : double
+- stats : Statistics
++ Controller()
++ getBet() : double
++ setBet(bet : double) : void
++ getBalance() : double
++ setBalance(balance : double) : void
++ startRound() : void
++ checkWhoWins() : String
++ hitPlayer() : void
++ displayPlayerHand() : String
++ displayPlayerHandValue() : String
++ displayDealerHand() : String
++ displayDealerHandValue() : String
++ displayDealerFirstCard() : String
++ displayDealerFirstCardValue() : String
+}
+class LoginGUI{
+controller : LoginController
+- jButtonVerify : javax.swing.JButton
+- jDateChooser1 : com.toedter.calendar.JDateChooser
+- jLabel1 : javax.swing.JLabel
+- jLabel2 : javax.swing.JLabel
+- jLabel3 : javax.swing.JLabel
+- jLabel4 : javax.swing.JLabel
+- jLabel5 : javax.swing.JLabel
+- jLabel6 : javax.swing.JLabel
+- jLabelCardsImage : javax.swing.JLabel
+- jLabelDateOfBirth : javax.swing.JLabel
+- jLabelEmail : javax.swing.JLabel
+- jLabelLogin : javax.swing.JLabel
+- jLabelMobileNumber : javax.swing.JLabel
+- jLabelPassword : javax.swing.JLabel
+- jLabelPasswordRequirements : javax.swing.JLabel
+- jLabelUsername : javax.swing.JLabel
+- jLabelWelcome : javax.swing.JLabel
+- jPanel1 : javax.swing.JPanel
+- jPanel2 : javax.swing.JPanel
+- jPanel3 : javax.swing.JPanel
+- jPasswordField : javax.swing.JPasswordField
+- jTextFieldEmail : javax.swing.JTextField
+- jTextFieldMobileNumber : javax.swing.JTextField
+- jTextFieldUsername : javax.swing.JTextField
++ LoginGUI()
+- initComponents() : void
+- jPasswordFieldActionPerformed(evt : java.awt.event.ActionEvent) : void
+- jButtonVerifyActionPerformed(evt : java.awt.event.ActionEvent) : void
+- jTextFieldUsernameActionPerformed(evt : java.awt.event.ActionEvent) : void
+- jTextFieldMobileNumberActionPerformed(evt : java.awt.event.ActionEvent) : void
++ {static} main(args : String[]) : void
+}
+LoginGUI --|> JFrame
+class MainGUI{
+game : Controller
+- jButtonBetAmount : javax.swing.JButton
+- jButtonDeal : javax.swing.JButton
+- jButtonDouble : javax.swing.JButton
+- jButtonExit : javax.swing.JButton
+- jButtonHit : javax.swing.JButton
+- jButtonStand : javax.swing.JButton
+- jButtonStats : javax.swing.JButton
+- jLabelBalance : javax.swing.JLabel
+- jLabelCurrentBet : javax.swing.JLabel
+- jLabelDealerHand : javax.swing.JLabel
+- jLabelDealerHandValue : javax.swing.JLabel
+- jLabelDisplayDealerHand : javax.swing.JLabel
+- jLabelDisplayPlayerHand : javax.swing.JLabel
+- jLabelPlayerHand : javax.swing.JLabel
+- jLabelPlayerHandValue : javax.swing.JLabel
+- jLabelResult : javax.swing.JLabel
+- jPanel3 : javax.swing.JPanel
++ MainGUI()
+- initComponents() : void
+- jButtonDealActionPerformed(evt : java.awt.event.ActionEvent) : void
+- jButtonBetAmountActionPerformed(evt : java.awt.event.ActionEvent) : void
+- jButtonStandActionPerformed(evt : java.awt.event.ActionEvent) : void
+- jButtonDoubleActionPerformed(evt : java.awt.event.ActionEvent) : void
+- jButtonHitActionPerformed(evt : java.awt.event.ActionEvent) : void
+- jButtonExitActionPerformed(evt : java.awt.event.ActionEvent) : void
+- jButtonStatsActionPerformed(evt : java.awt.event.ActionEvent) : void
++ {static} main(args : String[]) : void
++ printDealerHand() : void
++ printPlayerHand() : void
+}
+MainGUI --|> JFrame
+class Statistics{
+- {static} CSV_FILE : String
+- {static} CSV_HEADERS : String[]
+- wins : int
+- losses : int
+- pushes : int
++ Statistics()
++ Statistics(wins : int, losses : int, pushes : int)
++ getWins() : int
++ getLosses() : int
++ getPushes() : int
++ setWins(wins : int) : void
++ setLosses(losses : int) : void
++ setPushes(pushes : int) : void
++ incrementWins() : void
++ incrementLosses() : void
++ incrementPushes() : void
+- save() : void
++ {static} load() : Statistics
+}
+class Deck{
+- deck : ArrayList<Card>
++ Deck()
++ populate() : void
++ shuffle() : void
++ addCard(inCard : Card) : void
++ takeCard() : Card
++ hasCards() : boolean
++ emptyDeck() : void
++ addCards(cards : ArrayList<Card>) : void
++ getCards() : ArrayList<Card>
++ reloadDeckFromDiscard(discard : Deck) : void
++ cardsLeft() : int
++ toString() : String
+}
+class Player{
+- balance : double
+- BALANCE_FILE : String
++ Player()
++ getBalance() : double
++ setBalance(balance : double) : void
+}
+Player --|> Person
+Person--"- hand" Hand
+Card--"- suit" Suit
+Card--"- rank" Rank
+StatisticsGUI--"stats" Statistics
+Controller--"- deck" Deck
+Controller--"- dealer" Dealer
+Controller--"- player" Player
+Controller--"- stats" Statistics
+LoginGUI--"controller" LoginController
+MainGUI--"game" Controller
+enum Suit{
+CLUBS
+DIAMONDS
+HEARTS
+SPADES
+}
+enum Rank{
+TWO
+THREE
+FOUR
+FIVE
+SIX
+SEVEN
+EIGHT
+NINE
+TEN
+JACK
+QUEEN
+KING
+ACE
+}
+@enduml
