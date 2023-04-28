@@ -8,16 +8,24 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
- * Represents a player in a Blackjack game.
+ * <p>
+ * Represents a player in a blackjack game. A player has a name and a hand of
+ * cards. They can take actions such as hitting, standing, and doubling down.
+ * They can also make bets and receive payouts.</p>
+ *
+ * <p>
+ * This class extends the {@link Person} class, which contains shared methods
+ * and properties between players and dealers.</p>
+ *
+ * @see Person
  *
  * @author Michael Neuper
  * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public class Player extends Person {
 
-    private double balance; // Player's balance
-    private final String BALANCE_FILE = "db/balance.txt"; // File to store the player's balance
-    private Scanner input = new Scanner(System.in);
+    private double balance; // player's balance
+    private final String BALANCE_FILE = "db/balance.txt"; // file to store the player's balance
 
     /**
      * Creates a new player with a default name of "Player".
@@ -59,4 +67,5 @@ public class Player extends Person {
 
         this.balance = balance;
     }
+    
 }

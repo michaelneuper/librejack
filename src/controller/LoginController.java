@@ -6,7 +6,10 @@ import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
- * Controller for handling user login.
+ * <p>
+ * Controller for handling user login.</p>
+ * <p>
+ * Validates all login fields.</p>
  *
  * @author Michael Neuper
  * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
@@ -34,11 +37,16 @@ public class LoginController {
 
     /**
      * Determines whether a given email is a valid email format according to the
-     * following criteria: - The email must contain a username and a domain
-     * separated by an @ symbol. - The username may contain alphanumeric
-     * characters, underscores, plus signs, asterisks, and hyphens. - The domain
-     * must consist of one or more subdomains separated by periods, and end in a
-     * top-level domain (TLD) of two to seven letters.
+     * following criteria:
+     * <ul>
+     * <li>The email must contain a username and a domain separated by an @
+     * symbol.</li>
+     * <li>The username may contain alphanumeric characters, underscores, plus
+     * signs, asterisks, and hyphens.</li>
+     * <li>The domain must consist of one or more subdomains separated by
+     * periods, and end in a top-level domain (TLD) of two to seven
+     * letters.</li>
+     * </ul>
      *
      * @param email the email to be validated
      * @return true if the email is a valid email format, false otherwise
@@ -145,8 +153,12 @@ public class LoginController {
 
     /**
      * Checks the following conditions to determine whether a password is valid:
-     * - is at least 10 characters in length - has at least 1 special character.
-     * - has at least 1 number - has at least 1 uppercase and lowercase letter.
+     * <ul>
+     * <li>is at least 10 characters in length</li>
+     * <li>has at least 1 special character</li>
+     * <li>has at least 1 number</li>
+     * <li>has at least 1 uppercase and lowercase letter</li>
+     * </ul>
      *
      * @param password to be validated
      * @return true if password is valid, false otherwise

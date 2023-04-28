@@ -7,8 +7,14 @@ import model.Player;
 import model.Statistics;
 
 /**
-
- * Handles most of the game logic.
+ * <p>
+ * The Controller class is responsible for handling most of the game logic for a
+ * Blackjack game.</p>
+ * <p>
+ * It creates a new instance of the Dealer and Player classes, initializes the
+ * deck with a new shuffled and populated Deck object, and keeps track of the
+ * bet and balance of the player. It also keeps track of game statistics using a
+ * Statistics object.</p>
  *
  * @author Michael Neuper
  * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
@@ -23,7 +29,9 @@ public class Controller {
     private Statistics stats = new Statistics();
 
     /**
-     * Controller Constructor: Initializes score to 0.
+     * Creates a new instance of the Controller class. Initializes the dealer
+     * and player, the deck and discarded decks, and the bet and balance of the
+     * player. The deck is also populated and shuffled.
      */
     public Controller() {
         // create new dealer and player
@@ -42,10 +50,21 @@ public class Controller {
         discarded = new Deck();
     }
 
+    /**
+     * Gets the current player's bet.
+     *
+     * @return the current player's bet
+     */
     public double getBet() {
         return bet;
     }
 
+    /**
+     * Sets the current player's bet. If it is greater than the total balance,
+     * an error is displayed.
+     *
+     * @param bet the bet amount
+     */
     public void setBet(double bet) {
         if (bet < balance) {
             this.bet = bet;
@@ -54,17 +73,32 @@ public class Controller {
         }
     }
 
+    /**
+     * Gets the current player's balance.
+     *
+     * @return the current player's balance
+     */
     public double getBalance() {
         return balance;
     }
 
+    /**
+     * Sets the current player's balance.
+     *
+     * @param balance
+     */
     public void setBalance(double balance) {
         this.balance = balance;
     }
 
     /**
-     * Handles logic for each round.
-     *
+     * <p>
+     * Starts a new round of the game.</p>
+     * <p>
+     * Discards the dealer and player hands to the discarded deck if there are
+     * no cards left, and reloads the deck from the discarded deck if there are
+     * fewer than four cards left. Deals two cards to the dealer and two cards
+     * to the player.</p>
      */
     public void startRound() {
 
@@ -87,6 +121,12 @@ public class Controller {
 
     }
 
+    /**
+     * Checks who wins the game and returns a message indicating the result.
+     * Increments game statistics for wins, losses, and pushes.
+     *
+     * @return a message indicating the result of the game
+     */
     public String checkWhoWins() {
 
         // check if dealer has blackjack

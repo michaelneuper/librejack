@@ -7,7 +7,13 @@ import model.Card.Rank;
 import model.Card.Suit;
 
 /**
- * Holds multiple cards and performs operations such as shuffling the deck.
+ * <p>
+ * Holds multiple cards and performs operations such as shuffling the deck.</p>
+ * <p>
+ * This class is responsible for creating a deck, populating it with 52 cards,
+ * shuffling the deck, adding cards to the deck, removing a card from the deck,
+ * checking if the deck has any cards left, emptying the deck, and returning the
+ * deck's current size.</p>
  *
  * @author Michael Neuper
  * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
@@ -17,6 +23,7 @@ public class Deck {
     private ArrayList<Card> deck; // creates a "deck" of card objects
 
     /**
+     *
      * Deck constructor
      */
     public Deck() {
@@ -24,10 +31,10 @@ public class Deck {
     }
 
     /**
+     *
      * Populates empty deck with 52 cards by looping over each rank and value.
      */
     public void populate() {
-
         for (Suit cardSuit : Suit.values()) {
             for (Rank cardRank : Rank.values()) {
                 // adds a new card to the deck
@@ -37,13 +44,12 @@ public class Deck {
     }
 
     /**
-     * Shuffles deck.
+     * Shuffles deck using a temporary deck for storing cards in random order.
      */
     public void shuffle() {
-
         ArrayList<Card> shufDeck = new ArrayList<Card>(); // temporary deck for storing cards in random order
 
-        Random random = new Random(); // FIXME: use math method instead
+        Random random = new Random();
         int randomCardIndex = 0;
 
         while (deck.size() > 0) {
@@ -52,12 +58,11 @@ public class Deck {
             shufDeck.add(this.deck.get(randomCardIndex)); // add card to random index of temporary deck
             this.deck.remove(randomCardIndex); // remove card from original deck
         }
-
         this.deck = shufDeck;
     }
 
     /**
-     * Method to add a card to the deck.
+     * Adds a card to the deck.
      *
      * @param inCard card the be added
      */
@@ -68,9 +73,9 @@ public class Deck {
     /**
      * Takes copy of first card from deck and removes card from deck.
      *
-     * @return cardToTake card that was removed
+     * @return the card that was removed
      */
-    public Card takeCard() { // TODO: change take to draw
+    public Card takeCard() {
         Card cardToTake = new Card(deck.get(0));
         deck.remove(0);
 
@@ -80,15 +85,14 @@ public class Deck {
     /**
      * Makes sure the deck we're hitting from has cards in it.
      *
-     * @return true (if the deck has cards in)
-     * @return false (if the deck is empty)
+     * @return true if the deck has cards in or false if the deck is empty
      */
     public boolean hasCards() {
         return deck.size() > 0;
     }
 
     /**
-     * Mehtod to empty the deck.
+     * Removes all Card objects from the deck.
      */
     public void emptyDeck() {
         deck.clear();
@@ -114,7 +118,7 @@ public class Deck {
 
     /**
      * Take all cards from discarded deck and place them in this deck, shuffled.
-     * Clear the old deck
+     * Clear the old deck.
      *
      * @param discard the deck cards are coming from
      */
@@ -126,21 +130,26 @@ public class Deck {
     }
 
     /**
-     * @return deck.size() number of cards left in the deck.
+     * @return number of cards left in the deck.
      */
     public int cardsLeft() {
         return deck.size();
     }
 
+    /**
+     * Returns a String representation of the Deck object. The String contains a
+     * list of all the cards in the deck, with each card on a new line.
+     *
+     * @return a String representation of the Deck object
+     */
     @Override
     public String toString() {
-
         String ret = ""; // holds the string to return
         for (Card card : deck) {
             ret += card;
             ret += "\n";
         }
-
         return ret;
     }
+    
 }

@@ -17,7 +17,7 @@ public class Hand {
     private ArrayList<Card> hand;
 
     /**
-     * Hand Constructor: Creates empty hand.
+     * Creates a new empty Hand object.
      */
     public Hand() {
         hand = new ArrayList<Card>();
@@ -33,12 +33,11 @@ public class Hand {
     }
 
     /**
-     * Method to calculate the value of a hand.
+     * Calculates the value of a hand.
      *
      * @return value value of the hand
      */
     public int calculateValue() {
-
         int value = 0; // current total value
         int aceCount = 0; // number of aces
 
@@ -63,20 +62,33 @@ public class Hand {
         return value;
     }
 
+    /**
+     * Gets the card at a specific index.
+     *
+     * @param i the index of the card or get
+     * @return the card at index i
+     */
     public Card getCard(int i) {
         return hand.get(i);
     }
 
     /**
-     * Discards hand to deck.
+     * Discards the current hand and adds its cards to the specified discard
+     * deck.
      *
-     * @param discardDeck
+     * @param discardDeck the deck to which the current hand's cards will be
+     * added
      */
     public void discardHandToDeck(Deck discardDeck) {
         discardDeck.addCards(hand); // copy cards from discardDeck
         hand.clear(); // clear the hand
     }
 
+    /**
+     * Returns a string representation of the current hand.
+     *
+     * @return a string representation of the current hand
+     */
     @Override
     public String toString() {
 
@@ -87,4 +99,5 @@ public class Hand {
 
         return ret;
     }
+
 }

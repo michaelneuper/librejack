@@ -9,12 +9,17 @@ import com.opencsv.CSVWriter;
 import com.opencsv.exceptions.CsvValidationException;
 
 /**
+ * <p>
  * The Statistics class represents a set of statistics for a blackjack game.
- * Statistics are stored in a CSV file with the following format: - Column 1:
- * number of wins - Column 2: number of losses - Column 3: number of pushes
- * (ties)
+ * Statistics are stored in a CSV file with the following format:
+ * <ul>
+ * <li><b>Column 1:</b> number of wins</li>
+ * <li><b>Column 2:</b> number of losses</li>
+ * <li><b>Column 3:</b> number of pushes(ties)</li>
+ * </ul></p>
  *
- * The file is named 'statistics.csv' and is stored in the 'db/' directory.
+ * <p>
+ * The file is named `statistics.csv` and is stored in the 'db/' directory.</p>
  *
  * @author Michael Neuper
  * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
@@ -38,7 +43,6 @@ public class Statistics {
     }
 
     /**
-     *
      * Constructs a new Statistics object with the given statistics.
      *
      * @param wins the number of wins
@@ -52,7 +56,6 @@ public class Statistics {
     }
 
     /**
-     *
      * Gets the number of wins.
      *
      * @return wins number of wins
@@ -62,7 +65,6 @@ public class Statistics {
     }
 
     /**
-     *
      * Gets the number of losses.
      *
      * @return losses number of losses
@@ -72,7 +74,6 @@ public class Statistics {
     }
 
     /**
-     *
      * Gets the number of pushes (ties).
      *
      * @return pushes number of pushes
@@ -82,7 +83,6 @@ public class Statistics {
     }
 
     /**
-     *
      * Sets the number of wins.
      *
      * @param wins the new number of wins
@@ -92,7 +92,6 @@ public class Statistics {
     }
 
     /**
-     *
      * Sets the number of losses.
      *
      * @param losses the new number of losses
@@ -112,7 +111,6 @@ public class Statistics {
     }
 
     /**
-     *
      * Increments the number of wins by 1 and saves the new statistics to the
      * CSV file.
      */
@@ -122,7 +120,6 @@ public class Statistics {
     }
 
     /**
-     *
      * Increments the number of losses by 1 and saves the new statistics to the
      * CSV file.
      */
@@ -132,7 +129,6 @@ public class Statistics {
     }
 
     /**
-     *
      * Increments the number of pushes (ties) by 1 and saves the new statistics
      * to the CSV file.
      */
@@ -142,12 +138,14 @@ public class Statistics {
     }
 
     /**
-     *
+     * <p>
      * This method saves the current statistics (number of wins, losses, and
-     * pushes) to a CSV file. The file path is defined by the CSV_FILE constant
-     * in the Statistics class. The method uses a CSVWriter object to write the
-     * data to the file. If an IOException occurs during the file writing
-     * process, it is caught and ignored.
+     * pushes) to a CSV_FILE file. The file path is defined by the CSV_FILE
+     * constant in the Statistics class.</p>
+     * <p>
+     * The method uses a CSVWriter object to write the data to the file. If an
+     * IOException occurs during the file writing process, it is caught and
+     * ignored.</p>
      */
     private void save() {
         try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE))) {
@@ -159,15 +157,19 @@ public class Statistics {
     }
 
     /**
+     * <p>
      * This static method loads the statistics from the CSV file located at the
      * path defined by the CSV_FILE constant in the Statistics class. The method
-     * uses a CSVReader object to read the data from the file. If the CSV file
-     * does not have the expected headers, an IOException is thrown. The method
-     * returns a Statistics object with the values read from the CSV file. If an
-     * IOException occurs during the file reading process, it is caught and
-     * ignored. If a CsvValidationException is thrown during the file reading
-     * process, it is handled internally and an empty Statistics object is
-     * returned.
+     * uses a CSVReader object to read the data from the file.</p>
+     * <p>
+     * If the CSV file does not have the expected headers, an IOException is
+     * thrown. The method returns a Statistics object with the values read from
+     * the CSV file.</p>
+     * <p>
+     * If an IOException occurs during the file reading process, it is caught
+     * and ignored. If a CsvValidationException is thrown during the file
+     * reading process, it is handled internally and an empty Statistics object
+     * is returned.</p>
      *
      * @return a Statistics object with the values read from the CSV file, or an
      * empty Statistics object if there was a problem with the CSV file format
@@ -196,4 +198,5 @@ public class Statistics {
         }
         return stats;
     }
+    
 }
