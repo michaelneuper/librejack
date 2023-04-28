@@ -22,20 +22,24 @@ Librejack is simple a blackjack clone written in java.
 
 ## Prerequisites
 
-Before you begin, ensure you have met the following requirements:
-* [Java](https://www.java.com/en/download/) installed on your system
-* Have a Windows/Linux/Mac machine
+Before you begin, ensure you have [Java](https://www.java.com/en/download/) installed on your system.
 
 ## Installing *librejack* 
 
-Download and run the `.jar ` file from the [releases tab](https://github.com/michaelneuper/librejack/releases)
+- Download the `.zip ` or `.tar.gz` file from the [releases tab](https://github.com/michaelneuper/librejack/releases).
+- Extract all the files.
+- Run the `librejack.jar` file (make sure it is in the same directory as the `lib` folder).
+
+## Documentation
+
+Documentation for the source code can be found [here](https://michaelneuper.github.io/librejack/)
 
 ## Directories
-+ `db` constains databases
-+ `dist` constains javadoc
-+ `docs` contains documentation about the program
-+ `nbproject` contains netbeans metadata about the project
-+ `src` contains the source files
+- `db` constains databases.
+- `docs` contains documentation.
+- `lib` contains external libraries.
+- `nbproject` contains netbeans metadata.
+- `src` contains the source files.
 
 ## License
 
