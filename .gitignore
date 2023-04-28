@@ -1,5 +1,5 @@
 build/
+dist/
 target/
+db/
 .idea/
-dist/lib/
-dist/librejack.jar
