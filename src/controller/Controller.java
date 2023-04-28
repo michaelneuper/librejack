@@ -132,6 +132,12 @@ public class Controller {
      * @return a message indicating the result of the game
      */
     public String checkWhoWins() {
+        
+        // check wether player has enough money
+        if (bet > PLAYER.getBalance()) {
+            JOptionPane.showMessageDialog(null, "You don't have enough money");
+            return null;
+        }
 
         // check if dealer has blackjack
         if (DEALER.hasBlackjack()) {
