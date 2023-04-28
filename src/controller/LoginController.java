@@ -52,26 +52,25 @@ public class LoginController {
      * @return true if the email is a valid email format, false otherwise
      */
     private boolean isValidEmail(String email) {
-        // Check if email is null
+        // check if email is null
         if (email == null) {
             JOptionPane.showMessageDialog(null, "Please enter an email");
         }
 
-        // Define regular expression pattern for valid email addresses
+        // define regular expression pattern for valid email addresses
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."
                 + "[a-zA-Z0-9_+&*-]+)*@"
                 + "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(emailRegex);
 
-        // Check if email matches the pattern
+        // check if email matches the pattern
         boolean isValid = pattern.matcher(email).matches();
 
-        // If email is not valid, show error message
+        // if email is not valid, show error message
         if (!isValid) {
             JOptionPane.showMessageDialog(null, "Please enter a valid email");
         }
 
-        // Return whether email is valid
         return isValid;
     }
 
@@ -84,16 +83,16 @@ public class LoginController {
      * false otherwise
      */
     private boolean isValidSouthAfricanMobileNumber(String mobileNumber) {
-        // Remove any non-digit characters from the mobile number
+        // remove any non-digit characters from the mobile number
         mobileNumber = mobileNumber.replaceAll("[^\\d]", "");
 
-        // Check if the mobile number is of the correct length
+        // check if the mobile number is of the correct length
         if (mobileNumber.length() != 10) {
             JOptionPane.showMessageDialog(null, "Your mobile number is too short");
             return false;
         }
 
-        // Check if the mobile number starts with a valid South African country code
+        // check if the mobile number starts with a valid South African country code
         String[] validCountryCodes = {"+27", "27", "0"};
         boolean validCountryCode = false;
         for (String code : validCountryCodes) {
@@ -107,7 +106,6 @@ public class LoginController {
             return false;
         }
 
-        // If all checks pass, the mobile number is considered valid
         return true;
     }
 
@@ -119,19 +117,19 @@ public class LoginController {
      * old, false otherwise
      */
     private static boolean isValidDateAndAdult(Date date) {
-        // Check if the date is null
+        // check if the date is null
         if (date == null) {
             JOptionPane.showMessageDialog(null, "Please enter a date of birth");
             return false;
         }
 
-        // Check if the date is in the past
+        // make sure the date is in the past
         if (date.after(new Date())) {
             JOptionPane.showMessageDialog(null, "You were not born in the future!");
             return false;
         }
 
-        // Check if the person is at least 18 years old
+        // check if the person is at least 18 years old
         Calendar dob = Calendar.getInstance();
         dob.setTime(date);
         Calendar now = Calendar.getInstance();
@@ -147,7 +145,6 @@ public class LoginController {
             return false;
         }
 
-        // If all checks pass, the date is valid and the person is at least 18
         return true;
     }
 

@@ -27,7 +27,7 @@ public class Deck {
      * Deck constructor
      */
     public Deck() {
-        this.deck = new ArrayList<Card>();
+        this.deck = new ArrayList<>();
     }
 
     /**
@@ -47,17 +47,18 @@ public class Deck {
      * Shuffles deck using a temporary deck for storing cards in random order.
      */
     public void shuffle() {
-        ArrayList<Card> shufDeck = new ArrayList<Card>(); // temporary deck for storing cards in random order
+        ArrayList<Card> shufDeck = new ArrayList<>(); // temporary deck for storing cards in random order
 
         Random random = new Random();
         int randomCardIndex = 0;
 
-        while (deck.size() > 0) {
+        while (!deck.isEmpty()) {
             // generate random index
             randomCardIndex = random.nextInt(this.deck.size());
             shufDeck.add(this.deck.get(randomCardIndex)); // add card to random index of temporary deck
             this.deck.remove(randomCardIndex); // remove card from original deck
         }
+        
         this.deck = shufDeck;
     }
 
@@ -88,7 +89,7 @@ public class Deck {
      * @return true if the deck has cards in or false if the deck is empty
      */
     public boolean hasCards() {
-        return deck.size() > 0;
+        return !deck.isEmpty();
     }
 
     /**
@@ -99,18 +100,18 @@ public class Deck {
     }
 
     /**
-     * Adds arraylist of cards to deck.
+     * Adds ArrayList of cards to deck.
      *
-     * @param cards arraylist of cards to be added to deck
+     * @param cards ArrayList of cards to be added to deck
      */
     public void addCards(ArrayList<Card> cards) {
         deck.addAll(cards);
     }
 
     /**
-     * Returns arraylist containing all the cards in the deck.
+     * Returns ArrayList containing all the cards in the deck.
      *
-     * @return deck arraylist with the cards
+     * @return deck ArrayList with the cards
      */
     public ArrayList<Card> getCards() {
         return deck;
@@ -149,6 +150,7 @@ public class Deck {
             ret += card;
             ret += "\n";
         }
+        
         return ret;
     }
     

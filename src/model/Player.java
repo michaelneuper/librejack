@@ -35,37 +35,37 @@ public class Player extends Person {
     }
 
     /**
-     * Gets the player's current balance from a file.
+     * Gets the player's current balance from a file. If a FileNotFoundException
+     * is thrown during the file reading process, it is caught and printed to
+     * the standard error stream.
      *
      * @return balance the player's current balance
      */
     public double getBalance() {
-        try {
-            Scanner scFile = new Scanner(new File(BALANCE_FILE));
+        try (Scanner scFile = new Scanner(new File(BALANCE_FILE))) {
             this.balance = scFile.nextDouble();
-            scFile.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Error: " + BALANCE_FILE + " not found.");
+            System.err.println("Error reading " + BALANCE_FILE);
         }
 
         return this.balance;
     }
 
     /**
-     * Sets the player's balance and stores it in a file.
+     * Sets the player's balance and stores it in a file.If a
+     * FileNotFoundException is thrown during the file reading process, it is
+     * caught and printed to the standard error stream.
      *
      * @param balance the new balance to set
      */
     public void setBalance(double balance) {
-        try {
-            PrintWriter outFile = new PrintWriter(new FileWriter(BALANCE_FILE), false);
+        try (PrintWriter outFile = new PrintWriter(new FileWriter(BALANCE_FILE), false)) {
             outFile.print(balance);
-            outFile.close();
         } catch (IOException e) {
-            System.out.println("Error writing to " + BALANCE_FILE);
+            System.err.println("Error writing to " + BALANCE_FILE);
         }
 
         this.balance = balance;
     }
-    
+
 }

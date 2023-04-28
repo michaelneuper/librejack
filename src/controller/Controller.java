@@ -21,12 +21,14 @@ import model.Statistics;
  */
 public class Controller {
 
-    private Deck deck, discarded;
+    private final Deck DECK;
+    private final Deck DISCARDED;
 
-    private Dealer dealer;
-    private Player player;
+    private final Dealer DEALER;
+    private final Player PLAYER;
+    private final Statistics STATS;
+
     private double bet, balance;
-    private Statistics stats = new Statistics();
 
     /**
      * Creates a new instance of the Controller class. Initializes the dealer
@@ -34,20 +36,22 @@ public class Controller {
      * player. The deck is also populated and shuffled.
      */
     public Controller() {
-        // create new dealer and player
-        dealer = new Dealer();
-        player = new Player();
+        this.STATS = new Statistics();
 
-        balance = player.getBalance();
+        // create new dealer and player
+        DEALER = new Dealer();
+        PLAYER = new Player();
+
+        balance = PLAYER.getBalance();
         bet = 100.0;
 
         // create new populated deck
-        deck = new Deck();
-        deck.populate();
-        deck.shuffle();
+        DECK = new Deck();
+        DECK.populate();
+        DECK.shuffle();
 
         // create new empty deck
-        discarded = new Deck();
+        DISCARDED = new Deck();
     }
 
     /**
@@ -103,21 +107,21 @@ public class Controller {
     public void startRound() {
 
         // if we run out of cards
-        dealer.getHand().discardHandToDeck(discarded);
-        player.getHand().discardHandToDeck(discarded);
+        DEALER.getHand().discardHandToDeck(DISCARDED);
+        PLAYER.getHand().discardHandToDeck(DISCARDED);
 
         // make sure deck has at least 4 cards left
-        if (deck.cardsLeft() < 4) {
-            deck.reloadDeckFromDiscard(discarded);
+        if (DECK.cardsLeft() < 4) {
+            DECK.reloadDeckFromDiscard(DISCARDED);
         }
 
         // give the dealer 2 cards
-        dealer.getHand().takeCardFromDeck(deck);
-        dealer.getHand().takeCardFromDeck(deck);
+        DEALER.getHand().takeCardFromDeck(DECK);
+        DEALER.getHand().takeCardFromDeck(DECK);
 
         // give the player 2 cards
-        player.getHand().takeCardFromDeck(deck);
-        player.getHand().takeCardFromDeck(deck);
+        PLAYER.getHand().takeCardFromDeck(DECK);
+        PLAYER.getHand().takeCardFromDeck(DECK);
 
     }
 
@@ -130,67 +134,68 @@ public class Controller {
     public String checkWhoWins() {
 
         // check if dealer has blackjack
-        if (dealer.hasBlackjack()) {
-            dealer.printHand(); // show full hand
+        if (DEALER.hasBlackjack()) {
+            DEALER.printHand(); // show full hand
 
-            if (player.hasBlackjack()) {
-                stats.incrementPushes();
+            if (PLAYER.hasBlackjack()) {
+                STATS.incrementPushes();
                 return "You both have 21 - Push";
             } else {
                 balance -= bet;
-                player.setBalance(balance);
-                stats.incrementLosses();
-                dealer.printHand();
+                PLAYER.setBalance(balance);
+                STATS.incrementLosses();
+                DEALER.printHand();
                 return "Dealer has BlackJack - You lose";
             }
         }
 
         // check if player has blackjack
-        if (player.hasBlackjack()) {
+        if (PLAYER.hasBlackjack()) {
             balance += bet * 1.5;
-            player.setBalance(balance);
-            stats.incrementWins();
+            PLAYER.setBalance(balance);
+            STATS.incrementWins();
             return "You have BlackJack - You win";
         }
 
         // check whether player busted
-        if (player.getHand().calculateValue() > 21) {
+        if (PLAYER.getHand().calculateValue() > 21) {
             balance -= bet;
-            player.setBalance(balance);
-            stats.incrementLosses();
+            PLAYER.setBalance(balance);
+            STATS.incrementLosses();
             return "Busted";
         }
 
         // dealer's turn
-        dealer.printHand();
-        while (dealer.getHand().calculateValue() < 17) {
-            dealer.hit(deck, discarded);
+        DEALER.printHand();
+        while (DEALER.getHand().calculateValue() < 17) {
+            DEALER.hit(DECK, DISCARDED);
         }
 
         // check who wins
-        if (dealer.getHand().calculateValue() > 21) {
+        if (DEALER.getHand().calculateValue() > 21) {
             balance += bet;
-            player.setBalance(balance);
-            stats.incrementWins();
+            PLAYER.setBalance(balance);
+            STATS.incrementWins();
             return "Dealer busts - You win";
         }
 
-        if (dealer.getHand().calculateValue() > player.getHand().calculateValue() && dealer.getHand().calculateValue() <= 21) {
+        if (DEALER.getHand().calculateValue() > PLAYER.getHand().calculateValue()
+                && DEALER.getHand().calculateValue() <= 21) {
             balance -= bet;
-            player.setBalance(balance);
-            stats.incrementLosses();
+            PLAYER.setBalance(balance);
+            STATS.incrementLosses();
             return "You lose";
         }
 
-        if (player.getHand().calculateValue() > dealer.getHand().calculateValue()) {
+        if (PLAYER.getHand().calculateValue() > DEALER.getHand().calculateValue()) {
             balance += bet;
-            player.setBalance(balance);
-            stats.incrementWins();
+            PLAYER.setBalance(balance);
+            STATS.incrementWins();
             return "You win";
         }
 
-        if (player.getHand().calculateValue() == dealer.getHand().calculateValue()) {
-            stats.incrementPushes();
+        if (PLAYER.getHand().calculateValue() == DEALER.getHand().calculateValue()) {
+            STATS.incrementPushes();
             return "Push";
         }
 
@@ -201,7 +206,7 @@ public class Controller {
      * Hits the player with a card.
      */
     public void hitPlayer() {
-        player.hit(deck, discarded);
+        PLAYER.hit(DECK, DISCARDED);
     }
 
     /**
@@ -209,7 +214,7 @@ public class Controller {
      * @return player hand
      */
     public String displayPlayerHand() {
-        return player.printHand();
+        return PLAYER.printHand();
     }
 
     /**
@@ -217,7 +222,7 @@ public class Controller {
      * @return the value of the player's hand
      */
     public String displayPlayerHandValue() {
-        return Integer.toString(player.getHand().calculateValue());
+        return Integer.toString(PLAYER.getHand().calculateValue());
     }
 
     /**
@@ -225,7 +230,7 @@ public class Controller {
      * @return dealer hand
      */
     public String displayDealerHand() {
-        return dealer.printHand();
+        return DEALER.printHand();
     }
 
     /**
@@ -233,7 +238,7 @@ public class Controller {
      * @return value of dealer's hand
      */
     public String displayDealerHandValue() {
-        return Integer.toString(dealer.getHand().calculateValue());
+        return Integer.toString(DEALER.getHand().calculateValue());
     }
 
     /**
@@ -241,7 +246,7 @@ public class Controller {
      * @return dealer's first card
      */
     public String displayDealerFirstCard() {
-        return dealer.printFirstHand();
+        return DEALER.printFirstHand();
     }
 
     /**
@@ -249,7 +254,7 @@ public class Controller {
      * @return value of the first card
      */
     public String displayDealerFirstCardValue() {
-        return dealer.printFirstCardValue();
+        return DEALER.printFirstCardValue();
     }
 
 }

@@ -14,13 +14,13 @@ import model.Deck;
  */
 public class Hand {
 
-    private ArrayList<Card> hand;
+    private final ArrayList<Card> HAND;
 
     /**
      * Creates a new empty Hand object.
      */
     public Hand() {
-        hand = new ArrayList<Card>();
+        HAND = new ArrayList<>();
     }
 
     /**
@@ -29,7 +29,7 @@ public class Hand {
      * @param deck deck to take card from
      */
     public void takeCardFromDeck(Deck deck) {
-        hand.add(deck.takeCard());
+        HAND.add(deck.takeCard());
     }
 
     /**
@@ -41,7 +41,7 @@ public class Hand {
         int value = 0; // current total value
         int aceCount = 0; // number of aces
 
-        for (Card card : hand) {
+        for (Card card : HAND) {
             value += card.getValue(); // add card value to hand
 
             // count number of aces
@@ -69,7 +69,7 @@ public class Hand {
      * @return the card at index i
      */
     public Card getCard(int i) {
-        return hand.get(i);
+        return HAND.get(i);
     }
 
     /**
@@ -80,8 +80,8 @@ public class Hand {
      * added
      */
     public void discardHandToDeck(Deck discardDeck) {
-        discardDeck.addCards(hand); // copy cards from discardDeck
-        hand.clear(); // clear the hand
+        discardDeck.addCards(HAND); // copy cards from discardDeck
+        HAND.clear(); // clear the hand
     }
 
     /**
@@ -93,7 +93,7 @@ public class Hand {
     public String toString() {
 
         String ret = ""; // holds string to return
-        for (Card card : hand) {
+        for (Card card : HAND) {
             ret += card + " - ";
         }
 

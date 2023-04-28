@@ -18,7 +18,8 @@ import com.opencsv.exceptions.CsvValidationException;
  * </ul>
  *
  * <p>
- * The file is named `statistics.csv` and is stored in the 'db/' directory.</p>
+ * The file is named <code>statistics.csv</code> and is stored in the
+ * <code>db/</code> directory.</p>
  *
  * @author Michael Neuper
  * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
@@ -144,7 +145,7 @@ public class Statistics {
      * <p>
      * The method uses a CSVWriter object to write the data to the file. If an
      * IOException occurs during the file writing process, it is caught and
-     * ignored.</p>
+     * printed to the standard error stream.</p>
      */
     private void save() {
         try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE))) {
@@ -152,6 +153,7 @@ public class Statistics {
             String[] data = {String.valueOf(wins), String.valueOf(losses), String.valueOf(pushes)};
             writer.writeNext(data);
         } catch (IOException e) {
+            System.err.println("Error writing to " + CSV_FILE);
         }
     }
 
@@ -166,9 +168,9 @@ public class Statistics {
      * the CSV file.</p>
      * <p>
      * If an IOException occurs during the file reading process, it is caught
-     * and ignored. If a CsvValidationException is thrown during the file
-     * reading process, it is handled internally and an empty Statistics object
-     * is returned.</p>
+     * and printed to the standard error stream. If a CsvValidationException is
+     * thrown during the file reading process, it is handled internally and an
+     * empty Statistics object is returned.</p>
      *
      * @return a Statistics object with the values read from the CSV file, or an
      * empty Statistics object if there was a problem with the CSV file format
@@ -193,9 +195,10 @@ public class Statistics {
             System.err.println("Error: invalid CSV file format");
         } catch (IOException e) {
             // rethrow the IOException to the calling function
-            throw new IOException("Error reading CSV file", e);
+            throw new IOException("Error reading " + CSV_FILE, e);
         }
+
         return stats;
     }
-    
+
 }

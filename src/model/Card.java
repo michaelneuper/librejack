@@ -35,6 +35,7 @@ public class Card {
          *
          * @return the name of the suit
          */
+        @Override
         public String toString() {
             return suitName;
         }
