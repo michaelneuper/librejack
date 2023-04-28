@@ -58,7 +58,7 @@ public class Statistics {
     /**
      * Gets the number of wins.
      *
-     * @return wins number of wins
+     * @return number of wins
      */
     public int getWins() {
         return wins;
@@ -67,7 +67,7 @@ public class Statistics {
     /**
      * Gets the number of losses.
      *
-     * @return losses number of losses
+     * @return number of losses
      */
     public int getLosses() {
         return losses;
@@ -76,7 +76,7 @@ public class Statistics {
     /**
      * Gets the number of pushes (ties).
      *
-     * @return pushes number of pushes
+     * @return number of pushes
      */
     public int getPushes() {
         return pushes;
