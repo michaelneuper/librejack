@@ -18,6 +18,9 @@ public class StatisticsGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form StatisticsGUI
+     *
+     * @throws java.io.IOException is there is a problem with the file reading
+     * process
      */
     public StatisticsGUI() throws IOException {
         this.stats = Statistics.load();
@@ -111,6 +114,8 @@ public class StatisticsGUI extends javax.swing.JFrame {
 
     /**
      * @param args the command line arguments
+     * @throws com.opencsv.exceptions.CsvValidationException if there is an
+     * error reading from the csv file
      */
     public static void main(String args[]) throws CsvValidationException {
         /* Set the Nimbus look and feel */
@@ -139,6 +144,7 @@ public class StatisticsGUI extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 try {
                     new StatisticsGUI().setVisible(true);

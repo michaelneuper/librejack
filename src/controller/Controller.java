@@ -85,7 +85,7 @@ public class Controller {
     /**
      * Sets the current player's balance.
      *
-     * @param balance
+     * @param balance player's balance
      */
     public void setBalance(double balance) {
         this.balance = balance;

@@ -9,14 +9,13 @@ import com.opencsv.CSVWriter;
 import com.opencsv.exceptions.CsvValidationException;
 
 /**
- * <p>
  * The Statistics class represents a set of statistics for a blackjack game.
  * Statistics are stored in a CSV file with the following format:
  * <ul>
  * <li><b>Column 1:</b> number of wins</li>
  * <li><b>Column 2:</b> number of losses</li>
  * <li><b>Column 3:</b> number of pushes(ties)</li>
- * </ul></p>
+ * </ul>
  *
  * <p>
  * The file is named `statistics.csv` and is stored in the 'db/' directory.</p>

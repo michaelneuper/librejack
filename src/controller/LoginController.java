@@ -22,10 +22,10 @@ public class LoginController {
     /**
      * Checks whether all the entered fields are present and valid.
      *
-     * @param email
-     * @param mobileNumber
-     * @param date
-     * @param password
+     * @param email user's email
+     * @param mobileNumber South African number
+     * @param date date of birth
+     * @param password user's password
      * @return true if all fields are valid, false otherwise
      */
     public boolean areAllFieldsValid(String email, String mobileNumber, Date date, String password) {
