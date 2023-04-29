@@ -66,7 +66,7 @@ public class Login extends javax.swing.JFrame {
         jPanelWelcomeText.setPreferredSize(new java.awt.Dimension(415, 70));
 
         jLabelWelcome.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabelWelcome.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelWelcome.setForeground(new java.awt.Color(255, 255, 0));
         jLabelWelcome.setText("WELCOME TO LIBREJACK");
 
         javax.swing.GroupLayout jPanelWelcomeTextLayout = new javax.swing.GroupLayout(jPanelWelcomeText);
