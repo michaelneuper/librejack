@@ -106,7 +106,7 @@ public class Controller {
      * to the player.</p>
      */
     public void startRound() {
-        
+
         hasPlayed = false;
 
         // if we run out of cards
@@ -135,90 +135,90 @@ public class Controller {
      * @return a message indicating the result of the game
      */
     public String checkWhoWins() {
-        if (!hasPlayed) {
-            // check wether player has enough money
-            if (bet > PLAYER.getBalance()) {
-                JOptionPane.showMessageDialog(null, "You don't have enough money");
-                return null;
-            }
-
-            // check if dealer has blackjack
-            if (DEALER.hasBlackjack()) {
-                DEALER.printHand(); // show full hand
-                hasPlayed = true;
-
-                if (PLAYER.hasBlackjack()) {
-                    STATS.incrementPushes();
-                    return "You both have 21 - Push";
-                } else {
-                    balance -= bet;
-                    PLAYER.setBalance(balance);
-                    STATS.incrementLosses();
-                    DEALER.printHand();
-                    return "Dealer has BlackJack - You lose";
-                }
-            }
-
-            // check if player has blackjack
-            if (PLAYER.hasBlackjack()) {
-                balance += bet * 1.5;
-                PLAYER.setBalance(balance);
-                STATS.incrementWins();
-                hasPlayed = true;
-                return "You have BlackJack - You win";
-            }
-
-            // check whether player busted
-            if (PLAYER.getHand().calculateValue() > 21) {
-                balance -= bet;
-                PLAYER.setBalance(balance);
-                STATS.incrementLosses();
-                hasPlayed = true;
-                return "Busted";
-            }
-
-            // dealer's turn
-            DEALER.printHand();
-            while (DEALER.getHand().calculateValue() < 17) {
-                DEALER.hit(DECK, DISCARDED);
-            }
-
-            // check who wins
-            if (DEALER.getHand().calculateValue() > 21) {
-                balance += bet;
-                PLAYER.setBalance(balance);
-                STATS.incrementWins();
-                hasPlayed = true;
-                return "Dealer busts - You win";
-            }
-
-            if (DEALER.getHand().calculateValue() > PLAYER.getHand().calculateValue()
-                    && DEALER.getHand().calculateValue() <= 21) {
-                balance -= bet;
-                PLAYER.setBalance(balance);
-                STATS.incrementLosses();
-                hasPlayed = true;
-                return "You lose";
-            }
-
-            if (PLAYER.getHand().calculateValue() > DEALER.getHand().calculateValue()) {
-                balance += bet;
-                PLAYER.setBalance(balance);
-                STATS.incrementWins();
-                hasPlayed = true;
-                return "You win";
-            }
-
-            if (PLAYER.getHand().calculateValue() == DEALER.getHand().calculateValue()) {
-                STATS.incrementPushes();
-                hasPlayed = true;
-                return "Push";
-            }
-        } else {
+        if (hasPlayed) {
             JOptionPane.showMessageDialog(null, "Press deal before you can hit or stand again");
-            return "You already played";
+            return "Press Deal";
         }
-        
+
+        // check whether player has enough money
+        if (bet > PLAYER.getBalance()) {
+            JOptionPane.showMessageDialog(null, "You don't have enough money");
+            return null;
+        }
+
+        // check if dealer has blackjack
+        if (DEALER.hasBlackjack()) {
+            DEALER.printHand(); // show full hand
+            hasPlayed = true;
+
+            if (PLAYER.hasBlackjack()) {
+                STATS.incrementPushes();
+                return "You both have 21 - Push";
+            } else {
+                balance -= bet;
+                PLAYER.setBalance(balance);
+                STATS.incrementLosses();
+                DEALER.printHand();
+                return "Dealer has BlackJack - You lose";
+            }
+        }
+
+        // check if player has blackjack
+        if (PLAYER.hasBlackjack()) {
+            balance += bet * 1.5;
+            PLAYER.setBalance(balance);
+            STATS.incrementWins();
+            hasPlayed = true;
+            return "You have BlackJack - You win";
+        }
+
+        // check whether player busted
+        if (PLAYER.getHand().calculateValue() > 21) {
+            balance -= bet;
+            PLAYER.setBalance(balance);
+            STATS.incrementLosses();
+            hasPlayed = true;
+            return "Busted";
+        }
+
+        // dealer's turn
+        DEALER.printHand();
+        while (DEALER.getHand().calculateValue() < 17) {
+            DEALER.hit(DECK, DISCARDED);
+        }
+
+        // check who wins
+        if (DEALER.getHand().calculateValue() > 21) {
+            balance += bet;
+            PLAYER.setBalance(balance);
+            STATS.incrementWins();
+            hasPlayed = true;
+            return "Dealer busts - You win";
+        }
+
+        if (DEALER.getHand().calculateValue() > PLAYER.getHand().calculateValue()
+                && DEALER.getHand().calculateValue() <= 21) {
+            balance -= bet;
+            PLAYER.setBalance(balance);
+            STATS.incrementLosses();
+            hasPlayed = true;
+            return "You lose";
+        }
+
+        if (PLAYER.getHand().calculateValue() > DEALER.getHand().calculateValue()) {
+            balance += bet;
+            PLAYER.setBalance(balance);
+            STATS.incrementWins();
+            hasPlayed = true;
+            return "You win";
+        }
+
+        if (PLAYER.getHand().calculateValue() == DEALER.getHand().calculateValue()) {
+            STATS.incrementPushes();
+            hasPlayed = true;
+            return "Push";
+        }
+
         return null;
     }
 
