@@ -161,7 +161,7 @@
                           <Component id="jTextFieldUsername" alignment="0" max="32767" attributes="0"/>
                           <Component id="jTextFieldEmail" alignment="0" pref="183" max="32767" attributes="0"/>
                           <Component id="jTextFieldMobileNumber" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jPasswordField1" max="32767" attributes="0"/>
+                          <Component id="jPasswordField" max="32767" attributes="0"/>
                           <Component id="jSeparator2" alignment="0" pref="183" max="32767" attributes="0"/>
                           <Component id="jSeparator3" alignment="0" pref="183" max="32767" attributes="0"/>
                           <Component id="jDateChooser1" alignment="1" max="32767" attributes="0"/>
@@ -207,7 +207,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jPasswordField1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jPasswordField" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -345,7 +345,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+            <Component class="javax.swing.JPasswordField" name="jPasswordField">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="66" red="0" type="rgb"/>
@@ -361,6 +361,9 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jPasswordFieldActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator1">
               <Properties>
@@ -434,7 +437,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Component id="jButtonPlay" min="-2" pref="98" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="220" max="32767" attributes="0"/>
@@ -447,7 +450,7 @@
                   <EmptySpace pref="53" max="32767" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="264" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="jButtonPlay" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -461,7 +464,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="jButtonPlay">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="66" red="0" type="rgb"/>
@@ -478,7 +481,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPlayActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
