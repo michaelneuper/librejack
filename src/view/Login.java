@@ -2,6 +2,7 @@ package view;
 
 import controller.LoginController;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  * GUI for login screen.
@@ -145,12 +146,22 @@ public class Login extends javax.swing.JFrame {
         jTextFieldUsername.setText("PenguinPancakes69");
         jTextFieldUsername.setBorder(null);
         jTextFieldUsername.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldUsername.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextFieldUsernameMouseClicked(evt);
+            }
+        });
 
         jTextFieldEmail.setBackground(new java.awt.Color(0, 102, 0));
         jTextFieldEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextFieldEmail.setForeground(new java.awt.Color(153, 153, 153));
         jTextFieldEmail.setText("john.doe@example.com");
         jTextFieldEmail.setBorder(null);
+        jTextFieldEmail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextFieldEmailMouseClicked(evt);
+            }
+        });
         jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldEmailActionPerformed(evt);
@@ -162,12 +173,22 @@ public class Login extends javax.swing.JFrame {
         jTextFieldMobileNumber.setForeground(new java.awt.Color(153, 153, 153));
         jTextFieldMobileNumber.setText("082 738 9016");
         jTextFieldMobileNumber.setBorder(null);
+        jTextFieldMobileNumber.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextFieldMobileNumberMouseClicked(evt);
+            }
+        });
 
         jPasswordField.setBackground(new java.awt.Color(0, 102, 0));
         jPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jPasswordField.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordField.setText("Password@12345");
         jPasswordField.setBorder(null);
+        jPasswordField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPasswordFieldMouseClicked(evt);
+            }
+        });
         jPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordFieldActionPerformed(evt);
@@ -299,7 +320,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextFieldEmailActionPerformed
 
     private void jButtonPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlayActionPerformed
@@ -319,6 +340,22 @@ public class Login extends javax.swing.JFrame {
     private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldActionPerformed
+
+    private void jTextFieldUsernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldUsernameMouseClicked
+        jTextFieldUsername.setText("");
+    }//GEN-LAST:event_jTextFieldUsernameMouseClicked
+
+    private void jTextFieldEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldEmailMouseClicked
+        jTextFieldEmail.setText("");
+    }//GEN-LAST:event_jTextFieldEmailMouseClicked
+
+    private void jTextFieldMobileNumberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldMobileNumberMouseClicked
+        jTextFieldMobileNumber.setText("");
+    }//GEN-LAST:event_jTextFieldMobileNumberMouseClicked
+
+    private void jPasswordFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldMouseClicked
+        jPasswordField.setText("");
+    }//GEN-LAST:event_jPasswordFieldMouseClicked
 
     /**
      * @param args the command line arguments
