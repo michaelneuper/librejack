@@ -153,13 +153,13 @@ public class Controller {
 
             if (PLAYER.hasBlackjack()) {
                 STATS.incrementPushes();
-                return "You both have 21 - Push";
+                return "PUSHED!";
             } else {
                 balance -= bet;
                 PLAYER.setBalance(balance);
                 STATS.incrementLosses();
                 DEALER.printHand();
-                return "Dealer has BlackJack - You lose";
+                return "LOST!";
             }
         }
 
@@ -169,7 +169,7 @@ public class Controller {
             PLAYER.setBalance(balance);
             STATS.incrementWins();
             hasPlayed = true;
-            return "You have BlackJack - You win";
+            return "WON!";
         }
 
         // check whether player busted
@@ -178,7 +178,7 @@ public class Controller {
             PLAYER.setBalance(balance);
             STATS.incrementLosses();
             hasPlayed = true;
-            return "Busted";
+            return "BUSTED!";
         }
 
         // dealer's turn
@@ -193,7 +193,7 @@ public class Controller {
             PLAYER.setBalance(balance);
             STATS.incrementWins();
             hasPlayed = true;
-            return "Dealer busts - You win";
+            return "WON!";
         }
 
         if (DEALER.getHand().calculateValue() > PLAYER.getHand().calculateValue()
@@ -202,7 +202,7 @@ public class Controller {
             PLAYER.setBalance(balance);
             STATS.incrementLosses();
             hasPlayed = true;
-            return "You lose";
+            return "LOST!";
         }
 
         if (PLAYER.getHand().calculateValue() > DEALER.getHand().calculateValue()) {
@@ -210,13 +210,13 @@ public class Controller {
             PLAYER.setBalance(balance);
             STATS.incrementWins();
             hasPlayed = true;
-            return "You win";
+            return "WON!";
         }
 
         if (PLAYER.getHand().calculateValue() == DEALER.getHand().calculateValue()) {
             STATS.incrementPushes();
             hasPlayed = true;
-            return "Push";
+            return "PUSHED!";
         }
 
         return null;
