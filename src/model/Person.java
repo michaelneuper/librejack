@@ -79,7 +79,7 @@ public abstract class Person {
      * @return a formatted string representing the person's hand
      */
     public String printHand() {
-        return this.hand + "[" + this.hand.calculateValue() + "]";
+        return this.hand + "";
     }
 
     /**

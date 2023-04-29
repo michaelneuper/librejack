@@ -94,7 +94,7 @@ public class Hand {
 
         String ret = ""; // holds string to return
         for (Card card : HAND) {
-            ret += card + " - ";
+            ret += card + " \n "; // TODO fix newline not displaying in GUI
         }
 
         return ret;
