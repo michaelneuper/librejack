@@ -44,7 +44,7 @@ public class StatisticsGUI extends javax.swing.JFrame {
         jLabelLosses = new javax.swing.JLabel();
         jLabelLossesAmount = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabelStatistics.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         jLabelStatistics.setText("Statistics");
