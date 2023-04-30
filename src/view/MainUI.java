@@ -40,32 +40,42 @@ public class MainUI extends javax.swing.JFrame {
         jButtonSurrender = new javax.swing.JButton();
         jButtonDeal = new javax.swing.JButton();
         jPanelWest = new javax.swing.JPanel();
+        jLabelBalance = new javax.swing.JLabel();
+        jLabelCurrentBet = new javax.swing.JLabel();
+        jLabelCurrentBetAmount = new javax.swing.JLabel();
+        jButtonChangeBet = new javax.swing.JButton();
         jPanelCenter = new javax.swing.JPanel();
+        jPanelDealer = new javax.swing.JPanel();
+        jPanelDealerText = new javax.swing.JPanel();
+        jLabelDealer1 = new javax.swing.JLabel();
+        jPanelPlayer = new javax.swing.JPanel();
+        jPanelPlayerText = new javax.swing.JPanel();
+        jLabelDealer = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("librejack");
-        setPreferredSize(new java.awt.Dimension(900, 600));
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanelNorth.setBackground(new java.awt.Color(0, 102, 51));
 
-        jLabelResult.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabelResult.setText("WON!");
+        jLabelResult.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabelResult.setText("PUSHED!");
 
         javax.swing.GroupLayout jPanelNorthLayout = new javax.swing.GroupLayout(jPanelNorth);
         jPanelNorth.setLayout(jPanelNorthLayout);
         jPanelNorthLayout.setHorizontalGroup(
             jPanelNorthLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNorthLayout.createSequentialGroup()
-                .addContainerGap(373, Short.MAX_VALUE)
+                .addContainerGap(349, Short.MAX_VALUE)
                 .addComponent(jLabelResult, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(313, 313, 313))
+                .addGap(337, 337, 337))
         );
         jPanelNorthLayout.setVerticalGroup(
             jPanelNorthLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNorthLayout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+            .addGroup(jPanelNorthLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
                 .addComponent(jLabelResult, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelNorth, java.awt.BorderLayout.NORTH);
@@ -73,7 +83,7 @@ public class MainUI extends javax.swing.JFrame {
         jPanelEast.setBackground(new java.awt.Color(0, 102, 51));
         jPanelEast.setPreferredSize(new java.awt.Dimension(200, 498));
 
-        jButtonHit.setBackground(new java.awt.Color(0, 255, 0));
+        jButtonHit.setBackground(new java.awt.Color(0, 204, 51));
         jButtonHit.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButtonHit.setForeground(new java.awt.Color(102, 102, 102));
         jButtonHit.setText("HIT");
@@ -90,7 +100,7 @@ public class MainUI extends javax.swing.JFrame {
 
         jButtonDoubleDown.setBackground(new java.awt.Color(102, 0, 255));
         jButtonDoubleDown.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jButtonDoubleDown.setText("<html>DOUBLE<br><center>DOWN</center></html>");
+        jButtonDoubleDown.setText("<html>\nDOUBLE\n<br>\n<center>DOWN</center>\n</html>");
         jButtonDoubleDown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDoubleDownActionPerformed(evt);
@@ -140,25 +150,58 @@ public class MainUI extends javax.swing.JFrame {
                 .addComponent(jButtonDoubleDown, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonSurrender)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonDeal, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonDeal, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanelEast, java.awt.BorderLayout.EAST);
 
         jPanelWest.setBackground(new java.awt.Color(0, 102, 51));
+        jPanelWest.setForeground(new java.awt.Color(0, 204, 51));
         jPanelWest.setPreferredSize(new java.awt.Dimension(150, 498));
+
+        jLabelBalance.setBackground(new java.awt.Color(102, 102, 0));
+        jLabelBalance.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabelBalance.setForeground(new java.awt.Color(255, 255, 0));
+        jLabelBalance.setText("R 1000");
+
+        jLabelCurrentBet.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelCurrentBet.setText("Current Bet:");
+
+        jLabelCurrentBetAmount.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelCurrentBetAmount.setText("R 100");
+
+        jButtonChangeBet.setBackground(new java.awt.Color(0, 204, 204));
+        jButtonChangeBet.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButtonChangeBet.setForeground(new java.awt.Color(102, 102, 102));
+        jButtonChangeBet.setText("<html>\nCHANGE\n<br>\n<center>BET</center>\n</html>");
 
         javax.swing.GroupLayout jPanelWestLayout = new javax.swing.GroupLayout(jPanelWest);
         jPanelWest.setLayout(jPanelWestLayout);
         jPanelWestLayout.setHorizontalGroup(
             jPanelWestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
+            .addGroup(jPanelWestLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanelWestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonChangeBet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCurrentBetAmount)
+                    .addComponent(jLabelCurrentBet)
+                    .addComponent(jLabelBalance))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanelWestLayout.setVerticalGroup(
             jPanelWestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 498, Short.MAX_VALUE)
+            .addGroup(jPanelWestLayout.createSequentialGroup()
+                .addGap(114, 114, 114)
+                .addComponent(jLabelBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jLabelCurrentBet)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelCurrentBetAmount)
+                .addGap(32, 32, 32)
+                .addComponent(jButtonChangeBet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(270, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelWest, java.awt.BorderLayout.WEST);
@@ -166,15 +209,93 @@ public class MainUI extends javax.swing.JFrame {
         jPanelCenter.setBackground(new java.awt.Color(0, 102, 51));
         jPanelCenter.setPreferredSize(new java.awt.Dimension(400, 498));
 
+        jPanelDealer.setBackground(new java.awt.Color(0, 102, 51));
+
+        jPanelDealerText.setBackground(new java.awt.Color(0, 102, 51));
+
+        jLabelDealer1.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jLabelDealer1.setText("Dealer: 13");
+
+        javax.swing.GroupLayout jPanelDealerTextLayout = new javax.swing.GroupLayout(jPanelDealerText);
+        jPanelDealerText.setLayout(jPanelDealerTextLayout);
+        jPanelDealerTextLayout.setHorizontalGroup(
+            jPanelDealerTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDealerTextLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelDealer1)
+                .addContainerGap(411, Short.MAX_VALUE))
+        );
+        jPanelDealerTextLayout.setVerticalGroup(
+            jPanelDealerTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDealerTextLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelDealer1)
+                .addContainerGap(52, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanelDealerLayout = new javax.swing.GroupLayout(jPanelDealer);
+        jPanelDealer.setLayout(jPanelDealerLayout);
+        jPanelDealerLayout.setHorizontalGroup(
+            jPanelDealerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelDealerText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanelDealerLayout.setVerticalGroup(
+            jPanelDealerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDealerLayout.createSequentialGroup()
+                .addComponent(jPanelDealerText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 181, Short.MAX_VALUE))
+        );
+
+        jPanelPlayer.setBackground(new java.awt.Color(0, 102, 51));
+
+        jPanelPlayerText.setBackground(new java.awt.Color(0, 102, 51));
+
+        jLabelDealer.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jLabelDealer.setText("Player: 13");
+
+        javax.swing.GroupLayout jPanelPlayerTextLayout = new javax.swing.GroupLayout(jPanelPlayerText);
+        jPanelPlayerText.setLayout(jPanelPlayerTextLayout);
+        jPanelPlayerTextLayout.setHorizontalGroup(
+            jPanelPlayerTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPlayerTextLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelDealer)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelPlayerTextLayout.setVerticalGroup(
+            jPanelPlayerTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPlayerTextLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelDealer)
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanelPlayerLayout = new javax.swing.GroupLayout(jPanelPlayer);
+        jPanelPlayer.setLayout(jPanelPlayerLayout);
+        jPanelPlayerLayout.setHorizontalGroup(
+            jPanelPlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelPlayerText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanelPlayerLayout.setVerticalGroup(
+            jPanelPlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPlayerLayout.createSequentialGroup()
+                .addComponent(jPanelPlayerText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 242, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanelCenterLayout = new javax.swing.GroupLayout(jPanelCenter);
         jPanelCenter.setLayout(jPanelCenterLayout);
         jPanelCenterLayout.setHorizontalGroup(
             jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 549, Short.MAX_VALUE)
+            .addComponent(jPanelDealer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelCenterLayout.setVerticalGroup(
             jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 498, Short.MAX_VALUE)
+            .addGroup(jPanelCenterLayout.createSequentialGroup()
+                .addComponent(jPanelDealer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         getContentPane().add(jPanelCenter, java.awt.BorderLayout.CENTER);
@@ -215,15 +336,25 @@ public class MainUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonChangeBet;
     private javax.swing.JButton jButtonDeal;
     private javax.swing.JButton jButtonDoubleDown;
     private javax.swing.JButton jButtonHit;
     private javax.swing.JButton jButtonStand;
     private javax.swing.JButton jButtonSurrender;
+    private javax.swing.JLabel jLabelBalance;
+    private javax.swing.JLabel jLabelCurrentBet;
+    private javax.swing.JLabel jLabelCurrentBetAmount;
+    private javax.swing.JLabel jLabelDealer;
+    private javax.swing.JLabel jLabelDealer1;
     private javax.swing.JLabel jLabelResult;
     private javax.swing.JPanel jPanelCenter;
+    private javax.swing.JPanel jPanelDealer;
+    private javax.swing.JPanel jPanelDealerText;
     private javax.swing.JPanel jPanelEast;
     private javax.swing.JPanel jPanelNorth;
+    private javax.swing.JPanel jPanelPlayer;
+    private javax.swing.JPanel jPanelPlayerText;
     private javax.swing.JPanel jPanelWest;
     // End of variables declaration//GEN-END:variables
 }
