@@ -60,6 +60,7 @@ public class Login extends javax.swing.JFrame {
         setTitle("librejack login");
         setBackground(new java.awt.Color(0, 153, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setPreferredSize(new java.awt.Dimension(900, 430));
 
         jPanelWest.setBackground(new java.awt.Color(0, 102, 0));
         jPanelWest.setPreferredSize(new java.awt.Dimension(415, 430));
@@ -335,7 +336,7 @@ public class Login extends javax.swing.JFrame {
                 jTextFieldMobileNumber.getText(),
                 selectedDate,
                 password)) {
-            new MainGUI().setVisible(true); // open the game window
+            new MainUI().setVisible(true); // open the game window
             this.dispose(); // close the login screen
         }
     }//GEN-LAST:event_jButtonPlayActionPerformed
