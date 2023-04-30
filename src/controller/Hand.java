@@ -71,6 +71,11 @@ public class Hand {
     public Card getCard(int i) {
         return HAND.get(i);
     }
+    
+    public String getCardFilePath(int i) {
+        System.out.println("/assets/cards/" + HAND.get(i).getFilename());
+        return "/assets/cards/" + HAND.get(i).getFilename();
+    }
 
     /**
      * Discards the current hand and adds its cards to the specified discard

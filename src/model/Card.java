@@ -137,6 +137,10 @@ public class Card {
     public Rank getRank() {
         return rank;
     }
+    
+    public String getFilename() {
+        return rank.toString().toLowerCase() + "_of_" + suit.toString().toLowerCase() + ".png";
+    }
 
     /**
      * Returns a String representation of the Card object, including the rank

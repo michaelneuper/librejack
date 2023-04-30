@@ -81,6 +81,10 @@ public abstract class Person {
     public String printHand() {
         return this.hand + "";
     }
+    
+    public String printFilePath(int i) {
+        return hand.getCardFilePath(i);
+    }
 
     /**
      * Draws a card from the deck and adds it to the person's hand. If the deck

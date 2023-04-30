@@ -276,5 +276,13 @@ public class Controller {
     public String displayDealerFirstCardValue() {
         return DEALER.printFirstCardValue();
     }
+    
+    public String getDealerCardFilePath(int i) {
+        return DEALER.printFilePath(i);
+    }
+    
+    public String getPlayerCardFilePath(int i) {
+        return PLAYER.printFilePath(i);
+    }
 
 }
