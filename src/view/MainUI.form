@@ -43,18 +43,18 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="349" max="32767" attributes="0"/>
-                  <Component id="jLabelResult" min="-2" pref="213" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="337" max="-2" attributes="0"/>
+                  <EmptySpace pref="339" max="32767" attributes="0"/>
+                  <Component id="jLabelResult" min="-2" pref="300" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Component id="jLabelResult" min="-2" pref="50" max="-2" attributes="0"/>
-                  <EmptySpace pref="25" max="32767" attributes="0"/>
+                  <EmptySpace pref="31" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -65,7 +65,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="48" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="PUSHED!"/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="game.checkWhoWins()" type="code"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>
@@ -133,6 +135,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="HIT"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonHitActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonStand">
           <Properties>
@@ -288,6 +293,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;CHANGE&#xa;&lt;br&gt;&#xa;&lt;center&gt;BET&lt;/center&gt;&#xa;&lt;/html&gt;"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonChangeBetActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -335,13 +343,20 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanelDealerText" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                      <Component id="jLabelDealerHand" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanelDealerText" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="181" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="jLabelDealerHand" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="114" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -359,7 +374,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabelDealer1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelDealer" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="411" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -368,14 +383,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabelDealer1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelDealer" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="52" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabelDealer1">
+                <Component class="javax.swing.JLabel" name="jLabelDealer">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="30" style="0"/>
@@ -385,6 +400,11 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JLabel" name="jLabelDealerHand">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLabel1"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelPlayer">
@@ -398,13 +418,20 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanelPlayerText" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                      <Component id="jLabelPlayerHand" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanelPlayerText" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="242" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <Component id="jLabelPlayerHand" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="163" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -422,7 +449,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabelDealer" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelPlayer" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -431,14 +458,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabelDealer" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelPlayer" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="43" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabelDealer">
+                <Component class="javax.swing.JLabel" name="jLabelPlayer">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="30" style="0"/>
@@ -448,6 +475,11 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JLabel" name="jLabelPlayerHand">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLabel2"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

@@ -2,6 +2,7 @@ package view;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import controller.Controller;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -12,7 +13,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public class MainUI extends javax.swing.JFrame {
-    
+
     Controller game = new Controller();
 
     /**
@@ -47,10 +48,12 @@ public class MainUI extends javax.swing.JFrame {
         jPanelCenter = new javax.swing.JPanel();
         jPanelDealer = new javax.swing.JPanel();
         jPanelDealerText = new javax.swing.JPanel();
-        jLabelDealer1 = new javax.swing.JLabel();
+        jLabelDealer = new javax.swing.JLabel();
+        jLabelDealerHand = new javax.swing.JLabel();
         jPanelPlayer = new javax.swing.JPanel();
         jPanelPlayerText = new javax.swing.JPanel();
-        jLabelDealer = new javax.swing.JLabel();
+        jLabelPlayer = new javax.swing.JLabel();
+        jLabelPlayerHand = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("librejack");
@@ -59,23 +62,23 @@ public class MainUI extends javax.swing.JFrame {
         jPanelNorth.setBackground(new java.awt.Color(0, 102, 51));
 
         jLabelResult.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabelResult.setText("PUSHED!");
+        jLabelResult.setText(game.checkWhoWins());
 
         javax.swing.GroupLayout jPanelNorthLayout = new javax.swing.GroupLayout(jPanelNorth);
         jPanelNorth.setLayout(jPanelNorthLayout);
         jPanelNorthLayout.setHorizontalGroup(
             jPanelNorthLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNorthLayout.createSequentialGroup()
-                .addContainerGap(349, Short.MAX_VALUE)
-                .addComponent(jLabelResult, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(337, 337, 337))
+                .addContainerGap(339, Short.MAX_VALUE)
+                .addComponent(jLabelResult, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(260, 260, 260))
         );
         jPanelNorthLayout.setVerticalGroup(
             jPanelNorthLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelNorthLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(19, 19, 19)
                 .addComponent(jLabelResult, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelNorth, java.awt.BorderLayout.NORTH);
@@ -87,6 +90,11 @@ public class MainUI extends javax.swing.JFrame {
         jButtonHit.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButtonHit.setForeground(new java.awt.Color(102, 102, 102));
         jButtonHit.setText("HIT");
+        jButtonHit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHitActionPerformed(evt);
+            }
+        });
 
         jButtonStand.setBackground(new java.awt.Color(255, 153, 0));
         jButtonStand.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -176,6 +184,11 @@ public class MainUI extends javax.swing.JFrame {
         jButtonChangeBet.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButtonChangeBet.setForeground(new java.awt.Color(102, 102, 102));
         jButtonChangeBet.setText("<html>\nCHANGE\n<br>\n<center>BET</center>\n</html>");
+        jButtonChangeBet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChangeBetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelWestLayout = new javax.swing.GroupLayout(jPanelWest);
         jPanelWest.setLayout(jPanelWestLayout);
@@ -213,8 +226,8 @@ public class MainUI extends javax.swing.JFrame {
 
         jPanelDealerText.setBackground(new java.awt.Color(0, 102, 51));
 
-        jLabelDealer1.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        jLabelDealer1.setText("Dealer: 13");
+        jLabelDealer.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jLabelDealer.setText("Dealer: 13");
 
         javax.swing.GroupLayout jPanelDealerTextLayout = new javax.swing.GroupLayout(jPanelDealerText);
         jPanelDealerText.setLayout(jPanelDealerTextLayout);
@@ -222,36 +235,44 @@ public class MainUI extends javax.swing.JFrame {
             jPanelDealerTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDealerTextLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelDealer1)
+                .addComponent(jLabelDealer)
                 .addContainerGap(411, Short.MAX_VALUE))
         );
         jPanelDealerTextLayout.setVerticalGroup(
             jPanelDealerTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDealerTextLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelDealer1)
+                .addComponent(jLabelDealer)
                 .addContainerGap(52, Short.MAX_VALUE))
         );
+
+        jLabelDealerHand.setText("jLabel1");
 
         javax.swing.GroupLayout jPanelDealerLayout = new javax.swing.GroupLayout(jPanelDealer);
         jPanelDealer.setLayout(jPanelDealerLayout);
         jPanelDealerLayout.setHorizontalGroup(
             jPanelDealerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelDealerText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanelDealerLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jLabelDealerHand)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelDealerLayout.setVerticalGroup(
             jPanelDealerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDealerLayout.createSequentialGroup()
                 .addComponent(jPanelDealerText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 181, Short.MAX_VALUE))
+                .addGap(49, 49, 49)
+                .addComponent(jLabelDealerHand)
+                .addGap(0, 114, Short.MAX_VALUE))
         );
 
         jPanelPlayer.setBackground(new java.awt.Color(0, 102, 51));
 
         jPanelPlayerText.setBackground(new java.awt.Color(0, 102, 51));
 
-        jLabelDealer.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        jLabelDealer.setText("Player: 13");
+        jLabelPlayer.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jLabelPlayer.setText("Player: 13");
 
         javax.swing.GroupLayout jPanelPlayerTextLayout = new javax.swing.GroupLayout(jPanelPlayerText);
         jPanelPlayerText.setLayout(jPanelPlayerTextLayout);
@@ -259,28 +280,36 @@ public class MainUI extends javax.swing.JFrame {
             jPanelPlayerTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPlayerTextLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelDealer)
+                .addComponent(jLabelPlayer)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelPlayerTextLayout.setVerticalGroup(
             jPanelPlayerTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPlayerTextLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelDealer)
+                .addComponent(jLabelPlayer)
                 .addContainerGap(43, Short.MAX_VALUE))
         );
+
+        jLabelPlayerHand.setText("jLabel2");
 
         javax.swing.GroupLayout jPanelPlayerLayout = new javax.swing.GroupLayout(jPanelPlayer);
         jPanelPlayer.setLayout(jPanelPlayerLayout);
         jPanelPlayerLayout.setHorizontalGroup(
             jPanelPlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelPlayerText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanelPlayerLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jLabelPlayerHand)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelPlayerLayout.setVerticalGroup(
             jPanelPlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPlayerLayout.createSequentialGroup()
                 .addComponent(jPanelPlayerText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 242, Short.MAX_VALUE))
+                .addGap(61, 61, 61)
+                .addComponent(jLabelPlayerHand)
+                .addGap(0, 163, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelCenterLayout = new javax.swing.GroupLayout(jPanelCenter);
@@ -304,7 +333,10 @@ public class MainUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonDoubleDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDoubleDownActionPerformed
-        // TODO add your handling code here:
+        game.setBet(game.getBet() * 2); // double the bet
+        game.hitPlayer();
+        game.setBet(game.getBet() / 2); // reset bet back to original bet
+        buttonPressed();
     }//GEN-LAST:event_jButtonDoubleDownActionPerformed
 
     private void jButtonSurrenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSurrenderActionPerformed
@@ -312,12 +344,30 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSurrenderActionPerformed
 
     private void jButtonDealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDealActionPerformed
-        // TODO add your handling code here:
+        jLabelResult.setText(""); // clear the last result
+        jLabelBalance.setText(game.getBalance() + ""); // update the balance
+        game.startRound();
+        jLabelDealerHand.setText(game.displayDealerFirstCard());
+        jLabelDealer.setText(game.displayDealerFirstCardValue());
+        printPlayerHand();
     }//GEN-LAST:event_jButtonDealActionPerformed
 
     private void jButtonStandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStandActionPerformed
-        // TODO add your handling code here:
+        printDealerHand();
+        jLabelResult.setText(game.checkWhoWins());
+        printDealerHand();
+        jLabelBalance.setText(game.getBalance() + ""); // update the balance
     }//GEN-LAST:event_jButtonStandActionPerformed
+
+    private void jButtonHitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHitActionPerformed
+        game.hitPlayer();
+        buttonPressed();
+    }//GEN-LAST:event_jButtonHitActionPerformed
+
+    private void jButtonChangeBetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeBetActionPerformed
+        game.setBet(Double.parseDouble(JOptionPane.showInputDialog("Enter the bet amount")));
+        jLabelCurrentBet.setText(Double.toString(game.getBet()));
+    }//GEN-LAST:event_jButtonChangeBetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -335,6 +385,23 @@ public class MainUI extends javax.swing.JFrame {
         });
     }
 
+    private void buttonPressed() {
+        printPlayerHand();
+        printDealerHand();
+        jLabelResult.setText(game.checkWhoWins());
+        jLabelBalance.setText(game.getBalance() + ""); // update the balance
+    }
+
+    private void printDealerHand() {
+        jLabelDealerHand.setText(game.displayDealerHand());
+        jLabelDealer.setText(game.displayDealerHandValue());
+    }
+
+    private void printPlayerHand() {
+        jLabelPlayerHand.setText(game.displayPlayerHand());
+        jLabelPlayer.setText(game.displayPlayerHandValue());
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonChangeBet;
     private javax.swing.JButton jButtonDeal;
@@ -346,7 +413,9 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelCurrentBet;
     private javax.swing.JLabel jLabelCurrentBetAmount;
     private javax.swing.JLabel jLabelDealer;
-    private javax.swing.JLabel jLabelDealer1;
+    private javax.swing.JLabel jLabelDealerHand;
+    private javax.swing.JLabel jLabelPlayer;
+    private javax.swing.JLabel jLabelPlayerHand;
     private javax.swing.JLabel jLabelResult;
     private javax.swing.JPanel jPanelCenter;
     private javax.swing.JPanel jPanelDealer;

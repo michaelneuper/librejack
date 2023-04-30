@@ -169,7 +169,7 @@ public class Controller {
             PLAYER.setBalance(balance);
             STATS.incrementWins();
             hasPlayed = true;
-            return "WON!";
+            return "BLACKJACK!";
         }
 
         // check whether player busted
