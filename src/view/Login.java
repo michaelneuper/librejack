@@ -60,7 +60,6 @@ public class Login extends javax.swing.JFrame {
         setTitle("librejack login");
         setBackground(new java.awt.Color(0, 153, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(835, 430));
 
         jPanelWest.setBackground(new java.awt.Color(0, 102, 0));
         jPanelWest.setPreferredSize(new java.awt.Dimension(415, 430));
@@ -271,7 +270,7 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparatorPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         jPanelWest.add(jPanelFields);
@@ -281,9 +280,9 @@ public class Login extends javax.swing.JFrame {
         jPanelCenter.setBackground(new java.awt.Color(0, 153, 51));
         jPanelCenter.setPreferredSize(new java.awt.Dimension(550, 430));
 
-        jLabelCardsIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/cards_resized.png"))); // NOI18N
+        jLabelCardsIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/heart_card_resized.png"))); // NOI18N
 
-        jButtonPlay.setBackground(new java.awt.Color(0, 102, 0));
+        jButtonPlay.setBackground(new java.awt.Color(102, 0, 204));
         jButtonPlay.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButtonPlay.setForeground(new java.awt.Color(204, 204, 204));
         jButtonPlay.setText("PLAY");
@@ -301,21 +300,21 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanelCenterLayout.createSequentialGroup()
                 .addGroup(jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelCenterLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelCardsIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(62, 62, 62)
+                        .addComponent(jLabelCardsIcon))
                     .addGroup(jPanelCenterLayout.createSequentialGroup()
-                        .addGap(145, 145, 145)
+                        .addGap(164, 164, 164)
                         .addComponent(jButtonPlay, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(579, Short.MAX_VALUE))
         );
         jPanelCenterLayout.setVerticalGroup(
             jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCenterLayout.createSequentialGroup()
-                .addContainerGap(53, Short.MAX_VALUE)
-                .addComponent(jLabelCardsIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addComponent(jLabelCardsIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonPlay, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addGap(16, 16, 16))
         );
 
         getContentPane().add(jPanelCenter, java.awt.BorderLayout.CENTER);
