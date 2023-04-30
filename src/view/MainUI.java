@@ -393,6 +393,8 @@ public class MainUI extends javax.swing.JFrame {
         jLabelBalance.setText(game.getBalance() + ""); // update the balance
         game.startRound();
 //        jLabelDealerCard1.setText(game.displayDealerFirstCard());
+        jLabelDealerCard1.setIcon(new ImageIcon(getClass().getResource("/assets/cards/back.png")));
+        jLabelDealerCard2.setIcon(new ImageIcon(getClass().getResource(game.getDealerCardFilePath(1))));
         jLabelDealer.setText("Dealer: " + game.displayDealerFirstCardValue());
         printPlayerHand();
     }//GEN-LAST:event_jButtonDealActionPerformed
@@ -439,11 +441,19 @@ public class MainUI extends javax.swing.JFrame {
 
     private void printDealerHand() {
 //        jLabelDealerCard1.setText(game.displayDealerHand());
+        jLabelDealerCard1.setIcon(new ImageIcon(getClass().getResource(game.getDealerCardFilePath(0))));
+        jLabelDealerCard2.setIcon(new ImageIcon(getClass().getResource(game.getDealerCardFilePath(1))));
+        jLabelDealerCard3.setIcon(new ImageIcon(getClass().getResource(game.getDealerCardFilePath(2))));
+        jLabelDealerCard4.setIcon(new ImageIcon(getClass().getResource(game.getDealerCardFilePath(3))));
         jLabelDealer.setText("Dealer: " + game.displayDealerHandValue());
     }
 
     private void printPlayerHand() {
 //        jLabelPlayerCard1.setText(game.displayPlayerHand());
+        jLabelPlayerCard1.setIcon(new ImageIcon(getClass().getResource(game.getPlayerCardFilePath(0))));
+        jLabelPlayerCard2.setIcon(new ImageIcon(getClass().getResource(game.getPlayerCardFilePath(1))));
+        jLabelPlayerCard3.setIcon(new ImageIcon(getClass().getResource(game.getPlayerCardFilePath(2))));
+        jLabelPlayerCard4.setIcon(new ImageIcon(getClass().getResource(game.getPlayerCardFilePath(3))));
         jLabelPlayer.setText("You: " + game.displayPlayerHandValue());
     }
 

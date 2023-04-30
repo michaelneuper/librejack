@@ -73,8 +73,11 @@ public class Hand {
     }
     
     public String getCardFilePath(int i) {
-        System.out.println("/assets/cards/" + HAND.get(i).getFilename());
-        return "/assets/cards/" + HAND.get(i).getFilename();
+        try {
+            return "/assets/cards/" + HAND.get(i).getFilename();
+        } catch (IndexOutOfBoundsException e) {
+            return null; // this will set the icon to null
+        }
     }
 
     /**
