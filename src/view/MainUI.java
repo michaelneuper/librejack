@@ -179,7 +179,7 @@ public class MainUI extends javax.swing.JFrame {
         jLabelBalance.setBackground(new java.awt.Color(102, 102, 0));
         jLabelBalance.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabelBalance.setForeground(new java.awt.Color(255, 255, 0));
-        jLabelBalance.setText("R" + game.getBalance());
+        jLabelBalance.setText("R " + game.getBalance());
 
         jLabelCurrentBet.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabelCurrentBet.setText("Current Bet:");
@@ -390,11 +390,13 @@ public class MainUI extends javax.swing.JFrame {
 
     private void jButtonDealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDealActionPerformed
         jLabelResult.setText(""); // clear the last result
-        jLabelBalance.setText(game.getBalance() + ""); // update the balance
+        jLabelBalance.setText("R " + game.getBalance()); // update the balance
         game.startRound();
-//        jLabelDealerCard1.setText(game.displayDealerFirstCard());
-        jLabelDealerCard1.setIcon(new ImageIcon(getClass().getResource("/assets/cards/back.png")));
-        jLabelDealerCard2.setIcon(new ImageIcon(getClass().getResource(game.getDealerCardFilePath(1))));
+        jLabelDealerCard1.setIcon(new ImageIcon(getClass().getResource(game.getDealerCardFilePath(0))));
+        jLabelDealerCard2.setIcon(new ImageIcon(getClass().getResource("/assets/cards/back.png")));
+        jLabelDealerCard3.setIcon(new ImageIcon(getClass().getResource("/assets/cards/back.png")));
+        jLabelDealerCard4.setIcon(new ImageIcon(getClass().getResource("/assets/cards/back.png")));
+
         jLabelDealer.setText("Dealer: " + game.displayDealerFirstCardValue());
         printPlayerHand();
     }//GEN-LAST:event_jButtonDealActionPerformed
@@ -440,21 +442,21 @@ public class MainUI extends javax.swing.JFrame {
     }
 
     private void printDealerHand() {
-//        jLabelDealerCard1.setText(game.displayDealerHand());
+        jLabelDealer.setText("Dealer: " + game.displayDealerHandValue());
         jLabelDealerCard1.setIcon(new ImageIcon(getClass().getResource(game.getDealerCardFilePath(0))));
         jLabelDealerCard2.setIcon(new ImageIcon(getClass().getResource(game.getDealerCardFilePath(1))));
         jLabelDealerCard3.setIcon(new ImageIcon(getClass().getResource(game.getDealerCardFilePath(2))));
         jLabelDealerCard4.setIcon(new ImageIcon(getClass().getResource(game.getDealerCardFilePath(3))));
-        jLabelDealer.setText("Dealer: " + game.displayDealerHandValue());
+
     }
 
     private void printPlayerHand() {
-//        jLabelPlayerCard1.setText(game.displayPlayerHand());
+        jLabelPlayer.setText("You: " + game.displayPlayerHandValue());
         jLabelPlayerCard1.setIcon(new ImageIcon(getClass().getResource(game.getPlayerCardFilePath(0))));
         jLabelPlayerCard2.setIcon(new ImageIcon(getClass().getResource(game.getPlayerCardFilePath(1))));
         jLabelPlayerCard3.setIcon(new ImageIcon(getClass().getResource(game.getPlayerCardFilePath(2))));
         jLabelPlayerCard4.setIcon(new ImageIcon(getClass().getResource(game.getPlayerCardFilePath(3))));
-        jLabelPlayer.setText("You: " + game.displayPlayerHandValue());
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

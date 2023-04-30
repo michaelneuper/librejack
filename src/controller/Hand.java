@@ -76,7 +76,7 @@ public class Hand {
         try {
             return "/assets/cards/" + HAND.get(i).getFilename();
         } catch (IndexOutOfBoundsException e) {
-            return null; // this will set the icon to null
+            return "/assets/cards/back.png"; // returns a blank card
         }
     }
 
