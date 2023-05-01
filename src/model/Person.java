@@ -8,7 +8,7 @@ import controller.Hand;
  * <p>
  * Contains information about a person in a blackjack game, such as their name
  * and hand.</p>
- * 
+ *
  * @see Player
  * @see Dealer
  *
@@ -81,7 +81,13 @@ public abstract class Person {
     public String printHand() {
         return this.hand + "";
     }
-    
+
+    /**
+     * Prints the file path of a card at a given index
+     *
+     * @param i index of the card
+     * @return file path of the card at index i
+     */
     public String printFilePath(int i) {
         return hand.getCardFilePath(i);
     }
@@ -99,5 +105,5 @@ public abstract class Person {
         }
         this.hand.takeCardFromDeck(deck);
     }
-    
+
 }

@@ -276,11 +276,21 @@ public class Controller {
     public String displayDealerFirstCardValue() {
         return DEALER.printFirstCardValue();
     }
-    
+
+    /**
+     *
+     * @param i index of the card in the dealer's hand
+     * @return file path of the dealer's card
+     */
     public String getDealerCardFilePath(int i) {
         return DEALER.printFilePath(i);
     }
-    
+
+    /**
+     *
+     * @param i index of the card in the player's hand
+     * @return file path of player's card
+     */
     public String getPlayerCardFilePath(int i) {
         return PLAYER.printFilePath(i);
     }

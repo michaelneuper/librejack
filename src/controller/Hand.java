@@ -71,7 +71,13 @@ public class Hand {
     public Card getCard(int i) {
         return HAND.get(i);
     }
-    
+
+    /**
+     *
+     * @param i index of the card in hand
+     * @return file path of a card at a specific index, if the index is out of
+     * range, a blank card is returned
+     */
     public String getCardFilePath(int i) {
         try {
             return "/assets/cards/" + HAND.get(i).getFilename();

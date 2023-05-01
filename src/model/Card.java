@@ -137,7 +137,12 @@ public class Card {
     public Rank getRank() {
         return rank;
     }
-    
+
+    /**
+     * Returns a file representation of a card in the form "ace_of_spades.png"
+     *
+     * @return file representation of a card
+     */
     public String getFilename() {
         return rank.toString().toLowerCase() + "_of_" + suit.toString().toLowerCase() + ".png";
     }
@@ -152,5 +157,5 @@ public class Card {
     public String toString() {
         return rank + " of " + suit;
     }
-    
+
 }
