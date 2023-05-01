@@ -374,6 +374,7 @@ public class SignupUI extends javax.swing.JFrame {
         try {
             UIManager.setLookAndFeel(new FlatDarkLaf());
         } catch (UnsupportedLookAndFeelException e) {
+            System.err.println(e);
         }
 
         /* Create and display the form */
