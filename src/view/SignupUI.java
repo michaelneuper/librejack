@@ -12,12 +12,12 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author Michael Neuper
  * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
-public class Login extends javax.swing.JFrame {
+public class SignupUI extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
      */
-    public Login() {
+    public SignupUI() {
         initComponents();
     }
 
@@ -57,7 +57,7 @@ public class Login extends javax.swing.JFrame {
         jButtonPlay = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("librejack login");
+        setTitle("Sign Up to librejack");
         setBackground(new java.awt.Color(0, 153, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setPreferredSize(new java.awt.Dimension(900, 430));
@@ -96,7 +96,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabelLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelLogin.setForeground(new java.awt.Color(204, 204, 204));
-        jLabelLogin.setText("Login");
+        jLabelLogin.setText("Sign Up");
 
         javax.swing.GroupLayout jPanelLoginTextLayout = new javax.swing.GroupLayout(jPanelLoginText);
         jPanelLoginText.setLayout(jPanelLoginTextLayout);
@@ -105,7 +105,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanelLoginTextLayout.createSequentialGroup()
                 .addGap(178, 178, 178)
                 .addComponent(jLabelLogin)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
         jPanelLoginTextLayout.setVerticalGroup(
             jPanelLoginTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,7 +306,7 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(jPanelCenterLayout.createSequentialGroup()
                         .addGap(164, 164, 164)
                         .addComponent(jButtonPlay, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(579, Short.MAX_VALUE))
+                .addContainerGap(598, Short.MAX_VALUE))
         );
         jPanelCenterLayout.setVerticalGroup(
             jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -373,7 +373,7 @@ public class Login extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new Login().setVisible(true);
+            new SignupUI().setVisible(true);
         });
     }
 
