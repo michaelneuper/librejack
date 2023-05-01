@@ -142,6 +142,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="66" red="0" type="rgb"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;Enter you password.&#xa;Your password must meet the following requirements:&#xa;&lt;ul&gt;&#xa;&lt;li&gt;be at least 10 characters in length&lt;/li&gt;&#xa;&lt;li&gt;conatin at least 1 special character&lt;/li&gt;&#xa;&lt;li&gt;contain at least 1 number&lt;/li&gt;&#xa;&lt;li&gt;contain at least 1 uppercase and lowercase letter&lt;/li&gt;&#xa;&lt;/ul&gt;&#xa;&lt;/html&gt;&#xa;"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[415, 315]"/>
             </Property>
@@ -234,6 +235,7 @@
                   <Image iconType="3" name="/assets/icons/user.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Username:"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelMobileNumber">
@@ -304,6 +306,7 @@
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="PenguinPancakes69"/>
+                <Property name="toolTipText" type="java.lang.String" value="Enter a unique username that contains at least 6 characters."/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -327,6 +330,7 @@
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="john.doe@example.com"/>
+                <Property name="toolTipText" type="java.lang.String" value="Enter a valid email address."/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -348,6 +352,7 @@
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="082 738 9016"/>
+                <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;Enter a valid South African number that starts with either:&#xa;&lt;ul&gt;&#xa;&lt;li&gt;0&lt;/li&gt;&#xa;&lt;li&gt;27&lt;/li&gt;&#xa;&lt;li&gt;+27&lt;/li&gt;&#xa;&lt;/ul&gt;&#xa;The number may contain spaces.&#xa;&lt;/html&gt;"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -413,7 +418,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
+                <Property name="toolTipText" type="java.lang.String" value="Select your date of birth.&#xa;You may only play if you are over the age of 18."/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>

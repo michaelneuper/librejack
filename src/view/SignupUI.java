@@ -117,12 +117,14 @@ public class SignupUI extends javax.swing.JFrame {
         jPanelWest.add(jPanelLoginText);
 
         jPanelFields.setBackground(new java.awt.Color(0, 102, 0));
+        jPanelFields.setToolTipText("<html>\nEnter you password.\nYour password must meet the following requirements:\n<ul>\n<li>be at least 10 characters in length</li>\n<li>conatin at least 1 special character</li>\n<li>contain at least 1 number</li>\n<li>contain at least 1 uppercase and lowercase letter</li>\n</ul>\n</html>\n");
         jPanelFields.setPreferredSize(new java.awt.Dimension(415, 315));
 
         jLabelUsername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabelUsername.setForeground(new java.awt.Color(204, 204, 204));
         jLabelUsername.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/user.png"))); // NOI18N
         jLabelUsername.setText("Username:");
+        jLabelUsername.setToolTipText("");
 
         jLabelMobileNumber.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabelMobileNumber.setForeground(new java.awt.Color(204, 204, 204));
@@ -148,6 +150,7 @@ public class SignupUI extends javax.swing.JFrame {
         jTextFieldUsername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextFieldUsername.setForeground(new java.awt.Color(153, 153, 153));
         jTextFieldUsername.setText("PenguinPancakes69");
+        jTextFieldUsername.setToolTipText("Enter a unique username that contains at least 6 characters.");
         jTextFieldUsername.setBorder(null);
         jTextFieldUsername.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTextFieldUsername.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -160,6 +163,7 @@ public class SignupUI extends javax.swing.JFrame {
         jTextFieldEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextFieldEmail.setForeground(new java.awt.Color(153, 153, 153));
         jTextFieldEmail.setText("john.doe@example.com");
+        jTextFieldEmail.setToolTipText("Enter a valid email address.");
         jTextFieldEmail.setBorder(null);
         jTextFieldEmail.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -176,6 +180,7 @@ public class SignupUI extends javax.swing.JFrame {
         jTextFieldMobileNumber.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextFieldMobileNumber.setForeground(new java.awt.Color(153, 153, 153));
         jTextFieldMobileNumber.setText("082 738 9016");
+        jTextFieldMobileNumber.setToolTipText("<html>\nEnter a valid South African number that starts with either:\n<ul>\n<li>0</li>\n<li>27</li>\n<li>+27</li>\n</ul>\nThe number may contain spaces.\n</html>");
         jTextFieldMobileNumber.setBorder(null);
         jTextFieldMobileNumber.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -209,7 +214,7 @@ public class SignupUI extends javax.swing.JFrame {
 
         jDateChooser1.setBackground(new java.awt.Color(0, 102, 0));
         jDateChooser1.setForeground(new java.awt.Color(153, 153, 153));
-        jDateChooser1.setToolTipText("");
+        jDateChooser1.setToolTipText("Select your date of birth.\nYou may only play if you are over the age of 18.");
         jDateChooser1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanelFieldsLayout = new javax.swing.GroupLayout(jPanelFields);
