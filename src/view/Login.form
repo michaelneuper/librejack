@@ -472,7 +472,7 @@
         <Component class="javax.swing.JLabel" name="jLabelCardsIcon">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/heart_card_resized.png"/>
+              <Image iconType="3" name="/assets/images/hearts_card.png"/>
             </Property>
           </Properties>
         </Component>

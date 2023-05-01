@@ -281,7 +281,7 @@ public class Login extends javax.swing.JFrame {
         jPanelCenter.setBackground(new java.awt.Color(0, 153, 51));
         jPanelCenter.setPreferredSize(new java.awt.Dimension(550, 430));
 
-        jLabelCardsIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/heart_card_resized.png"))); // NOI18N
+        jLabelCardsIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/hearts_card.png"))); // NOI18N
 
         jButtonPlay.setBackground(new java.awt.Color(102, 0, 204));
         jButtonPlay.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
