@@ -24,6 +24,11 @@ import java.util.Scanner;
  */
 public class Player extends Person {
 
+    /**
+     *   o   < Hi!   Hello!> \o
+     *  /|\                   |\
+     *   /\                  /\
+     */
     private double balance; // player's balance
     private final String BALANCE_FILE = "db/balance.txt"; // file to store the player's balance
 
