@@ -2,6 +2,7 @@ package view;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import controller.Controller;
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -35,6 +36,7 @@ public class MainUI extends javax.swing.JFrame {
 
         jPanelNorth = new javax.swing.JPanel();
         jLabelResult = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanelEast = new javax.swing.JPanel();
         jButtonHit = new javax.swing.JButton();
         jButtonStand = new javax.swing.JButton();
@@ -64,6 +66,7 @@ public class MainUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("librejack");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icons/heart_cards.png")));
         setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanelNorth.setBackground(new java.awt.Color(0, 102, 51));
@@ -71,20 +74,37 @@ public class MainUI extends javax.swing.JFrame {
         jLabelResult.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabelResult.setText("WELCOME");
 
+        jButton1.setBackground(new java.awt.Color(0, 102, 51));
+        jButton1.setForeground(new java.awt.Color(204, 204, 204));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/menu_burger.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelNorthLayout = new javax.swing.GroupLayout(jPanelNorth);
         jPanelNorth.setLayout(jPanelNorthLayout);
         jPanelNorthLayout.setHorizontalGroup(
             jPanelNorthLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNorthLayout.createSequentialGroup()
-                .addContainerGap(388, Short.MAX_VALUE)
+                .addGap(41, 41, 41)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 323, Short.MAX_VALUE)
                 .addComponent(jLabelResult, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(260, 260, 260))
         );
         jPanelNorthLayout.setVerticalGroup(
             jPanelNorthLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelNorthLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabelResult, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelNorthLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelNorthLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabelResult, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelNorthLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton1)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -418,6 +438,10 @@ public class MainUI extends javax.swing.JFrame {
         jLabelCurrentBetAmount.setText("R " + Double.toString(game.getBet()));
     }//GEN-LAST:event_jButtonChangeBetActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -461,6 +485,7 @@ public class MainUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonChangeBet;
     private javax.swing.JButton jButtonDeal;
     private javax.swing.JButton jButtonDoubleDown;
