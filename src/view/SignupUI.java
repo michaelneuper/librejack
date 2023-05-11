@@ -2,6 +2,7 @@ package view;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import controller.LoginController;
+import java.awt.Toolkit;
 import java.util.Date;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -60,6 +61,7 @@ public class SignupUI extends javax.swing.JFrame {
         setTitle("Sign Up to librejack");
         setBackground(new java.awt.Color(0, 153, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icons/heart_cards.png")));
         setPreferredSize(new java.awt.Dimension(900, 430));
 
         jPanelWest.setBackground(new java.awt.Color(0, 102, 0));
