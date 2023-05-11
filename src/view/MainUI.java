@@ -89,9 +89,9 @@ public class MainUI extends javax.swing.JFrame {
         jPanelNorthLayout.setHorizontalGroup(
             jPanelNorthLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNorthLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(54, 54, 54)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 323, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 310, Short.MAX_VALUE)
                 .addComponent(jLabelResult, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(260, 260, 260))
         );
@@ -103,7 +103,7 @@ public class MainUI extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addComponent(jLabelResult, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelNorthLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
+                        .addGap(32, 32, 32)
                         .addComponent(jButton1)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
@@ -439,7 +439,7 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonChangeBetActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        new MenuUI().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
