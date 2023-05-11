@@ -2,7 +2,9 @@ package view;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.Desktop;
+import java.io.IOException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -121,7 +123,7 @@ public class MenuUI extends javax.swing.JFrame {
 
             // open the URL in the default browser
             desktop.browse(new URI("https://github.com/michaelneuper/librejack"));
-        } catch (Exception e) {
+        } catch (IOException | URISyntaxException e) {
             System.err.println(e);
         }
     }//GEN-LAST:event_jButtonSourceActionPerformed
