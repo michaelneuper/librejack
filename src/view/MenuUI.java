@@ -9,7 +9,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
- * GUI to show the following options:
+ * GUI to display the following options:
  * <ul>
  * <li>Statistics</li>
  * <li>Rules</li>
@@ -48,7 +48,7 @@ public class MenuUI extends javax.swing.JFrame {
         setTitle("Menu");
         setAlwaysOnTop(true);
 
-        jLabelMenu.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabelMenu.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabelMenu.setText("Menu");
 
         javax.swing.GroupLayout jPanelNorthLayout = new javax.swing.GroupLayout(jPanelNorth);
@@ -58,7 +58,7 @@ public class MenuUI extends javax.swing.JFrame {
             .addGroup(jPanelNorthLayout.createSequentialGroup()
                 .addGap(225, 225, 225)
                 .addComponent(jLabelMenu)
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addContainerGap(223, Short.MAX_VALUE))
         );
         jPanelNorthLayout.setVerticalGroup(
             jPanelNorthLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,6 +73,11 @@ public class MenuUI extends javax.swing.JFrame {
         jButtonStatistics.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButtonStatistics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/stats.png"))); // NOI18N
         jButtonStatistics.setText("STATISTICS");
+        jButtonStatistics.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonStatisticsActionPerformed(evt);
+            }
+        });
 
         jButtonRules.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButtonRules.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/question.png"))); // NOI18N
@@ -120,13 +125,16 @@ public class MenuUI extends javax.swing.JFrame {
         try {
             // get the user's default browser
             Desktop desktop = Desktop.getDesktop();
-
             // open the URL in the default browser
             desktop.browse(new URI("https://github.com/michaelneuper/librejack"));
         } catch (IOException | URISyntaxException e) {
             System.err.println(e);
         }
     }//GEN-LAST:event_jButtonSourceActionPerformed
+
+    private void jButtonStatisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStatisticsActionPerformed
+        new StatisticsUI().setVisible(true);
+    }//GEN-LAST:event_jButtonStatisticsActionPerformed
 
     /**
      * @param args the command line arguments
