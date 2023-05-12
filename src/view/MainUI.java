@@ -3,8 +3,12 @@ package view;
 import com.formdev.flatlaf.FlatDarkLaf;
 import controller.Controller;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -36,7 +40,7 @@ public class MainUI extends javax.swing.JFrame {
 
         jPanelNorth = new javax.swing.JPanel();
         jLabelResult = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonMenu = new javax.swing.JButton();
         jPanelEast = new javax.swing.JPanel();
         jButtonHit = new javax.swing.JButton();
         jButtonStand = new javax.swing.JButton();
@@ -57,30 +61,34 @@ public class MainUI extends javax.swing.JFrame {
         jLabelDealerCard3 = new javax.swing.JLabel();
         jLabelDealerCard4 = new javax.swing.JLabel();
         jPanelPlayer = new javax.swing.JPanel();
-        jPanelPlayerText = new javax.swing.JPanel();
-        jLabelPlayerCard4 = new javax.swing.JLabel();
         jLabelPlayer = new javax.swing.JLabel();
         jLabelPlayerCard2 = new javax.swing.JLabel();
         jLabelPlayerCard1 = new javax.swing.JLabel();
         jLabelPlayerCard3 = new javax.swing.JLabel();
+        jLabelPlayerCard4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("librejack");
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icons/heart_cards.png")));
         setPreferredSize(new java.awt.Dimension(800, 600));
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         jPanelNorth.setBackground(new java.awt.Color(0, 102, 51));
 
         jLabelResult.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabelResult.setText("WELCOME");
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 51));
-        jButton1.setForeground(new java.awt.Color(204, 204, 204));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/menu_burger.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonMenu.setBackground(new java.awt.Color(0, 102, 51));
+        jButtonMenu.setForeground(new java.awt.Color(204, 204, 204));
+        jButtonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/menu_burger.png"))); // NOI18N
+        jButtonMenu.setBorder(null);
+        jButtonMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonMenuActionPerformed(evt);
             }
         });
 
@@ -90,7 +98,7 @@ public class MainUI extends javax.swing.JFrame {
             jPanelNorthLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNorthLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addComponent(jButton1)
+                .addComponent(jButtonMenu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 310, Short.MAX_VALUE)
                 .addComponent(jLabelResult, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(260, 260, 260))
@@ -104,7 +112,7 @@ public class MainUI extends javax.swing.JFrame {
                         .addComponent(jLabelResult, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelNorthLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addComponent(jButton1)))
+                        .addComponent(jButtonMenu)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -186,7 +194,7 @@ public class MainUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButtonSurrender)
                 .addGap(18, 18, 18)
-                .addComponent(jButtonDeal, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                .addComponent(jButtonDeal, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -195,6 +203,11 @@ public class MainUI extends javax.swing.JFrame {
         jPanelWest.setBackground(new java.awt.Color(0, 102, 51));
         jPanelWest.setForeground(new java.awt.Color(0, 204, 51));
         jPanelWest.setPreferredSize(new java.awt.Dimension(150, 498));
+        jPanelWest.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPanelWestKeyPressed(evt);
+            }
+        });
 
         jLabelBalance.setBackground(new java.awt.Color(102, 102, 0));
         jLabelBalance.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -241,7 +254,7 @@ public class MainUI extends javax.swing.JFrame {
                 .addComponent(jLabelCurrentBetAmount)
                 .addGap(32, 32, 32)
                 .addComponent(jButtonChangeBet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addContainerGap(169, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelWest, java.awt.BorderLayout.WEST);
@@ -280,7 +293,7 @@ public class MainUI extends javax.swing.JFrame {
                         .addComponent(jLabelDealerCard3)
                         .addGap(18, 18, 18)
                         .addComponent(jLabelDealerCard4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
         jPanelDealerTextLayout.setVerticalGroup(
             jPanelDealerTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,28 +324,6 @@ public class MainUI extends javax.swing.JFrame {
 
         jPanelPlayer.setBackground(new java.awt.Color(0, 102, 51));
 
-        jPanelPlayerText.setBackground(new java.awt.Color(0, 102, 51));
-
-        jLabelPlayerCard4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/cards/back.png"))); // NOI18N
-        jLabelPlayerCard4.setText(" ");
-
-        javax.swing.GroupLayout jPanelPlayerTextLayout = new javax.swing.GroupLayout(jPanelPlayerText);
-        jPanelPlayerText.setLayout(jPanelPlayerTextLayout);
-        jPanelPlayerTextLayout.setHorizontalGroup(
-            jPanelPlayerTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelPlayerTextLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabelPlayerCard4)
-                .addContainerGap(119, Short.MAX_VALUE))
-        );
-        jPanelPlayerTextLayout.setVerticalGroup(
-            jPanelPlayerTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelPlayerTextLayout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(jLabelPlayerCard4)
-                .addContainerGap(264, Short.MAX_VALUE))
-        );
-
         jLabelPlayer.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabelPlayer.setText("You");
 
@@ -342,6 +333,9 @@ public class MainUI extends javax.swing.JFrame {
         jLabelPlayerCard1.setToolTipText("");
 
         jLabelPlayerCard3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/cards/back.png"))); // NOI18N
+
+        jLabelPlayerCard4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/cards/back.png"))); // NOI18N
+        jLabelPlayerCard4.setText(" ");
 
         javax.swing.GroupLayout jPanelPlayerLayout = new javax.swing.GroupLayout(jPanelPlayer);
         jPanelPlayer.setLayout(jPanelPlayerLayout);
@@ -357,24 +351,22 @@ public class MainUI extends javax.swing.JFrame {
                         .addComponent(jLabelPlayerCard1)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabelPlayerCard3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanelPlayerText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(30, 30, 30))
+                .addGap(18, 18, 18)
+                .addComponent(jLabelPlayerCard4)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanelPlayerLayout.setVerticalGroup(
             jPanelPlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelPlayerLayout.createSequentialGroup()
-                .addComponent(jPanelPlayerText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanelPlayerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelPlayer)
                 .addGap(18, 18, 18)
                 .addGroup(jPanelPlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelPlayerCard4)
                     .addComponent(jLabelPlayerCard2)
                     .addComponent(jLabelPlayerCard1)
                     .addComponent(jLabelPlayerCard3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelCenterLayout = new javax.swing.GroupLayout(jPanelCenter);
@@ -382,7 +374,9 @@ public class MainUI extends javax.swing.JFrame {
         jPanelCenterLayout.setHorizontalGroup(
             jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelDealer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanelCenterLayout.createSequentialGroup()
+                .addComponent(jPanelPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelCenterLayout.setVerticalGroup(
             jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -438,9 +432,20 @@ public class MainUI extends javax.swing.JFrame {
         jLabelCurrentBetAmount.setText("R " + Double.toString(game.getBet()));
     }//GEN-LAST:event_jButtonChangeBetActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
         new MenuUI().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonMenuActionPerformed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+//        System.out.println(evt.getKeyCode());
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_F1) {
+            // open rules section when F1 is pressed
+            new RulesUI().setVisible(true);
+        }
+    }//GEN-LAST:event_formKeyPressed
+
+    private void jPanelWestKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanelWestKeyPressed
+    }//GEN-LAST:event_jPanelWestKeyPressed
 
     /**
      * @param args the command line arguments
@@ -485,11 +490,11 @@ public class MainUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonChangeBet;
     private javax.swing.JButton jButtonDeal;
     private javax.swing.JButton jButtonDoubleDown;
     private javax.swing.JButton jButtonHit;
+    private javax.swing.JButton jButtonMenu;
     private javax.swing.JButton jButtonStand;
     private javax.swing.JButton jButtonSurrender;
     private javax.swing.JLabel jLabelBalance;
@@ -512,7 +517,6 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelEast;
     private javax.swing.JPanel jPanelNorth;
     private javax.swing.JPanel jPanelPlayer;
-    private javax.swing.JPanel jPanelPlayerText;
     private javax.swing.JPanel jPanelWest;
     // End of variables declaration//GEN-END:variables
 }
