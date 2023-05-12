@@ -82,6 +82,11 @@ public class MenuUI extends javax.swing.JFrame {
         jButtonRules.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButtonRules.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/question.png"))); // NOI18N
         jButtonRules.setText("RULES");
+        jButtonRules.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRulesActionPerformed(evt);
+            }
+        });
 
         jButtonSource.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButtonSource.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons/code.png"))); // NOI18N
@@ -135,6 +140,10 @@ public class MenuUI extends javax.swing.JFrame {
     private void jButtonStatisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStatisticsActionPerformed
         new StatisticsUI().setVisible(true);
     }//GEN-LAST:event_jButtonStatisticsActionPerformed
+
+    private void jButtonRulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRulesActionPerformed
+        new RulesUI().setVisible(true);
+    }//GEN-LAST:event_jButtonRulesActionPerformed
 
     /**
      * @param args the command line arguments
