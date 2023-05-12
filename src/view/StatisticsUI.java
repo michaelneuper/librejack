@@ -2,8 +2,6 @@ package view;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import model.Statistics;
@@ -20,7 +18,7 @@ import model.Statistics;
  * <a href="mailto:michael@michaelneuper.com">michael@michaelneuper.com</a>
  */
 public class StatisticsUI extends javax.swing.JFrame {
-    
+
     Statistics stats;
 
     /**
@@ -45,8 +43,9 @@ public class StatisticsUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelNorth = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jLabelStatistics = new javax.swing.JLabel();
+        jPanelCenter = new javax.swing.JPanel();
+        statisticsChart1 = new view.StatisticsChart();
         jPanelStatisticsText = new javax.swing.JPanel();
         jLabelLosses = new javax.swing.JLabel();
         jLabelWins = new javax.swing.JLabel();
@@ -54,30 +53,29 @@ public class StatisticsUI extends javax.swing.JFrame {
         jLabelWinsAmount = new javax.swing.JLabel();
         jLabelLossesAmount = new javax.swing.JLabel();
         jLabelPushesAmount = new javax.swing.JLabel();
-        jPanelStatisticsChart = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Statistics");
         setAlwaysOnTop(true);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel1.setText("Statistics");
+        jLabelStatistics.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabelStatistics.setText("Statistics");
 
         javax.swing.GroupLayout jPanelNorthLayout = new javax.swing.GroupLayout(jPanelNorth);
         jPanelNorth.setLayout(jPanelNorthLayout);
         jPanelNorthLayout.setHorizontalGroup(
             jPanelNorthLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelNorthLayout.createSequentialGroup()
-                .addGap(280, 280, 280)
-                .addComponent(jLabel1)
-                .addContainerGap(325, Short.MAX_VALUE))
+                .addGap(349, 349, 349)
+                .addComponent(jLabelStatistics)
+                .addContainerGap(432, Short.MAX_VALUE))
         );
         jPanelNorthLayout.setVerticalGroup(
             jPanelNorthLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelNorthLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel1)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(16, 16, 16)
+                .addComponent(jLabelStatistics)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelNorth, java.awt.BorderLayout.NORTH);
@@ -104,71 +102,62 @@ public class StatisticsUI extends javax.swing.JFrame {
         jPanelStatisticsText.setLayout(jPanelStatisticsTextLayout);
         jPanelStatisticsTextLayout.setHorizontalGroup(
             jPanelStatisticsTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelStatisticsTextLayout.createSequentialGroup()
-                .addGap(69, 69, 69)
+            .addGroup(jPanelStatisticsTextLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
                 .addGroup(jPanelStatisticsTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelPushes)
-                    .addComponent(jLabelLosses))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(jPanelStatisticsTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabelWinsAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelLossesAmount, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                    .addComponent(jLabelPushesAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(86, 86, 86))
-            .addGroup(jPanelStatisticsTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelStatisticsTextLayout.createSequentialGroup()
-                    .addGap(71, 71, 71)
-                    .addComponent(jLabelWins)
-                    .addContainerGap(261, Short.MAX_VALUE)))
+                    .addComponent(jLabelLosses)
+                    .addComponent(jLabelWins))
+                .addGroup(jPanelStatisticsTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelStatisticsTextLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelStatisticsTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelWinsAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelPushesAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(115, 115, 115))
+                    .addGroup(jPanelStatisticsTextLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelLossesAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanelStatisticsTextLayout.setVerticalGroup(
             jPanelStatisticsTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelStatisticsTextLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabelWinsAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94)
+                .addGroup(jPanelStatisticsTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelWinsAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelWins))
                 .addGap(27, 27, 27)
                 .addGroup(jPanelStatisticsTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelLosses)
-                    .addComponent(jLabelPushesAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelLossesAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanelStatisticsTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPushes)
-                    .addComponent(jLabelLossesAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
-            .addGroup(jPanelStatisticsTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelStatisticsTextLayout.createSequentialGroup()
-                    .addGap(43, 43, 43)
-                    .addComponent(jLabelWins)
-                    .addContainerGap(212, Short.MAX_VALUE)))
+                    .addComponent(jLabelPushesAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanelStatisticsChartLayout = new javax.swing.GroupLayout(jPanelStatisticsChart);
-        jPanelStatisticsChart.setLayout(jPanelStatisticsChartLayout);
-        jPanelStatisticsChartLayout.setHorizontalGroup(
-            jPanelStatisticsChartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 391, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanelCenterLayout = new javax.swing.GroupLayout(jPanelCenter);
+        jPanelCenter.setLayout(jPanelCenterLayout);
+        jPanelCenterLayout.setHorizontalGroup(
+            jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCenterLayout.createSequentialGroup()
+                .addComponent(jPanelStatisticsText, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(statisticsChart1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-        jPanelStatisticsChartLayout.setVerticalGroup(
-            jPanelStatisticsChartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanelStatisticsText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelStatisticsChart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelStatisticsChart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jPanelCenterLayout.setVerticalGroup(
+            jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelStatisticsText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCenterLayout.createSequentialGroup()
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addComponent(statisticsChart1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jPanelCenter, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -191,16 +180,16 @@ public class StatisticsUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelLosses;
     private javax.swing.JLabel jLabelLossesAmount;
     private javax.swing.JLabel jLabelPushes;
     private javax.swing.JLabel jLabelPushesAmount;
+    private javax.swing.JLabel jLabelStatistics;
     private javax.swing.JLabel jLabelWins;
     private javax.swing.JLabel jLabelWinsAmount;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelCenter;
     private javax.swing.JPanel jPanelNorth;
-    private javax.swing.JPanel jPanelStatisticsChart;
     private javax.swing.JPanel jPanelStatisticsText;
+    private view.StatisticsChart statisticsChart1;
     // End of variables declaration//GEN-END:variables
 }
