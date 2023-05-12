@@ -28,17 +28,30 @@ public class RulesUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabelRules = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Rules");
+        setAlwaysOnTop(true);
+
+        jLabelRules.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelRules.setText("<html>\n\n<h1>Initial Setup</h1>\nBlackjack, also known as 21, is one of the most popular casino games in the world.\nBlackjack is a card-game where players compete against the dealer. \nBlackjack is played with one or more decks of 52 playing cards.\n\n<h1>Objective</h1>\nThe objective of Blackjack is to reach 21 or to reach a score higher than the dealer without exceeding 21.\n\n<h1>Playing The Game</h1>\n<p>\nThe player begins by placing a bet on the table and the dealer deals two cards to the player.\nKings, Queens and Jacks are counted as 10.\nAces count as either 1 or 11 for both the dealer and the player.\nAll other cards are counted as the numeric value shown on the card.\n</p>\n<p>\nAfter receiving the initial two cards, their value is added together.\nThe player then has the option of getting a 'hit' to receive an additional card, or to 'stand' and stop receiving more cards.\nIn a given round, the player or the dealer win by reaching 21 or by having the highest score that is less than 21.\n</p>\n<p>\nScoring higher than 21 (called a 'bust') results in a loss. \nIf the dealer busts, the player wins by having any final score that is less than 21.\n</p>\nIf both the dealer's and player's cards add up to the same number, that hand is considered a tie and is called a 'push'.\nThe player doesn't win or lose any money on a push.\n\n</html>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabelRules, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabelRules, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
@@ -62,5 +75,6 @@ public class RulesUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelRules;
     // End of variables declaration//GEN-END:variables
 }
