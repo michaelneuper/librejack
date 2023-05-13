@@ -26,7 +26,7 @@ public class LoginController {
      * @param mobileNumber South African number
      * @param date date of birth
      * @param password user's password
-     * @return true if all fields are valid, false otherwise
+     * @return {@code true} if all fields are valid, {@code false} otherwise
      */
     public boolean areAllFieldsValid(String email, String mobileNumber, Date date, String password) {
         return isValidEmail(email)
@@ -49,7 +49,7 @@ public class LoginController {
      * </ul>
      *
      * @param email the email to be validated
-     * @return true if the email is a valid email format, false otherwise
+     * @return {@code true} if the email is a valid email format, {@code false} otherwise
      */
     private boolean isValidEmail(String email) {
         // check if email is null
@@ -79,8 +79,8 @@ public class LoginController {
      * number.
      *
      * @param mobileNumber the mobile number to check
-     * @return true if the mobile number is a valid South African mobile number,
-     * false otherwise
+     * @return {@code true} if the mobile number is a valid South African mobile number,
+     * {@code false} otherwise
      */
     private boolean isValidSouthAfricanMobileNumber(String mobileNumber) {
         // remove any non-digit characters from the mobile number
@@ -110,11 +110,11 @@ public class LoginController {
     }
 
     /**
-     * Checks if a given date is valid and the person is at least 18 years old.
+     * Checks if a given date of birth is valid and the person is at least 18 years old.
      *
-     * @param date the date to be checked
-     * @return true if the date is valid and the person is at least 18 years
-     * old, false otherwise
+     * @param date the date of birth to be checked
+     * @return {@code true} if the date is valid and the person is at least 18 years
+     * old, {@code false} otherwise
      */
     private static boolean isValidDateAndAdult(Date date) {
         // check if the date is null
@@ -157,8 +157,8 @@ public class LoginController {
      * <li>has at least 1 uppercase and lowercase letter</li>
      * </ul>
      *
-     * @param password to be validated
-     * @return true if password is valid, false otherwise
+     * @param password the password to be validated
+     * @return {@code true} if password is matches all criteria, {@code false} otherwise
      */
     private boolean isValidPassword(String password) {
         boolean hasUpperCase = false;
@@ -206,7 +206,7 @@ public class LoginController {
      * following: !@#$%^&*()-+=[]{}|\;:'",<.>/?.
      *
      * @param ch the character to check
-     * @return true if the character is a special character, false otherwise
+     * @return {@code true} if the character is a special character, {@code false} otherwise
      */
     private boolean isSpecialCharacter(char ch) {
         String specialCharacters = "!@#$%^&*()-+=[]{}|\\;:'\",<.>/?";

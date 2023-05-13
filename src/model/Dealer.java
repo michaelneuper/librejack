@@ -15,29 +15,32 @@ package model;
 public class Dealer extends Person {
 
     /**
-     * Creates a new dealer with the default name "Dealer".
+     * Constructs a new {@link Dealer} with the default name "Dealer".
      */
     public Dealer() {
         super.setName("Dealer");
     }
 
     /**
-     * Returns a string representation of the dealer's first card in their hand.
+     * Returns a {@code String} representation of the dealer's first
+     * {@link Card} in their {@link controller.Hand}.
      *
-     * @return the first card in the dealer's hand as a String
+     * @return the first card in the dealer's {@link controller.Hand} as a
+     * {@code String}
      */
     public String printFirstHand() {
         return "" + super.getHand().getCard(0);
     }
 
     /**
-     * Returns a string representation of the value of the dealer's first card
-     * in their hand.
+     * Returns a {@code String} representation of the value of the dealer's
+     * first {@link Card} in their {@link controller.Hand}.
      *
-     * @return the value of the first card in the dealer's hand as a String
+     * @return the value of the first {@link Card} in the dealer's
+     * {@link controller.Hand} as a {@code String}
      */
     public String printFirstCardValue() {
         return "" + super.getHand().getCard(0).getValue();
     }
-    
+
 }

@@ -8,7 +8,6 @@ package model;
  */
 public class Card {
 
-    // TODO: change name to image
     /**
      * Represents the four possible suits in a standard playing card deck.
      */
@@ -22,7 +21,7 @@ public class Card {
         public String suitName;
 
         /**
-         * Creates a new Suit object with the specified name.
+         * Constructs a new {@link Suit} object with the specified name.
          *
          * @param suitName the name of the suit
          */
@@ -31,9 +30,9 @@ public class Card {
         }
 
         /**
-         * Returns the name of the suit as a string.
+         * Returns the name of the {@link Suit} as a string.
          *
-         * @return the name of the suit
+         * @return the name of the {@link Suit}
          */
         @Override
         public String toString() {
@@ -66,7 +65,8 @@ public class Card {
         public int rankValue;
 
         /**
-         * Creates a new Rank object with the specified name and value.
+         * Constructs a new {@link Rank} object with the specified name and
+         * value.
          *
          * @param rankName the name of the rank
          * @param rankValue the value of the rank
@@ -77,9 +77,9 @@ public class Card {
         }
 
         /**
-         * Returns the name of the rank as a string.
+         * Returns the name of the {@link Rank} as a string.
          *
-         * @return the name of the rank
+         * @return the name of the {@link Rank}
          */
         @Override
         public String toString() {
@@ -91,10 +91,11 @@ public class Card {
     private Rank rank;
 
     /**
-     * Creates a new Card object with the specified suit and rank.
+     * Constructs a new {@link Card} object with the specified {@link Suit} and
+     * {@link Rank}.
      *
-     * @param suit Card suit
-     * @param rank Card rank
+     * @param suit {@link Card} {@link Suit}
+     * @param rank {@link Card} {@link Rank}
      */
     public Card(Suit suit, Rank rank) {
         this.suit = suit;
@@ -102,7 +103,8 @@ public class Card {
     }
 
     /**
-     * Creates a new Card object as a copy of another Card object.
+     * Constructs a new {@link Card} object as a copy of another {@link Card}
+     * object.
      *
      * @param card card to be added
      */
@@ -112,46 +114,47 @@ public class Card {
     }
 
     /**
-     * Gets the value of the card.
+     * Gets the value of the {@link Card} from its {@link Rank}.
      *
-     * @return The value of the card.
+     * @return the value of the {@link Card}
      */
     public int getValue() {
         return this.rank.rankValue;
     }
 
     /**
-     * Gets the suit of the card.
+     * Gets the {@link Suit} of the {@link Card}.
      *
-     * @return The suit of the card.
+     * @return the {@link Suit} of the {@link Card}
      */
     public Suit getSuit() {
         return suit;
     }
 
     /**
-     * Gets the rank of the card.
+     * Gets the {@link Rank} of the {@link Card}.
      *
-     * @return The rank of the card.
+     * @return the {@link Rank} of the {@link Card}
      */
     public Rank getRank() {
         return rank;
     }
 
     /**
-     * Returns a file representation of a card in the form "ace_of_spades.png"
+     * Returns a file representation of a {@link Card} in the form
+     * {@code "ace_of_spades.png"}
      *
-     * @return file representation of a card
+     * @return file representation of a {@link Card}
      */
     public String getFilename() {
         return rank.toString().toLowerCase() + "_of_" + suit.toString().toLowerCase() + ".png";
     }
 
     /**
-     * Returns a String representation of the Card object, including the rank
-     * and suit of the card, as well as its value in parentheses.
+     * Returns a {@code String} representation of the {@link Card} object,
+     * including the {@link Rank} and {@link Suit} of the {@link Card}.
      *
-     * @return a String representation of the Card object
+     * @return a {@code String} representation of the {@link Card} object
      */
     @Override
     public String toString() {

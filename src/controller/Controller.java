@@ -32,9 +32,9 @@ public class Controller {
     private boolean hasPlayed;
 
     /**
-     * Creates a new instance of the Controller class. Initializes the dealer
-     * and player, the deck and discarded decks, and the bet and balance of the
-     * player. The deck is also populated and shuffled.
+     * Constructs {@link Controller} object. Initializes the {@link Dealer} and
+     * {@link Player}, the {@link Deck} and discarded decks, and the bet and
+     * balance of the player. The deck is also populated and shuffled.
      */
     public Controller() {
         this.STATS = new Statistics();
@@ -58,7 +58,7 @@ public class Controller {
     /**
      * Gets the current player's bet.
      *
-     * @return the current player's bet
+     * @return the player's current bet
      */
     public double getBet() {
         return bet;
@@ -81,14 +81,14 @@ public class Controller {
     /**
      * Gets the current player's balance.
      *
-     * @return the current player's balance
+     * @return the player's current balance
      */
     public double getBalance() {
         return balance;
     }
 
     /**
-     * Sets the current player's balance.
+     * Sets the player's current balance.
      *
      * @param balance player's balance
      */
@@ -223,73 +223,65 @@ public class Controller {
     }
 
     /**
-     * Hits the player with a card.
+     * Hits the player with a {@link model.Card}.
      */
     public void hitPlayer() {
         PLAYER.hit(DECK, DISCARDED);
     }
 
     /**
-     *
-     * @return player hand
+     * @return the player's current {@link Hand}
      */
     public String displayPlayerHand() {
         return PLAYER.printHand();
     }
 
     /**
-     *
-     * @return the value of the player's hand
+     * @return the value of the player's {@link Hand}
      */
     public String displayPlayerHandValue() {
         return Integer.toString(PLAYER.getHand().calculateValue());
     }
 
     /**
-     *
-     * @return dealer hand
+     * @return the dealer's current {@link Hand}
      */
     public String displayDealerHand() {
         return DEALER.printHand();
     }
 
     /**
-     *
-     * @return value of dealer's hand
+     * @return the value of dealer's {@link Hand}
      */
     public String displayDealerHandValue() {
         return Integer.toString(DEALER.getHand().calculateValue());
     }
 
     /**
-     *
-     * @return dealer's first card
+     * @return the dealer's first {@link model.Card}
      */
     public String displayDealerFirstCard() {
         return DEALER.printFirstHand();
     }
 
     /**
-     *
-     * @return value of the first card
+     * @return the value of the first {@link model.Card}
      */
     public String displayDealerFirstCardValue() {
         return DEALER.printFirstCardValue();
     }
 
     /**
-     *
-     * @param i index of the card in the dealer's hand
-     * @return file path of the dealer's card
+     * @param i index of the card in the dealer's {@link Hand}
+     * @return file path of the dealer's {@link model.Card}
      */
     public String getDealerCardFilePath(int i) {
         return DEALER.printFilePath(i);
     }
 
     /**
-     *
-     * @param i index of the card in the player's hand
-     * @return file path of player's card
+     * @param i index of the card in the player's {@link Hand}
+     * @return file path of player's {@link model.Card}
      */
     public String getPlayerCardFilePath(int i) {
         return PLAYER.printFilePath(i);

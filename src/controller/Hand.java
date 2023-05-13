@@ -17,25 +17,25 @@ public class Hand {
     private final ArrayList<Card> HAND;
 
     /**
-     * Creates a new empty Hand object.
+     * Constructs a new empty {@code Hand} object.
      */
     public Hand() {
         HAND = new ArrayList<>();
     }
 
     /**
-     * Adds a card from the deck to the hand.
+     * Adds a {@link Card} from the {@link Deck} to the {@link Hand}.
      *
-     * @param deck deck to take card from
+     * @param deck deck to take {@link Card}from
      */
     public void takeCardFromDeck(Deck deck) {
         HAND.add(deck.takeCard());
     }
 
     /**
-     * Calculates the value of a hand.
+     * Calculates the value of a {@link Hand}.
      *
-     * @return value value of the hand
+     * @return the value of a {@link Hand}
      */
     public int calculateValue() {
         int value = 0; // current total value
@@ -63,19 +63,20 @@ public class Hand {
     }
 
     /**
-     * Gets the card at a specific index.
+     * Gets the {@link Card} at a specific index.
      *
-     * @param i the index of the card or get
-     * @return the card at index i
+     * @param i the index of the {@link Card} or get
+     * @return the {@link Card} at index i
      */
     public Card getCard(int i) {
         return HAND.get(i);
     }
 
     /**
-     *
-     * @param i index of the card in hand
-     * @return file path of a card at a specific index, if the index is out of
+     * Gets the relative file path of a {@link Card}.
+     * 
+     * @param i index of the {@link Card}in {@link Hand}
+     * @return file path of a {@link Card} at a specific index, if the index is out of
      * range, a blank card is returned
      */
     public String getCardFilePath(int i) {
@@ -87,10 +88,10 @@ public class Hand {
     }
 
     /**
-     * Discards the current hand and adds its cards to the specified discard
-     * deck.
+     * Discards the current {@link Hand} and adds its cards to the specified discard
+     * {@link Deck}.
      *
-     * @param discardDeck the deck to which the current hand's cards will be
+     * @param discardDeck the deck to which the current {@link Hand}'s {@link Card} will be
      * added
      */
     public void discardHandToDeck(Deck discardDeck) {
@@ -99,16 +100,16 @@ public class Hand {
     }
 
     /**
-     * Returns a string representation of the current hand.
+     * Returns a {@code String} representation of the current {@link Hand}.
      *
-     * @return a string representation of the current hand
+     * @return a {@code String} representation of the current {@link Hand}
      */
     @Override
     public String toString() {
 
         String ret = ""; // holds string to return
         for (Card card : HAND) {
-            ret += card + " \n "; // TODO fix newline not displaying in GUI
+            ret += card + " \n ";
         }
 
         return ret;

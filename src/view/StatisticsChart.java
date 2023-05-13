@@ -69,9 +69,9 @@ public class StatisticsChart extends javax.swing.JPanel {
     /**
      * Creates a pie chart based on the specified dataset and title.
      *
-     * @param dataset dataset to use for the chart
-     * @param title title to display on the chart
-     * @return the chart object
+     * @param dataset the dataset to use for the chart
+     * @param title the title to display on the chart
+     * @return the {@link JFreeChart} object
      */
     private JFreeChart createChart(PieDataset dataset, String title) {
 

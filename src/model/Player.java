@@ -25,24 +25,22 @@ import java.util.Scanner;
 public class Player extends Person {
 
     /**
-     *   o   < Hi!   Hello!> \o
-     *  /|\                   |\
-     *   /\                  /\
+     * o   < Hi!   Hello!> \o /|\ |\ /\ /\
      */
     private double balance; // player's balance
     private final String BALANCE_FILE = "db/balance.txt"; // file to store the player's balance
 
     /**
-     * Creates a new player with a default name of "Player".
+     * Constructs a new {@link Player} object with a default name of "Player".
      */
     public Player() {
         super.setName("Player");
     }
 
     /**
-     * Gets the player's current balance from a file. If a FileNotFoundException
-     * is thrown during the file reading process, it is caught and printed to
-     * the standard error stream.
+     * Gets the player's current balance from a file. If a
+     * {@link FileNotFoundException} is thrown during the file reading process,
+     * it is caught and printed to the standard error stream.
      *
      * @return balance the player's current balance
      */
@@ -57,9 +55,9 @@ public class Player extends Person {
     }
 
     /**
-     * Sets the player's balance and stores it in a file.If a
-     * FileNotFoundException is thrown during the file reading process, it is
-     * caught and printed to the standard error stream.
+     * Sets the player's balance and stores it in a file. If a
+     * {@link FileNotFoundException} is thrown during the file reading process,
+     * it is caught and printed to the standard error stream.
      *
      * @param balance the new balance to set
      */

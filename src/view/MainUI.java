@@ -3,12 +3,8 @@ package view;
 import com.formdev.flatlaf.FlatDarkLaf;
 import controller.Controller;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
-import javax.swing.JComponent;
 import javax.swing.JOptionPane;
-import javax.swing.KeyStroke;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 

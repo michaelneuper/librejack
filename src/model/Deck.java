@@ -8,7 +8,8 @@ import model.Card.Suit;
 
 /**
  * <p>
- * Holds multiple cards and performs operations such as shuffling the deck.</p>
+ * Holds multiple {@link Card} objects and performs operations such as shuffling
+ * the deck.</p>
  * <p>
  * This class is responsible for creating a deck, populating it with 52 cards,
  * shuffling the deck, adding cards to the deck, removing a card from the deck,
@@ -23,16 +24,15 @@ public class Deck {
     private ArrayList<Card> deck; // creates a "deck" of card objects
 
     /**
-     *
-     * Deck constructor
+     * Constructs a new empty {@link Deck} object.
      */
     public Deck() {
         this.deck = new ArrayList<>();
     }
 
     /**
-     *
-     * Populates empty deck with 52 cards by looping over each rank and value.
+     * Populates empty {@link Deck} with 52 {@link Card} objects by looping over
+     * each {@link Rank} and the value of its {@link Suit}.
      */
     public void populate() {
         for (Suit cardSuit : Suit.values()) {
@@ -44,7 +44,8 @@ public class Deck {
     }
 
     /**
-     * Shuffles deck using a temporary deck for storing cards in random order.
+     * Shuffles {@link Deck} using a temporary {@link Deck} for storing cards in
+     * random order.
      */
     public void shuffle() {
         ArrayList<Card> shufDeck = new ArrayList<>(); // temporary deck for storing cards in random order
@@ -58,23 +59,23 @@ public class Deck {
             shufDeck.add(this.deck.get(randomCardIndex)); // add card to random index of temporary deck
             this.deck.remove(randomCardIndex); // remove card from original deck
         }
-        
+
         this.deck = shufDeck;
     }
 
     /**
-     * Adds a card to the deck.
+     * Adds a {@link Card} to the {@link Deck}.
      *
-     * @param inCard card the be added
+     * @param inCard the {@link Card} the be added to the deck
      */
     public void addCard(Card inCard) {
         this.deck.add(inCard);
     }
 
     /**
-     * Takes copy of first card from deck and removes card from deck.
+     * Takes copy of first {@link Card} from the {@link Deck} and removes it.
      *
-     * @return the card that was removed
+     * @return the {@link Card} that was removed
      */
     public Card takeCard() {
         Card cardToTake = new Card(deck.get(0));
@@ -84,34 +85,38 @@ public class Deck {
     }
 
     /**
-     * Makes sure the deck we're hitting from has cards in it.
+     * Checks whether the {@link Deck} to hit is populated with {@link Card}
+     * objects.
      *
-     * @return true if the deck has cards in or false if the deck is empty
+     * @return {@code true} if the {@link Deck} has {@link Card}s in,
+     * {@code false} otherwise
      */
     public boolean hasCards() {
         return !deck.isEmpty();
     }
 
     /**
-     * Removes all Card objects from the deck.
+     * Removes all {@link Card} objects from the {@link Deck}.
      */
     public void emptyDeck() {
         deck.clear();
     }
 
     /**
-     * Adds ArrayList of cards to deck.
+     * Adds an {@link ArrayList} of {@link Card} objects to the {@link Deck}.
      *
-     * @param cards ArrayList of cards to be added to deck
+     * @param cards the {@link ArrayList} of {@link Card} objects to be added to
+     * {@link Deck}
      */
     public void addCards(ArrayList<Card> cards) {
         deck.addAll(cards);
     }
 
     /**
-     * Returns ArrayList containing all the cards in the deck.
+     * Returns an {@link ArrayList} containing all the {@link Card} objects in
+     * the {@link Deck}.
      *
-     * @return deck ArrayList with the cards
+     * @return the {@link ArrayList} with the cards in the {@link Deck}
      */
     public ArrayList<Card> getCards() {
         return deck;
@@ -150,8 +155,8 @@ public class Deck {
             ret += card;
             ret += "\n";
         }
-        
+
         return ret;
     }
-    
+
 }
