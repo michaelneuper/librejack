@@ -68,6 +68,7 @@ public class Deck {
      *
      * @param inCard the {@link Card} the be added to the deck
      */
+    @Deprecated
     public void addCard(Card inCard) {
         this.deck.add(inCard);
     }
@@ -150,6 +151,7 @@ public class Deck {
      */
     @Override
     public String toString() {
+        // TODO: stop String concatenation in loop
         String ret = ""; // holds the string to return
         for (Card card : deck) {
             ret += card;

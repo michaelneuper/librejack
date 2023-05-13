@@ -43,6 +43,7 @@ public abstract class Person {
      *
      * @param hand the {@link Hand} to set
      */
+    @Deprecated
     public void setHand(Hand hand) {
         this.hand = hand;
     }
@@ -81,7 +82,7 @@ public abstract class Person {
      * @return a formatted {@code String} representing the person's {@link Hand}
      */
     public String printHand() {
-        return this.hand + "";
+        return String.valueOf(this.hand);
     }
 
     /**

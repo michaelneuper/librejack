@@ -29,7 +29,7 @@ public class Dealer extends Person {
      * {@code String}
      */
     public String printFirstHand() {
-        return "" + super.getHand().getCard(0);
+        return String.valueOf(super.getHand().getCard(0));
     }
 
     /**
@@ -40,7 +40,7 @@ public class Dealer extends Person {
      * {@link controller.Hand} as a {@code String}
      */
     public String printFirstCardValue() {
-        return "" + super.getHand().getCard(0).getValue();
+        return String.valueOf(super.getHand().getCard(0).getValue());
     }
 
 }

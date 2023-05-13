@@ -190,7 +190,7 @@ public class MainUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButtonSurrender)
                 .addGap(18, 18, 18)
-                .addComponent(jButtonDeal, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                .addComponent(jButtonDeal, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -250,7 +250,7 @@ public class MainUI extends javax.swing.JFrame {
                 .addComponent(jLabelCurrentBetAmount)
                 .addGap(32, 32, 32)
                 .addComponent(jButtonChangeBet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelWest, java.awt.BorderLayout.WEST);

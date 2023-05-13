@@ -232,6 +232,7 @@ public class Controller {
     /**
      * @return the player's current {@link Hand}
      */
+    @Deprecated
     public String displayPlayerHand() {
         return PLAYER.printHand();
     }
@@ -246,6 +247,7 @@ public class Controller {
     /**
      * @return the dealer's current {@link Hand}
      */
+    @Deprecated
     public String displayDealerHand() {
         return DEALER.printHand();
     }
@@ -260,6 +262,7 @@ public class Controller {
     /**
      * @return the dealer's first {@link model.Card}
      */
+    @Deprecated
     public String displayDealerFirstCard() {
         return DEALER.printFirstHand();
     }
