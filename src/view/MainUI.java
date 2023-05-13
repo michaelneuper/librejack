@@ -399,7 +399,8 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonDoubleDownActionPerformed
 
     private void jButtonSurrenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSurrenderActionPerformed
-        // TODO add your handling code here:
+        game.setBalance(game.getBalance() + (game.getBet() * 0.5));
+        jButtonDealActionPerformed(evt);
     }//GEN-LAST:event_jButtonSurrenderActionPerformed
 
     private void jButtonDealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDealActionPerformed
