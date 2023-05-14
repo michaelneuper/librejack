@@ -178,14 +178,16 @@ public class Statistics {
      * @return a {@link Statistics} object with the values read from the
      * {@code CSV_FILE} file, or an empty {@link Statistics} object if there was
      * a problem with the CSV file format
-     * @throws IOException if there is a problem with the file reading
-     * process or the CSV file headers are invalid
+     * @throws IOException if there is a problem with the file reading process
+     * or the CSV file headers are invalid
      */
     public static Statistics load() throws IOException {
         Statistics stats = new Statistics();
         try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
             String[] headers = reader.readNext();
-            if (!headers[0].equals(CSV_HEADERS[0]) || !headers[1].equals(CSV_HEADERS[1]) || !headers[2].equals(CSV_HEADERS[2])) {
+            if (!headers[0].equals(CSV_HEADERS[0])
+                    || !headers[1].equals(CSV_HEADERS[1])
+                    || !headers[2].equals(CSV_HEADERS[2])) {
                 throw new IOException("Invalid CSV headers");
             }
             String[] data = reader.readNext();
