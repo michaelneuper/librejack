@@ -18,7 +18,7 @@ public class Card {
         HEARTS("Hearts"),
         SPADES("Spades");
 
-        public String suitName;
+        public final String SUIT_NAME;
 
         /**
          * Constructs a new {@link Suit} object with the specified name.
@@ -26,7 +26,7 @@ public class Card {
          * @param suitName the name of the suit
          */
         Suit(String suitName) {
-            this.suitName = suitName;
+            this.SUIT_NAME = suitName;
         }
 
         /**
@@ -36,7 +36,7 @@ public class Card {
          */
         @Override
         public String toString() {
-            return suitName;
+            return SUIT_NAME;
         }
     }
 
@@ -61,8 +61,8 @@ public class Card {
         KING("King", 10),
         ACE("Ace", 11);
 
-        String rankName;
-        public int rankValue;
+        final String RANK_NAME;
+        public final int RANK_VALUE;
 
         /**
          * Constructs a new {@link Rank} object with the specified name and
@@ -72,8 +72,8 @@ public class Card {
          * @param rankValue the value of the rank
          */
         Rank(String rankName, int rankValue) {
-            this.rankName = rankName;
-            this.rankValue = rankValue;
+            this.RANK_NAME = rankName;
+            this.RANK_VALUE = rankValue;
         }
 
         /**
@@ -83,12 +83,12 @@ public class Card {
          */
         @Override
         public String toString() {
-            return rankName;
+            return RANK_NAME;
         }
     }
 
-    private Suit suit;
-    private Rank rank;
+    private final Suit SUIT;
+    private final Rank RANK;
 
     /**
      * Constructs a new {@link Card} object with the specified {@link Suit} and
@@ -98,8 +98,8 @@ public class Card {
      * @param rank {@link Card} {@link Rank}
      */
     public Card(Suit suit, Rank rank) {
-        this.suit = suit;
-        this.rank = rank;
+        this.SUIT = suit;
+        this.RANK = rank;
     }
 
     /**
@@ -109,8 +109,8 @@ public class Card {
      * @param card card to be added
      */
     public Card(Card card) {
-        this.suit = card.getSuit();
-        this.rank = card.getRank();
+        this.SUIT = card.getSuit();
+        this.RANK = card.getRank();
     }
 
     /**
@@ -119,7 +119,7 @@ public class Card {
      * @return the value of the {@link Card}
      */
     public int getValue() {
-        return this.rank.rankValue;
+        return this.RANK.RANK_VALUE;
     }
 
     /**
@@ -128,7 +128,7 @@ public class Card {
      * @return the {@link Suit} of the {@link Card}
      */
     public Suit getSuit() {
-        return suit;
+        return SUIT;
     }
 
     /**
@@ -137,7 +137,7 @@ public class Card {
      * @return the {@link Rank} of the {@link Card}
      */
     public Rank getRank() {
-        return rank;
+        return RANK;
     }
 
     /**
@@ -147,7 +147,7 @@ public class Card {
      * @return file representation of a {@link Card}
      */
     public String getFilename() {
-        return rank.toString().toLowerCase() + "_of_" + suit.toString().toLowerCase() + ".png";
+        return RANK.toString().toLowerCase() + "_of_" + SUIT.toString().toLowerCase() + ".png";
     }
 
     /**
@@ -158,7 +158,7 @@ public class Card {
      */
     @Override
     public String toString() {
-        return rank + " of " + suit;
+        return RANK + " of " + SUIT;
     }
 
 }
