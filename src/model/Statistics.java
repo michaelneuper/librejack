@@ -34,7 +34,8 @@ public class Statistics {
     private int pushes;
 
     /**
-     * Constructs a new Statistics object with all statistics initialized to 0.
+     * Constructs a new {@link Statistics} object with all statistics
+     * initialized to 0.
      */
     public Statistics() {
         this.wins = 0;
@@ -43,7 +44,7 @@ public class Statistics {
     }
 
     /**
-     * Constructs a new Statistics object with the given statistics.
+     * Constructs a new {@link Player} object with the given statistics.
      *
      * @param wins the number of wins
      * @param losses the number of losses
@@ -58,7 +59,7 @@ public class Statistics {
     /**
      * Gets the number of wins.
      *
-     * @return number of wins
+     * @return the number of wins
      */
     public int getWins() {
         return wins;
@@ -67,7 +68,7 @@ public class Statistics {
     /**
      * Gets the number of losses.
      *
-     * @return number of losses
+     * @return the number of losses
      */
     public int getLosses() {
         return losses;
@@ -76,7 +77,7 @@ public class Statistics {
     /**
      * Gets the number of pushes (ties).
      *
-     * @return number of pushes
+     * @return the number of pushes
      */
     public int getPushes() {
         return pushes;
@@ -140,12 +141,12 @@ public class Statistics {
     /**
      * <p>
      * This method saves the current statistics (number of wins, losses, and
-     * pushes) to a CSV_FILE file. The file path is defined by the CSV_FILE
-     * constant in the Statistics class.</p>
+     * pushes) to the {@code CSV_FILE} file. The file path is defined by the
+     * {@code CSV_FILE} constant in the {@link Statistics} class.</p>
      * <p>
-     * The method uses a CSVWriter object to write the data to the file. If an
-     * IOException occurs during the file writing process, it is caught and
-     * printed to the standard error stream.</p>
+     * The method uses a {@link CSVWriter} object to write the data to the file.
+     * If an {@link IOException} occurs during the file writing process, it is
+     * caught and printed to the standard error stream.</p>
      */
     private void save() {
         try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE))) {
@@ -159,21 +160,24 @@ public class Statistics {
 
     /**
      * <p>
-     * This static method loads the statistics from the CSV file located at the
-     * path defined by the CSV_FILE constant in the Statistics class. The method
-     * uses a CSVReader object to read the data from the file.</p>
+     * This static method loads the statistics from the {@code CSV_FILE} file
+     * located at the path defined by the {@code CSV_FILE} constant in the
+     * {@link Statistics} class. The method uses a {@link CSVReader} object to
+     * read the data from the file.</p>
      * <p>
-     * If the CSV file does not have the expected headers, an IOException is
-     * thrown. The method returns a Statistics object with the values read from
-     * the CSV file.</p>
+     * If the {@code CSV_FILE} file does not have the expected headers, an
+     * {@link IOException} is thrown. The method returns a {@link Statistics}
+     * object with the values read from the {@code CSV_FILE} file.</p>
      * <p>
-     * If an IOException occurs during the file reading process, it is caught
-     * and printed to the standard error stream. If a CsvValidationException is
-     * thrown during the file reading process, it is handled internally and an
-     * empty Statistics object is returned.</p>
+     * If an {@link IOException} occurs during the file reading process, it is
+     * caught and printed to the standard error stream. If a
+     * {@link CsvValidationException} is thrown during the file reading process,
+     * it is handled internally and an empty {@link Statistics} object is
+     * returned.</p>
      *
-     * @return a Statistics object with the values read from the CSV file, or an
-     * empty Statistics object if there was a problem with the CSV file format
+     * @return a {@link Statistics} object with the values read from the
+     * {@code CSV_FILE} file, or an empty {@link Statistics} object if there was
+     * a problem with the CSV file format
      * @throws IOException if there is a problem with the file reading process
      * or the CSV file headers are invalid
      */
@@ -181,7 +185,9 @@ public class Statistics {
         Statistics stats = new Statistics();
         try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
             String[] headers = reader.readNext();
-            if (!headers[0].equals(CSV_HEADERS[0]) || !headers[1].equals(CSV_HEADERS[1]) || !headers[2].equals(CSV_HEADERS[2])) {
+            if (!headers[0].equals(CSV_HEADERS[0])
+                    || !headers[1].equals(CSV_HEADERS[1])
+                    || !headers[2].equals(CSV_HEADERS[2])) {
                 throw new IOException("Invalid CSV headers");
             }
             String[] data = reader.readNext();

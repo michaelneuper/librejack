@@ -8,7 +8,7 @@ import controller.Hand;
  * <p>
  * Contains information about a person in a blackjack game, such as their name
  * and hand.</p>
- * 
+ *
  * @see Player
  * @see Dealer
  *
@@ -21,7 +21,8 @@ public abstract class Person {
     private String name;
 
     /**
-     * Creates a person with an empty hand and no name.
+     * Constructs a {@link Person} object with an empty {@link Hand} and no
+     * name.
      */
     public Person() {
         this.hand = new Hand();
@@ -29,34 +30,35 @@ public abstract class Person {
     }
 
     /**
-     * Returns the hand of the person.
+     * Returns the {@link Hand} of the {@link Person}.
      *
-     * @return the hand of the person
+     * @return the {@link Hand} of the {@link Person}
      */
     public Hand getHand() {
         return hand;
     }
 
     /**
-     * Sets the hand of the person.
+     * Sets the {@link Hand} of the {@link Person}.
      *
-     * @param hand the hand to set
+     * @param hand the {@link Hand} to set
      */
+    @Deprecated
     public void setHand(Hand hand) {
         this.hand = hand;
     }
 
     /**
-     * Returns the name of the person.
+     * Returns the name of the {@link Person}.
      *
-     * @return the name of the person
+     * @return the name of the {@link Person}
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Sets the name of the person.
+     * Sets the name of the {@link Person}.
      *
      * @param name the name to set
      */
@@ -65,29 +67,42 @@ public abstract class Person {
     }
 
     /**
-     * Checks if the person has blackjack.
+     * Checks if a {@link Person} has blackjack.
      *
-     * @return true if the person has a blackjack, false otherwise
+     * @return {@code true} if the {@link java.util.ArrayList} has a blackjack,
+     * {@code false} otherwise
      */
     public boolean hasBlackjack() {
         return this.getHand().calculateValue() == 21;
     }
 
     /**
-     * Prints a formatted version of the person's hand.
+     * Prints a formatted version of the person's {@link Hand}.
      *
-     * @return a formatted string representing the person's hand
+     * @return a formatted {@code String} representing the person's {@link Hand}
      */
     public String printHand() {
-        return this.hand + "[" + this.hand.calculateValue() + "]";
+        return String.valueOf(this.hand);
     }
 
     /**
-     * Draws a card from the deck and adds it to the person's hand. If the deck
-     * has no cards, the deck is reloaded from the discard pile.
+     * Prints the file path of a {@link Card} at a given index
      *
-     * @param deck the deck to draw from
-     * @param discard the discard pile to reload from if the deck is empty
+     * @param i index of the {@link Card}
+     * @return file path of the {@link Card} at index {@code i}
+     */
+    public String printFilePath(int i) {
+        return hand.getCardFilePath(i);
+    }
+
+    /**
+     * Draws a {@link Card} from the {@link Deck} and adds it to the person's
+     * {@link Hand}. If the {@link Deck} has no cards, the {@link Deck} is
+     * reloaded from the discard pile.
+     *
+     * @param deck the {@link Deck} to draw from
+     * @param discard the discard pile to reload from if the {@link Deck} is
+     * empty
      */
     public void hit(Deck deck, Deck discard) {
         if (!deck.hasCards()) {
@@ -95,5 +110,5 @@ public abstract class Person {
         }
         this.hand.takeCardFromDeck(deck);
     }
-    
+
 }

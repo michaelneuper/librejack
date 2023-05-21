@@ -26,7 +26,7 @@ public class LoginController {
      * @param mobileNumber South African number
      * @param date date of birth
      * @param password user's password
-     * @return true if all fields are valid, false otherwise
+     * @return {@code true} if all fields are valid, {@code false} otherwise
      */
     public boolean areAllFieldsValid(String email, String mobileNumber, Date date, String password) {
         return isValidEmail(email)
@@ -49,7 +49,8 @@ public class LoginController {
      * </ul>
      *
      * @param email the email to be validated
-     * @return true if the email is a valid email format, false otherwise
+     * @return {@code true} if the email is a valid email format, {@code false}
+     * otherwise
      */
     private boolean isValidEmail(String email) {
         // check if email is null
@@ -64,7 +65,9 @@ public class LoginController {
         Pattern pattern = Pattern.compile(emailRegex);
 
         // check if email matches the pattern
-        boolean isValid = pattern.matcher(email).matches();
+        boolean isValid;
+        assert email != null;
+        isValid = pattern.matcher(email).matches();
 
         // if email is not valid, show error message
         if (!isValid) {
@@ -79,12 +82,12 @@ public class LoginController {
      * number.
      *
      * @param mobileNumber the mobile number to check
-     * @return true if the mobile number is a valid South African mobile number,
-     * false otherwise
+     * @return {@code true} if the mobile number is a valid South African mobile
+     * number, {@code false} otherwise
      */
     private boolean isValidSouthAfricanMobileNumber(String mobileNumber) {
         // remove any non-digit characters from the mobile number
-        mobileNumber = mobileNumber.replaceAll("[^\\d]", "");
+        mobileNumber = mobileNumber.replaceAll("[^\\d]", ""); // TODO: simplify to \D
 
         // check if the mobile number is of the correct length
         if (mobileNumber.length() != 10) {
@@ -95,12 +98,14 @@ public class LoginController {
         // check if the mobile number starts with a valid South African country code
         String[] validCountryCodes = {"+27", "27", "0"};
         boolean validCountryCode = false;
+        
         for (String code : validCountryCodes) {
             if (mobileNumber.startsWith(code)) {
                 validCountryCode = true;
                 break;
             }
         }
+        
         if (!validCountryCode) {
             JOptionPane.showMessageDialog(null, "Your country code is not South African");
             return false;
@@ -110,11 +115,12 @@ public class LoginController {
     }
 
     /**
-     * Checks if a given date is valid and the person is at least 18 years old.
+     * Checks if a given date of birth is valid and the person is at least 18
+     * years old.
      *
-     * @param date the date to be checked
-     * @return true if the date is valid and the person is at least 18 years
-     * old, false otherwise
+     * @param date the date of birth to be checked
+     * @return {@code true} if the date is valid and the person is at least 18
+     * years old, {@code false} otherwise
      */
     private static boolean isValidDateAndAdult(Date date) {
         // check if the date is null
@@ -123,7 +129,7 @@ public class LoginController {
             return false;
         }
 
-        // make sure the date is in the past
+        // check if the date is in the past
         if (date.after(new Date())) {
             JOptionPane.showMessageDialog(null, "You were not born in the future!");
             return false;
@@ -135,11 +141,13 @@ public class LoginController {
         Calendar now = Calendar.getInstance();
         now.setTime(new Date());
         int age = now.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+
         if (now.get(Calendar.MONTH) < dob.get(Calendar.MONTH)
-                || (now.get(Calendar.MONTH) == dob.get(Calendar.MONTH) && now.get(Calendar.DAY_OF_MONTH) < dob.get(Calendar.DAY_OF_MONTH))) {
+                || (now.get(Calendar.MONTH) == dob.get(Calendar.MONTH)
+                && now.get(Calendar.DAY_OF_MONTH) < dob.get(Calendar.DAY_OF_MONTH))) {
             age--;
-        } else {
         }
+
         if (age < 18) {
             JOptionPane.showMessageDialog(null, "You need to be at least 18 years old to gamble!");
             return false;
@@ -157,8 +165,9 @@ public class LoginController {
      * <li>has at least 1 uppercase and lowercase letter</li>
      * </ul>
      *
-     * @param password to be validated
-     * @return true if password is valid, false otherwise
+     * @param password the password to be validated
+     * @return {@code true} if password is matches all criteria, {@code false}
+     * otherwise
      */
     private boolean isValidPassword(String password) {
         boolean hasUpperCase = false;
@@ -166,11 +175,13 @@ public class LoginController {
         boolean hasNumber = false;
         boolean hasSpecialChar = false;
 
+        // check if password is more than 10 characters
         if (password == null || password.length() < 10) {
             JOptionPane.showMessageDialog(null, "Password must be at least 10 characters long");
             return false;
         }
 
+        // check if password has an uppercase letter, lowercase letter, a digit and a special character
         for (int i = 0; i < password.length(); i++) {
             char ch = password.charAt(i);
 
@@ -206,7 +217,8 @@ public class LoginController {
      * following: !@#$%^&*()-+=[]{}|\;:'",<.>/?.
      *
      * @param ch the character to check
-     * @return true if the character is a special character, false otherwise
+     * @return {@code true} if the character is a special character,
+     * {@code false} otherwise
      */
     private boolean isSpecialCharacter(char ch) {
         String specialCharacters = "!@#$%^&*()-+=[]{}|\\;:'\",<.>/?";
