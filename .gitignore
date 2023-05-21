@@ -1,7 +1,5 @@
-build/
-dist/lib/
-dist/README.txt
-dist/librejack.jar
-target/
-db/
+/build/
+/dist/*
+/target/
+/db/
 .idea/
