@@ -8,6 +8,9 @@
 
 Librejack is simple a blackjack clone written in java.
 
+<img width="919" alt="signup-screen" src="https://github.com/user-attachments/assets/f8d96e92-4a64-4ec5-9c0c-0e703b6b0038">
+<img width="899" alt="blackjack" src="https://github.com/user-attachments/assets/899837e6-a5e5-4a3e-abe5-d43aac781846">
+
 ## Rules of the game
 
 1. The game is played with a single, standard Deck of 52 cards (for now).
